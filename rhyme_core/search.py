@@ -12,11 +12,27 @@ def _con(path: str) -> sqlite3.Connection:
     return con
 
 def _query_words(where_sql: str, params: Tuple[Any, ...], order: Optional[str]=None, limit: Optional[int]=None) -> List[Dict[str, Any]]:
-    sql = "SELECT word, pron, syls, stress, zipf, k1, k2 FROM words WHERE " + where_sql
-    if order: sql += f" ORDER BY {order}"
-    if limit: sql += f" LIMIT {int(limit)}"
-    with _con(words_db()) as con:
-        return [dict(r) for r in con.execute(sql, params).fetchall()]
+    try:
+        sql = "SELECT word, pron, syls, stress, zipf, k1, k2 FROM words WHERE " + where_sql
+        if order: sql += f" ORDER BY {order}"
+        if limit: sql += f" LIMIT {int(limit)}"
+        
+        db_path = words_db()
+        if not db_path.exists():
+            app_logger.error(f"Database not found: {db_path}")
+            return []
+            
+        with _con(str(db_path)) as con:
+            # Check if table exists
+            cursor = con.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='words'")
+            if not cursor.fetchone():
+                app_logger.error("Table 'words' not found in database")
+                return []
+                
+            return [dict(r) for r in con.execute(sql, params).fetchall()]
+    except sqlite3.Error as e:
+        app_logger.error(f"Database query failed: {e}")
+        return []
 
 def _zipf_band(rows: List[Dict[str, Any]], zmin: float, zmax: float) -> List[Dict[str, Any]]:
     out = []

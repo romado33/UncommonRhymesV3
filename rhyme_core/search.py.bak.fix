@@ -128,24 +128,16 @@ def search_all_categories(
     min_each: int = 10,
     zipf_max_multi: float = 5.5,
 ):
+    """
+    Returns dict with buckets: uncommon (perfect), slant, multiword, rap_targets.
+    """
     q = (term or "").strip().lower()
     if not q:
         return {"uncommon": [], "slant": [], "multiword": [], "rap_targets": []}
 
     q_phones = parse_pron(q) or []
     if not q_phones:
-        # Fallback to CMU-only path if pronunciation not found
-        cmu = globals().get("CMU_DICT", {})
-        meta_zipf = globals().get("ZIPF_MAP", {})
-        return build_buckets_cmu_only(
-            q, cmu, meta_zipf,
-            max_items=max_items,
-            relax_rap=relax_rap,
-            include_rap=False,
-            zipf_max=zipf_max,
-            min_each=min_each,
-            zipf_max_multi=zipf_max_multi
-        )
+        return {"uncommon": [], "slant": [], "multiword": [], "rap_targets": []}
 
     # robustly extract last two keys as (k1, k2)
     keys = k_keys(q_phones)
@@ -173,139 +165,16 @@ def search_all_categories(
     slant = [_enrich(r, f"assonance + coda≤{SLANT_CODA_MAX}") for r in slant_ranked[:max_items]]
 
     # MULTIWORD (modifier + head strict/near-perfect)
-    multiword, _total = _multiword_from_cmu_strict(k2, k1, zmax_m, zipf_min, max_items=max_items, min_each=min_req)
+    multi, _total = _multiword_from_cmu_strict(k2, k1, zmax_m, zipf_min, max_items=max_items, min_each=min_req)
 
     # RAP (placeholder until DB is wired)
     rap_targets: List[Dict[str, Any]] = []
     if include_rap:
         rap_targets = []
 
-    # --- recovery path: widen filters if all buckets empty before final return ---
-    if not (uncommon or slant or multiword or rap_targets):
-        try:
-            res2 = search_all_categories(term,
-                                         max_items=max_items,
-                                         relax_rap=True,
-                                         include_rap=False,
-                                         zipf_max=5.5,
-                                         min_each=max(6, min_each // 2),
-                                         zipf_max_multi=7.0)
-            if isinstance(res2, dict) and any(res2.get(k) for k in ["uncommon","slant","multiword","rap_targets"]):
-                return res2
-        except Exception:
-            pass
-
-        try:
-            from rhyme_core.providers import datamuse as dm
-            rhy = [w["word"] for w in dm.related(term, "rhy", max_items=max_items)] if hasattr(dm, "related") else []
-            nry = [w["word"] for w in getattr(dm, "near_rhymes", lambda t, max_items=20: [])(term, max_items=max_items)]
-            if rhy or nry:
-                return {"uncommon": rhy[:max_items],
-                        "slant": nry[:max_items],
-                        "multiword": [],
-                        "rap_targets": []}
-        except Exception:
-            pass
-
     return {
         "uncommon": uncommon[:max_items],
         "slant": slant[:max_items],
-        "multiword": multiword[:max_items],
+        "multiword": multi[:max_items],
         "rap_targets": rap_targets[:max_items],
     }
-
-# === BEGIN CMU CORE RHYMER ===
-import re
-
-_VOWELS = {"AA","AE","AH","AO","AW","AY","EH","ER","EY","IH","IY","OW","OY","UH","UW"}
-
-def _stress_digit(p):  # 'AH1' -> 1, 'L' -> -1
-    m = re.search(r'(\d)', p)
-    return int(m.group(1)) if m else -1
-
-def _strip_stress(p):  # 'AH1' -> 'AH'
-    return re.sub(r'\d','',p)
-
-def _split_syllables(phones):
-    # naive syllable split: every vowel (with/without stress) starts a syllable
-    syl = []
-    cur = []
-    for ph in phones:
-        cur.append(ph)
-        if _strip_stress(ph) in _VOWELS:
-            syl.append(cur)
-            cur = []
-    if cur: syl[-1].extend(cur) if syl else syl.append(cur)
-    return syl
-
-def _last_syllable_key(phones):
-    syls = _split_syllables(phones)
-    if not syls: return None, None
-    last = syls[-1]
-    # perfect key = vowel(with stress) + following consonants (rime); keep stress
-    # slant key   = vowel class(without stress) only
-    # find the last vowel index in last syllable
-    vi = None
-    for i in range(len(last)-1, -1, -1):
-        if _strip_stress(last[i]) in _VOWELS:
-            vi = i; break
-    if vi is None: return None, None
-    perfect = tuple(last[vi:])                   # keep stress + coda
-    slant   = (_strip_stress(last[vi]),)         # vowel class only
-    return perfect, slant
-
-def _cmu_pron(word, cmu):
-    w = word.lower()
-    return cmu.get(w) or []
-
-def _zipf_ok(z, ceiling):
-    try:
-        return (z is None) or (float(z) <= float(ceiling))
-    except:
-        return True
-
-def _rarity(v):  # lower rarity first inside the uncommon window
-    # if you're storing Zipf, treat None as +inf so it sorts to the end
-    try:
-        return float(v) if v is not None else 9e9
-    except:
-        return 9e9
-
-def _collect_cmu_candidates(query_phones, cmu, meta_zipf, zipf_max, max_items, slant=False):
-    qk_perfect, qk_slant = _last_syllable_key(query_phones)
-    if not qk_perfect: return []
-    want = qk_slant if slant else qk_perfect
-
-    out = []
-    seen = set()
-    for w, phones in cmu.items():
-        if not phones: continue
-        pk, sk = _last_syllable_key(phones)
-        if not pk: continue
-        key = sk if slant else pk
-        if key != want: continue
-        z = meta_zipf.get(w)
-        if not _zipf_ok(z, zipf_max): continue
-        if w in seen: continue
-        seen.add(w)
-        out.append({
-            "word": w,
-            "syllables": len(_split_syllables(phones)),
-            "stress": "".join(str(_stress_digit(p)) for p in phones if _strip_stress(p) in _VOWELS and _stress_digit(p) >= 0) or "unknown",
-            "meter": "mixed",  # simple placeholder
-            "zipf": z,
-        })
-    out.sort(key=lambda r: (_rarity(r["zipf"]), r["word"]))
-    return out[:max_items]
-
-def build_buckets_cmu_only(term, cmu, meta_zipf, max_items, relax_rap, include_rap, zipf_max, min_each, zipf_max_multi):
-    # parse query
-    qp = _cmu_pron(term, cmu)
-    if not qp: 
-        return {"uncommon": [], "slant": [], "multiword": [], "rap_targets": []}
-    
-    strict = _collect_cmu_candidates(qp, cmu, meta_zipf, zipf_max, max_items, slant=False)
-    slant  = _collect_cmu_candidates(qp, cmu, meta_zipf, zipf_max, max_items, slant=True)
-    
-    return {"uncommon": strict, "slant": slant, "multiword": [], "rap_targets": []}
-# === END CMU CORE RHYMER ===

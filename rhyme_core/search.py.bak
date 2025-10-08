@@ -1,0 +1,177 @@
+﻿from __future__ import annotations
+import os, sqlite3
+from typing import Any, Dict, List, Tuple, Optional
+
+from .data.paths import words_db
+from .phonetics import parse_pron, k_keys, coda, meter_name, tail_distance
+
+# ----------------- DB helpers -----------------
+def _con(path: str) -> sqlite3.Connection:
+    con = sqlite3.connect(path)
+    con.row_factory = sqlite3.Row
+    return con
+
+def _query_words(where_sql: str, params: Tuple[Any, ...], order: Optional[str]=None, limit: Optional[int]=None) -> List[Dict[str, Any]]:
+    sql = "SELECT word, pron, syls, stress, zipf, k1, k2 FROM words WHERE " + where_sql
+    if order: sql += f" ORDER BY {order}"
+    if limit: sql += f" LIMIT {int(limit)}"
+    with _con(words_db()) as con:
+        return [dict(r) for r in con.execute(sql, params).fetchall()]
+
+def _zipf_band(rows: List[Dict[str, Any]], zmin: float, zmax: float) -> List[Dict[str, Any]]:
+    out = []
+    for r in rows:
+        z = r.get("zipf")
+        if z is None: continue
+        try:
+            zf = float(z)
+        except Exception:
+            continue
+        if zmin <= zf <= zmax:
+            out.append(r)
+    return out
+
+def _enrich(r: Dict[str, Any], why: str) -> Dict[str, Any]:
+    stress = r.get("stress") or ""
+    return {
+        "word": r.get("word",""),
+        "syls": int(r.get("syls") or 0),
+        "stress": stress,
+        "meter": meter_name(stress),
+        "zipf": r.get("zipf"),
+        "why": why,
+    }
+
+# simple stoplist for modifiers
+STOP = {"a","an","the","of","to","and","in","on","for","by","at","with","from"}
+
+# ----------------- strictness helpers (config via env) -----------------
+SLANT_CODA_MAX = int(os.getenv("UR_SLANT_CODA_MAX","1"))
+MULTI_CODA_MAX = int(os.getenv("UR_MULTI_CODA_MAX","0"))  # 0 = exact coda for head
+
+# ----------------- selectors -----------------
+def _select_perfect(k2: str, zmin: float, zmax: float, limit: int) -> List[Dict[str,Any]]:
+    rows = _query_words("k2 = ?", (k2,), order="zipf DESC", limit=None)
+    rows = _zipf_band(rows, zmin, zmax)
+    return rows[:limit]
+
+def _select_slant(k1: str, zmin: float, zmax: float, q_tail_phones: List[str], exclude_words: set, limit: int) -> List[Dict[str,Any]]:
+    pool = _zipf_band(_query_words("k1 = ?", (k1,), order="zipf DESC", limit=None), zmin, zmax)
+    pool = [r for r in pool if r.get("word") not in exclude_words]
+    scored = []
+    for r in pool:
+        d = tail_distance(q_tail_phones, parse_pron(r.get("pron","")))
+        if d <= SLANT_CODA_MAX:
+            z = float(r.get("zipf") or 0.0)
+            scored.append(( -z, d, r ))
+    scored.sort(key=lambda t: (t[0], t[1]))
+    return [r for _,__,r in scored[:limit]]
+
+def _multiword_from_cmu_strict(k2: str, k1: str, zmax_multi: float, zmin: float, max_items: int, min_each: int) -> Tuple[List[Dict[str, Any]], int]:
+    # heads: strict k2 first, then near-perfect if starving
+    heads = _zipf_band(_query_words("k2 = ?", (k2,), order="zipf DESC", limit=None), zmin, zmax_multi)
+    if len(heads) < min_each:
+        k1_rows = _zipf_band(_query_words("k1 = ?", (k1,), order="zipf DESC", limit=None), zmin, zmax_multi)
+        # allow tiny coda edit if MULTI_CODA_MAX > 0
+        if MULTI_CODA_MAX > 0:
+            # approximate query coda from first available head, else k1_row
+            q_tail = coda(parse_pron((heads[0] if heads else k1_rows[0]).get("pron",""))) if (heads or k1_rows) else []
+            near = []
+            for r in k1_rows:
+                d = tail_distance(q_tail, parse_pron(r.get("pron","")))
+                if d <= MULTI_CODA_MAX:
+                    near.append(r)
+            heads += near
+
+    # modifiers: frequent, short
+    mods = _query_words("zipf >= ? AND syls <= ?", (4.2, 2), order="zipf DESC", limit=800)
+    mods = [m for m in mods if (m.get("word") or "").lower() not in STOP]
+
+    phrases: List[Dict[str, Any]] = []
+    seen = set()
+    for h in heads:
+        hw = (h.get("word") or "").strip()
+        if not hw: continue
+        h_syls = int(h.get("syls") or 0)
+        h_str  = h.get("stress","") or ""
+        for m in mods:
+            mw = (m.get("word") or "").strip()
+            if not mw: continue
+            ph = f"{mw} {hw}"
+            if ph in seen: continue
+            syls = int(m.get("syls") or 0) + h_syls
+            stress = f"{m.get('stress','')}{h_str}"
+            phrases.append({
+                "word": ph,
+                "syls": syls,
+                "stress": stress,
+                "meter": meter_name(stress),
+                "why": "multiword (modifier + head: strict/near-perfect tail)",
+            })
+            seen.add(ph)
+            if len(phrases) >= max_items: break
+        if len(phrases) >= max_items: break
+
+    return phrases[:max_items], len(phrases)
+
+# ----------------- main entry -----------------
+def search_all_categories(
+    term: str,
+    max_items: int = 20,
+    relax_rap: bool = True,
+    include_rap: bool = False,
+    zipf_max: float = 4.0,
+    min_each: int = 10,
+    zipf_max_multi: float = 5.5,
+):
+    """
+    Returns dict with buckets: uncommon (perfect), slant, multiword, rap_targets.
+    """
+    q = (term or "").strip().lower()
+    if not q:
+        return {"uncommon": [], "slant": [], "multiword": [], "rap_targets": []}
+
+    q_phones = parse_pron(q) or []
+    if not q_phones:
+        return {"uncommon": [], "slant": [], "multiword": [], "rap_targets": []}
+
+    keys = k_keys(q_phones)
+# accept tuple/list/anything; take the last two items for (k1, k2)
+if isinstance(keys, (tuple, list)):
+    k2 = keys[-1] if len(keys) >= 1 else ""
+    k1 = keys[-2] if len(keys) >= 2 else k2
+else:
+    # if a single string/object is returned, use it for both
+    k1 = k2 = keys
+    q_tail = coda(q_phones)
+
+    zipf_min = float(os.getenv("UR_UNCOMMON_ZIPF_MIN", "2.5"))
+    zmax     = float(zipf_max)
+    zmax_m   = float(zipf_max_multi)
+    min_req  = int(min_each)
+
+    # PERFECT (strict tail match, k2 only)
+    strict_pool = _select_perfect(k2, zipf_min, zmax, limit=10000)
+    strict_pool.sort(key=lambda r: (-(r.get("zipf") if r.get("zipf") is not None else 0)))
+    uncommon = [_enrich(r, f"strict rhyme (k2={k2})") for r in strict_pool[:max_items]]
+
+    # SLANT (same vowel nucleus + small coda edit), exclude strict
+    perfect_words = {r["word"] for r in strict_pool if r.get("word")}
+    slant_ranked = _select_slant(k1, zipf_min, zmax, q_tail, perfect_words, limit=max_items*3)
+    slant = [_enrich(r, f"assonance + coda≤{SLANT_CODA_MAX}") for r in slant_ranked[:max_items]]
+
+    # MULTIWORD (modifier + head strict/near-perfect)
+    multi, _total = _multiword_from_cmu_strict(k2, k1, zmax_m, zipf_min, max_items=max_items, min_each=min_req)
+
+    # RAP (placeholder for now)
+    rap_targets: List[Dict[str, Any]] = []
+    if include_rap:
+        rap_targets = []
+
+    return {
+        "uncommon": uncommon[:max_items],
+        "slant": slant[:max_items],
+        "multiword": multi[:max_items],
+        "rap_targets": rap_targets[:max_items],
+    }
+

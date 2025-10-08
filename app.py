@@ -288,8 +288,8 @@ Success rate: {success_count}/{len(terms)} ({100*success_count/len(terms):.1f}%)
     csv_writer.writeheader()
     csv_writer.writerows(results)
     
-    # Save to temp file
-    csv_path = Path("/tmp/benchmark_results.csv")
+    # Save to temp file (use project directory, not /tmp which doesn't exist on Windows)
+    csv_path = Path("benchmark_results.csv")
     csv_path.write_text(csv_buffer.getvalue())
     app_logger.info(f"Benchmark results saved to {csv_path}")
     
@@ -487,6 +487,13 @@ with gr.Blocks() as demo:
 
     # main analyze
     btn.click(
+        go,
+        inputs=[term, max_items, relax_rap, include_rap, zipf_cutoff, min_each, zipf_cutoff_multi],
+        outputs=[query_md, uncommon, slant, multi, rap, unc_csv_txt, slt_csv_txt, mul_csv_txt, rap_csv_txt, debug],
+    )
+    
+    # Enable Enter key to trigger search
+    term.submit(
         go,
         inputs=[term, max_items, relax_rap, include_rap, zipf_cutoff, min_each, zipf_cutoff_multi],
         outputs=[query_md, uncommon, slant, multi, rap, unc_csv_txt, slt_csv_txt, mul_csv_txt, rap_csv_txt, debug],

@@ -1,51 +1,44 @@
-﻿# Python
-__pycache__/
-*.pyc
-.venv/
-venv/
-.env
-.ps1
-*.ps1
-.env.*
-*.egg-info/
-dist/
-build/
-
-# Data
-data/cache/
-data/dev/*.full.sqlite
-data/checksums/
+# Database files - rebuild using build_rhyme_database.py  
+rhyme.db
+patterns.db
 *.db
-*.sqlite
-*.sqlite3
-!data/dev/.gitkeep
 
-# Logs
-logs/
-*.log
-*.log.*
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
 
-# Backups
-*.bak
-*.bak.*
-
-# OS
-.DS_Store
-Thumbs.db
-desktop.ini
+# Virtual environments
+venv/
+env/
+ENV/
 
 # IDE
 .vscode/
 .idea/
 *.swp
 *.swo
+*~
 
-# Testing
-.pytest_cache/
-.coverage
-htmlcov/
-.tox/
+# OS
+.DS_Store
+Thumbs.db
 
-# Gradio
-gradio_cached_examples/
-flagged/
+# Logs
+*.log
+logs/
+
+# Test outputs
+test_results/
+*.test
+
+# Temporary files
+*.tmp
+temp/
+
+# CSV data (optional - uncomment if you don't want to track large CSV files)
+# *.csv
+# SongCSV/
+# PoetryCSV/

@@ -5,6 +5,7 @@ __pycache__/
 venv/
 .env
 .ps1
+*.ps1
 .env.*
 *.egg-info/
 dist/

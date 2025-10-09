@@ -28,11 +28,44 @@ def rhyme_tail(phones: List[str]) -> Tuple[str, Tuple[str, ...]]:
     return (v, coda)
 
 def k_keys(phones: List[str]) -> Tuple[str, str, str]:
-    """k1 = vowel_base, k2 = vowel_base|coda, k3 unused for now."""
+    """
+    Generate rhyme keys with proper stress handling.
+    
+    k1 = vowel_base only (e.g., "AH")
+    k2 = vowel_base|coda with stress stripped from nucleus (e.g., "AH|B AH0 L")
+    k3 = vowel_with_stress|coda with stress preserved (e.g., "AH1|B AH0 L")
+    
+    Examples for "double" /D AH1 B AH0 L/:
+    - k1 = "AH"              (just vowel base)
+    - k2 = "AH|B AH0 L"      (stress-agnostic nucleus, matches "trouble" regardless of stress)
+    - k3 = "AH1|B AH0 L"     (stress-preserved nucleus, only matches same stress pattern)
+    
+    Rhyme strength hierarchy:
+    - K3 match = Strict perfect rhyme (1.00)
+    - K2 match = Perfect by ear (0.85)
+    - K1 match = Assonance only (0.35)
+    """
+    # Get vowel base and coda from rhyme_tail
     v, c = rhyme_tail(phones)
-    k1 = v
-    k2 = v + "|" + " ".join(c)
-    k3 = ""
+    
+    # Find the original stressed vowel to get k3
+    # (Same logic as rhyme_tail to ensure consistency)
+    vowel_idx = [i for i, p in enumerate(phones) if _is_vowel(p)]
+    if not vowel_idx:
+        # Fallback if no vowels (shouldn't happen in real data)
+        return (v, v, v)
+    
+    stressed = [i for i, p in enumerate(phones) if _is_vowel(p) and p[-1] in "12"]
+    idx = stressed[-1] if stressed else vowel_idx[-1]
+    
+    # Get the original vowel WITH stress marker
+    v_stressed = phones[idx]
+    
+    # Build keys
+    k1 = v  # Just vowel base: "AH"
+    k2 = v + "|" + " ".join(c)  # Stress-agnostic: "AH|B AH0 L"
+    k3 = v_stressed + "|" + " ".join(c)  # Stress-preserved: "AH1|B AH0 L"
+    
     return (k1, k2, k3)
 
 def coda(phones: List[str]) -> List[str]:

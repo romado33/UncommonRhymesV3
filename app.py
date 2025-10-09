@@ -1,543 +1,568 @@
-﻿from pathlib import Path
-import time
-import csv
-import io
-import gradio as gr
-import logging
-import logging.handlers
-import traceback
-import sys
-
-# ==================== LOGGING SETUP ====================
-# Create logs directory if it doesn't exist
-LOGS_DIR = Path("logs")
-LOGS_DIR.mkdir(exist_ok=True)
-
-# Configure logging formatters
-detailed_formatter = logging.Formatter(
-    '%(asctime)s - %(name)s - %(levelname)s - %(funcName)s:%(lineno)d - %(message)s',
-    datefmt='%Y-%m-%d %H:%M:%S'
-)
-
-simple_formatter = logging.Formatter(
-    '%(asctime)s - %(levelname)s - %(message)s',
-    datefmt='%Y-%m-%d %H:%M:%S'
-)
-
-# Main application logger
-app_logger = logging.getLogger('UncommonRhymes')
-app_logger.setLevel(logging.DEBUG)
-
-# Console handler (shows INFO and above)
-console_handler = logging.StreamHandler(sys.stdout)
-console_handler.setLevel(logging.INFO)
-console_handler.setFormatter(simple_formatter)
-app_logger.addHandler(console_handler)
-
-# Main log file (rotating, keeps last 10 files of 10MB each)
-main_log_handler = logging.handlers.RotatingFileHandler(
-    LOGS_DIR / 'app.log',
-    maxBytes=10*1024*1024,  # 10MB
-    backupCount=10,
-    encoding='utf-8'
-)
-main_log_handler.setLevel(logging.DEBUG)
-main_log_handler.setFormatter(detailed_formatter)
-app_logger.addHandler(main_log_handler)
-
-# Error log file (only errors and above)
-error_log_handler = logging.handlers.RotatingFileHandler(
-    LOGS_DIR / 'errors.log',
-    maxBytes=10*1024*1024,  # 10MB
-    backupCount=5,
-    encoding='utf-8'
-)
-error_log_handler.setLevel(logging.ERROR)
-error_log_handler.setFormatter(detailed_formatter)
-app_logger.addHandler(error_log_handler)
-
-# Query log file (for tracking all searches)
-query_logger = logging.getLogger('UncommonRhymes.Queries')
-query_logger.setLevel(logging.INFO)
-query_log_handler = logging.handlers.RotatingFileHandler(
-    LOGS_DIR / 'queries.log',
-    maxBytes=5*1024*1024,  # 5MB
-    backupCount=10,
-    encoding='utf-8'
-)
-query_log_handler.setFormatter(logging.Formatter(
-    '%(asctime)s - %(message)s',
-    datefmt='%Y-%m-%d %H:%M:%S'
-))
-query_logger.addHandler(query_log_handler)
-
-# Performance log file
-perf_logger = logging.getLogger('UncommonRhymes.Performance')
-perf_logger.setLevel(logging.INFO)
-perf_log_handler = logging.handlers.RotatingFileHandler(
-    LOGS_DIR / 'performance.log',
-    maxBytes=5*1024*1024,  # 5MB
-    backupCount=5,
-    encoding='utf-8'
-)
-perf_log_handler.setFormatter(logging.Formatter(
-    '%(asctime)s - %(message)s',
-    datefmt='%Y-%m-%d %H:%M:%S'
-))
-perf_logger.addHandler(perf_log_handler)
-
-app_logger.info("=" * 80)
-app_logger.info("UncommonRhymes Application Starting")
-app_logger.info(f"Logs directory: {LOGS_DIR.absolute()}")
-app_logger.info("=" * 80)
-
-# ==================== END LOGGING SETUP ====================
-
-# --- begin gradio_client bool-schema hotfix ---
-try:
-    import gradio_client.utils as _gcu
-    _old_get_type = _gcu.get_type
-    def _get_type_safe(schema):
-        if isinstance(schema, bool):
-            return "object"
-        return _old_get_type(schema)
-    _gcu.get_type = _get_type_safe
-
-    _old_to_py = _gcu._json_schema_to_python_type
-    def _json_schema_to_python_type_safe(schema, defs=None):
-        if isinstance(schema, bool):
-            return "object"
-        return _old_to_py(schema, defs)
-    _gcu._json_schema_to_python_type = _json_schema_to_python_type_safe
-    app_logger.debug("Gradio client bool-schema hotfix applied")
-except Exception as e:
-    app_logger.warning(f"Could not apply gradio_client hotfix: {e}")
-
-from rhyme_core.engine import search as _engine_search, SearchConfig
-from rhyme_core.providers import datamuse as dm
-
-app_logger.info("Modules imported successfully")
-
-# --- adapter: keep legacy signature, forward to engine ---
-def search_all_categories(
-    term: str,
-    max_items: int = 20,
-    relax_rap: bool = True,
-    include_rap: bool = False,
-    zipf_max: float = 4.0,
-    min_each: int = 10,
-    zipf_max_multi: float = 5.5,
-):
-    """Main search function with logging."""
-    start_time = time.time()
-    
-    try:
-        app_logger.debug(f"Search initiated: term='{term}', max_items={max_items}, zipf_max={zipf_max}")
-        query_logger.info(f"SEARCH: term='{term}' | max={max_items} | zipf={zipf_max} | multi={zipf_max_multi}")
-        
-        cfg = SearchConfig(
-            relax_rap=relax_rap,
-            include_rap=include_rap,
-            max_items=max_items,
-            zipf_max_perfect=zipf_max,
-            zipf_max_slant=zipf_max,
-            zipf_max_multi=zipf_max_multi,
-        )
-        
-        result = _engine_search(term, cfg)
-        
-        elapsed = (time.time() - start_time) * 1000
-        result_counts = {k: len(v) for k, v in result.items() if isinstance(v, list)}
-        
-        perf_logger.info(f"term='{term}' | elapsed={elapsed:.1f}ms | results={result_counts}")
-        app_logger.info(f"Search completed for '{term}' in {elapsed:.1f}ms: {result_counts}")
-        
-        return result
-        
-    except Exception as e:
-        elapsed = (time.time() - start_time) * 1000
-        app_logger.error(f"Search failed for '{term}' after {elapsed:.1f}ms: {str(e)}")
-        app_logger.error(f"Stack trace:\n{traceback.format_exc()}")
-        raise
-
-# ---------- formatting helpers ----------
-def _fmt_item(r: dict) -> str:
-    """Format as 'word — Nsyl | 0101 | meter' (meter may be empty for rap rows)."""
-    name = r.get("word") or r.get("target_word") or "?"
-    syls = r.get("syls")
-    stress = r.get("stress")
-    meter = r.get("meter")
-    parts = []
-    if syls is not None and syls != "":
-        parts.append(f"{syls} syl")
-    if stress:
-        parts.append(str(stress))
-    if meter:
-        parts.append(str(meter))
-    suffix = " | ".join(parts) if parts else ""
-    return f"{name} — {suffix}" if suffix else name
-
-def _rows_to_csv(rows):
-    f = io.StringIO()
-    w = csv.writer(f)
-    w.writerow(["rhyme", "why"])
-    for rhyme, why in rows:
-        w.writerow([rhyme, why])
-    return f.getvalue()
-
-def _pack_rows(items):
-    return [[_fmt_item(r), r.get("why","")] for r in items]
-
-def _fmt_query_line(res_dict):
-    qi = res_dict.get("query_info")
-    if not qi:
-        return ""
-    name = qi.get("word","?")
-    syls = qi.get("syls","")
-    stress = qi.get("stress","")
-    meter = qi.get("meter","")
-    parts = []
-    if syls != "":
-        parts.append(f"{syls} syl")
-    if stress:
-        parts.append(stress)
-    if meter:
-        parts.append(meter)
-    meta = " | ".join(parts)
-    return f"**Query:** {name}" + (f" — {meta}" if meta else "")
-
-# ---------- Benchmark helpers ----------
-def _bench_load_terms():
-    """Load benchmark terms from file."""
-    candidates = [
-        Path("benchmark.queries_used.txt"),
-        Path("data/dev/benchmark.queries_used.txt"),
-        Path("tests/benchmark.queries_used.txt"),
-    ]
-    for p in candidates:
-        if p.exists():
-            terms = []
-            for ln in p.read_text(encoding="utf-8").splitlines():
-                t = (ln or "").strip()
-                if t and not t.startswith("#"):
-                    terms.append(t)
-            if terms:
-                app_logger.info(f"Loaded {len(terms)} benchmark terms from {p}")
-                return terms
-    # default small set
-    app_logger.info("Using default benchmark terms (no file found)")
-    return ["double", "habit", "paper", "trouble", "simple"]
-
-def _bench_run(terms, max_items, relax_rap, include_rap, zipf_max, min_each, zipf_max_multi):
-    """Run benchmarks on list of terms."""
-    app_logger.info(f"Starting benchmark run with {len(terms)} terms")
-    results = []
-    total_time = 0.0
-    
-    for i, term in enumerate(terms, 1):
-        start = time.time()
-        try:
-            res = search_all_categories(
-                term,
-                max_items=max_items,
-                relax_rap=relax_rap,
-                include_rap=include_rap,
-                zipf_max=zipf_max,
-                min_each=min_each,
-                zipf_max_multi=zipf_max_multi,
-            )
-            elapsed = (time.time() - start) * 1000  # ms
-            total_time += elapsed
-            
-            results.append({
-                "term": term,
-                "uncommon": len(res.get("uncommon", [])),
-                "slant": len(res.get("slant", [])),
-                "multiword": len(res.get("multiword", [])),
-                "rap_targets": len(res.get("rap_targets", [])),
-                "elapsed_ms": f"{elapsed:.1f}",
-            })
-            app_logger.debug(f"Benchmark {i}/{len(terms)}: '{term}' completed in {elapsed:.1f}ms")
-            
-        except Exception as e:
-            app_logger.error(f"Benchmark failed for term '{term}': {str(e)}")
-            results.append({
-                "term": term,
-                "uncommon": "ERROR",
-                "slant": "ERROR",
-                "multiword": "ERROR",
-                "rap_targets": "ERROR",
-                "elapsed_ms": str(e)[:50],
-            })
-    
-    avg_time = total_time / len(terms) if terms else 0
-    success_count = sum(1 for r in results if r['uncommon'] != 'ERROR')
-    
-    summary = f"""Benchmark Results:
-Total terms: {len(terms)}
-Total time: {total_time:.1f}ms
-Average time: {avg_time:.1f}ms per term
-Success rate: {success_count}/{len(terms)} ({100*success_count/len(terms):.1f}%)
+﻿#!/usr/bin/env python3
 """
+Anti-LLM Rhyme Engine - Complete Enhanced Gradio UI
+Adds structured logging:
+- logs/app.log is created automatically (rotating, ~2MB x 3 backups)
+- UI logs each submit: query, filters, elapsed, and rendered preview
+- Engine logs start/done, keys, and per-category counts (see engine.py)
+"""
+
+# ---- Logging bootstrap (do this BEFORE other project imports) ----
+import os
+import logging
+from logging.handlers import RotatingFileHandler
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent
+LOG_DIR = BASE_DIR / "logs"
+LOG_DIR.mkdir(exist_ok=True)
+LOG_FILE = LOG_DIR / "app.log"
+
+# Force our logging config (in case gradio/uvicorn set theirs)
+logging.basicConfig(level=logging.INFO, force=True)
+
+_fmt = logging.Formatter(
+    "%(asctime)s | %(levelname)s | %(name)s | %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+)
+_file = RotatingFileHandler(LOG_FILE, maxBytes=2_000_000, backupCount=3, encoding="utf-8")
+_file.setFormatter(_fmt)
+_file.setLevel(logging.INFO)
+
+_console = logging.StreamHandler()
+_console.setFormatter(_fmt)
+_console.setLevel(logging.INFO)
+
+_root = logging.getLogger()
+_root.addHandler(_file)
+_root.addHandler(_console)
+
+# Quiet noisy libs a bit (tune as desired)
+logging.getLogger("gradio").setLevel(logging.WARNING)
+logging.getLogger("uvicorn").setLevel(logging.WARNING)
+log = logging.getLogger("rhyme.app")
+log.info("App starting… logging to %s", LOG_FILE)
+
+# ---- App imports ----
+import time
+import uuid
+import gradio as gr
+from rhyme_core.engine import search_rhymes, get_result_counts, organize_by_syllables, cfg
+
+
+def format_popularity_bar(zipf: float) -> str:
+    """
+    Create visual popularity bar from zipf score.
+    Zipf 0-2 = rare (1-2 bars)
+    Zipf 2-4 = uncommon (3-5 bars)
+    Zipf 4-6 = common (6-8 bars)
+    Zipf 6+ = very common (9-10 bars)
+    """
+    bars_filled = min(10, max(1, int((zipf / 7.0) * 10)))
+    filled = "█" * bars_filled
+    empty = "░" * (10 - bars_filled)
+    return f"{filled}{empty}"
+
+def format_rhyme_item(item: dict, emoji: str = "", show_pronunciation: bool = False) -> str:
+    """Format a single rhyme result with emoji, visual popularity, and optional pronunciation"""
+    word = item['word']
+    score = item['score']
+    zipf = item['zipf']
+    syls = item['syls']
+    stress = item['stress']
+    pron = item.get('pron', '')
+    has_alliteration = item.get('has_alliteration', False)
+    matching_syls = item.get('matching_syllables', 0)
+
+    # Visual popularity bar
+    pop_bar = format_popularity_bar(zipf)
+
+    # Format stress pattern nicely
+    stress_display = stress.replace('-', '-')  # Non-breaking hyphen
+
+    # Build display string
+    result = f"{emoji} **{word}** ({pop_bar})"
+
+    # Add alliteration indicator
+    if has_alliteration:
+        result += " 🔤"
+
+    # Add multi-syllable indicator
+    if matching_syls >= 2:
+        result += f" 🎵×{matching_syls}"
+
+    result += f" ({syls}syl, {stress_display})"
+
+    # Add pronunciation if enabled
+    if show_pronunciation and pron:
+        result += f"\n    `[{pron}]`"
+
+    return result
+
+def format_syllable_section(items: list, emoji: str, show_pronunciation: bool = False) -> list:
+    """Format a list of items grouped by syllable count"""
+    output = []
+
+    if not items:
+        return output
+
+    by_syl = organize_by_syllables(items)
+
+    for syl_count in sorted(by_syl.keys()):
+        syl_items = by_syl[syl_count]
+        count = len(syl_items)
+
+        # Subsection header
+        output.append(f"\n**{syl_count}-syllable ({count} rhymes):**\n")
+
+        # Items
+        for item in syl_items:
+            output.append(format_rhyme_item(item, emoji, show_pronunciation))
+
+    return output
+
+def format_perfect_tab(results: dict, counts: dict, show_pronunciation: bool = False) -> str:
+    """Format Perfect Rhymes tab with Popular/Technical subsections organized by syllables"""
+    output = []
+
+    perfect_pop = results['perfect']['popular']
+    perfect_tech = results['perfect']['technical']
+
+    if not perfect_pop and not perfect_tech:
+        return "No perfect rhymes found. Try the Slant Rhymes tab for approximate matches."
+
+    # Popular section (both sources)
+    if perfect_pop:
+        output.append("### ✓✓ Popular Perfect Rhymes")
+        output.append("*Found in both CMU Dictionary and Datamuse - widely recognized*\n")
+
+        # Organize by syllables
+        by_syl = organize_by_syllables(perfect_pop)
+        for syl_count in sorted(by_syl.keys()):
+            syl_items = by_syl[syl_count]
+            output.append(f"\n**{syl_count}-syllable ({len(syl_items)} rhymes):**\n")
+            for item in syl_items:
+                emoji = "⭐" if item['score'] >= 1.00 else "✓"
+                output.append(format_rhyme_item(item, emoji, show_pronunciation))
+
+        output.append("")  # Blank line
+
+    # Technical section (CMU only) - OUR SPECIALTY
+    if perfect_tech:
+        output.append("### 📚 Technical Perfect Rhymes")
+        output.append("*Found only in CMU Dictionary - rare/archaic/technical terms*")
+        output.append("*This is our unique value proposition!*\n")
+
+        # Organize by syllables
+        by_syl = organize_by_syllables(perfect_tech)
+        for syl_count in sorted(by_syl.keys()):
+            syl_items = by_syl[syl_count]
+            output.append(f"\n**{syl_count}-syllable ({len(syl_items)} rhymes):**\n")
+            for item in syl_items:
+                emoji = "⭐" if item['score'] >= 1.00 else "✓"
+                output.append(format_rhyme_item(item, emoji, show_pronunciation))
+
+        output.append("")
+
+    # Summary stats
+    total = counts['perfect_popular'] + counts['perfect_technical']
+    output.append(f"\n---")
+    output.append(f"**Total:** {total} perfect rhymes ({counts['perfect_popular']} popular, {counts['perfect_technical']} technical)")
+
+    return "\n".join(output)
+
+def format_slant_tab(results: dict, counts: dict, show_pronunciation: bool = False) -> str:
+    """Format Slant Rhymes tab with visual grouping and Popular/Technical subsections"""
+    output = []
+
+    near_pop = results['slant']['near_perfect']['popular']
+    near_tech = results['slant']['near_perfect']['technical']
+    asso_pop = results['slant']['assonance']['popular']
+    asso_tech = results['slant']['assonance']['technical']
+    fallback = results['slant']['fallback']
+
+    if not any([near_pop, near_tech, asso_pop, asso_tech, fallback]):
+        return "No slant rhymes found. Try adjusting filters or check other tabs."
+
+    # NEAR-PERFECT SECTION (0.60-0.74)
+    if near_pop or near_tech:
+        output.append("## 🎯 NEAR-PERFECT SLANT RHYMES")
+        output.append("*Very close to perfect - strong imperfect rhymes (score 0.60-0.74)*\n")
+
+        if near_pop:
+            output.append("### ✓✓ Popular Near-Perfect")
+            output.append("*Recognized by multiple sources*\n")
+            output.extend(format_syllable_section(near_pop, "🎯", show_pronunciation))
+            output.append("")
+
+        if near_tech:
+            output.append("### 📚 Technical Near-Perfect")
+            output.append("*Uncommon finds - only in CMU Dictionary*\n")
+            output.extend(format_syllable_section(near_tech, "🎯", show_pronunciation))
+            output.append("")
+
+    # ASSONANCE SECTION (0.35-0.59)
+    if asso_pop or asso_tech:
+        output.append("## ≈ ASSONANCE (Vowel Rhymes)")
+        output.append("*Same vowel sound, different consonants (score 0.35-0.59)*\n")
+
+        if asso_pop:
+            output.append("### ✓✓ Popular Assonance")
+            output.append("*Recognized by multiple sources*\n")
+            output.extend(format_syllable_section(asso_pop, "≈", show_pronunciation))
+            output.append("")
+
+        if asso_tech:
+            output.append("### 📚 Technical Assonance")
+            output.append("*Uncommon finds - only in CMU Dictionary*\n")
+            output.extend(format_syllable_section(asso_tech, "≈", show_pronunciation))
+            output.append("")
+
+    # FALLBACK SECTION (only if total slant < 5)
+    if fallback and counts['total_slant'] < 5:
+        output.append("## ⚠️ FALLBACK MATCHES")
+        output.append("*Weak matches shown due to limited results (score < 0.35)*\n")
+        for item in fallback:
+            output.append(format_rhyme_item(item, "⚠️", show_pronunciation))
+        output.append("")
+
+    # Summary stats
+    total_slant = counts['total_slant']
+    total_with_fallback = total_slant + (counts['fallback'] if counts['total_slant'] < 5 else 0)
+    output.append(f"\n---")
+    output.append(f"**Total:** {total_with_fallback} slant rhymes")
+    output.append(f"- Near-Perfect: {counts['near_perfect_popular'] + counts['near_perfect_technical']} ({counts['near_perfect_popular']} popular, {counts['near_perfect_technical']} technical)")
+    output.append(f"- Assonance: {counts['assonance_popular'] + counts['assonance_technical']} ({counts['assonance_popular']} popular, {counts['assonance_technical']} technical)")
+    if fallback and counts['total_slant'] < 5:
+        output.append(f"- Fallback: {counts['fallback']}")
+
+    return "\n".join(output)
+
+def format_colloquial_tab(results: dict, counts: dict) -> str:
+    """Format Colloquial tab (Datamuse multi-word phrases)"""
+    output = []
+
+    colloquial = results['colloquial']
+
+    if not colloquial:
+        return "No colloquial phrases found. These are multi-word rhyming expressions from Datamuse."
+
+    output.append("## 💬 Colloquial Rhyming Phrases")
+    output.append("*Multi-word expressions and phrases that rhyme*")
+    output.append("*Source: Datamuse API (common usage)*\n")
+
+    for item in colloquial:
+        output.append(f"💬 **{item['word']}**")
+
+    output.append(f"\n---")
+    output.append(f"**Total:** {counts['colloquial']} colloquial phrases")
+
+    return "\n".join(output)
+
+def format_rap_tab() -> str:
+    """Format Rap Database tab (placeholder)"""
+    return """## 🎤 Rap Rhyme Database
+
+*Coming soon: Culturally-informed rhymes from hip-hop lyrics and poetry*
+
+This tab will feature:
+- Multi-syllable rhymes from rap lyrics
+- Slant rhymes popular in hip-hop culture
+- Regional pronunciation variants
+- Battle rap schemes and patterns
+
+Stay tuned!"""
+
+def format_query_summary(term: str, query_info: dict, keys: dict, use_datamuse: bool) -> str:
+    """Format query summary with phonetic breakdown (from app_hybrid.py)"""
+    output = []
+
+    output.append(f"## 🔍 Analysis for: **{term}**\n")
+    output.append(f"- **Syllables:** {query_info.get('syls', 'N/A')}")
+    output.append(f"- **Stress Pattern:** {query_info.get('stress', 'N/A')} ({query_info.get('meter', 'N/A')})")
+    output.append(f"- **Rhyme Keys:** K1=`{keys.get('k1', 'N/A')}`, K2=`{keys.get('k2', 'N/A')}`, K3=`{keys.get('k3', 'N/A')}`")
+
+    if use_datamuse:
+        output.append(f"- **Datamuse Validation:** ✓ Enabled")
+
+    return "\n".join(output)
+
+def format_results_summary(counts: dict) -> str:
+    """Format results summary section (from app_visual_grouping.py)"""
+    output = []
+
+    output.append("## 📊 Results Summary\n")
+
+    # Perfect rhymes
+    total_perfect = counts['perfect_popular'] + counts['perfect_technical']
+    if total_perfect > 0:
+        output.append(f"- ⭐ **Perfect Rhymes:** {total_perfect} ({counts['perfect_popular']} popular, {counts['perfect_technical']} technical)")
+
+    # Slant rhymes
+    total_slant = counts['total_slant']
+    if total_slant > 0:
+        output.append(f"- 🎯 **Slant Rhymes:** {total_slant} total")
+        output.append(f"  - Near-Perfect: {counts['near_perfect_popular'] + counts['near_perfect_technical']}")
+        output.append(f"  - Assonance: {counts['assonance_popular'] + counts['assonance_technical']}")
+
+    # Fallback
+    if counts.get('fallback', 0) > 0 and total_slant < 5:
+        output.append(f"- ⚠️ **Fallback:** {counts['fallback']}")
+
+    # Colloquial
+    if counts.get('colloquial', 0) > 0:
+        output.append(f"- 💬 **Colloquial Phrases:** {counts['colloquial']}")
+
+    if not output[1:]:  # If only header
+        output.append("*No results found. Try adjusting filters or searching a different word.*")
+
+    return "\n".join(output)
+
+def search_interface(term: str, syl_filter: str, stress_filter: str, 
+                     use_datamuse: bool, show_rare_only: bool, 
+                     multisyl_only: bool, enable_alliteration: bool,
+                     show_pronunciation: bool):
+    """Main search interface function with all filters + logging"""
+    req_id = str(uuid.uuid4())
+    term_clean = term.strip()
+    if not term_clean:
+        empty_msg = "Enter a word to search for rhymes."
+        return empty_msg, empty_msg, empty_msg, empty_msg, empty_msg, empty_msg
+
+    t0 = time.perf_counter()
+    log.info(
+        "ui.submit id=%s term=%r syl=%s stress=%s datamuse=%s rare_only=%s multisyl_only=%s alliteration=%s",
+        req_id, term_clean, syl_filter, stress_filter, use_datamuse, show_rare_only, multisyl_only, enable_alliteration
+    )
+
+    # Perform search
+    results = search_rhymes(
+        term_clean,
+        syl_filter,
+        stress_filter,
+        use_datamuse,
+        multisyl_only,
+        enable_alliteration
+    )
+
+    # Apply "show rare only" filter
+    if show_rare_only:
+        results['perfect']['popular'] = []
+        results['slant']['near_perfect']['popular'] = []
+        results['slant']['assonance']['popular'] = []
+
+    counts = get_result_counts(results)
+
+    # Format query summary
+    query_info = results.get('query_info', {})
+    keys = results.get('keys', {})
+    query_summary = format_query_summary(term_clean, query_info, keys, use_datamuse)
+
+    # Format results summary
+    results_summary = format_results_summary(counts)
+
+    # Format each tab
+    perfect_output = format_perfect_tab(results, counts, show_pronunciation)
+    slant_output = format_slant_tab(results, counts, show_pronunciation)
+    colloquial_output = format_colloquial_tab(results, counts)
+    rap_output = format_rap_tab()
+
+    # Log a concise preview of what we rendered
+    def top_words(seq, n=5):
+        return [x.get("word", str(x)) for x in (seq or [])[:n]]
+
+    rendered_preview = {
+        "perfect_popular_top": top_words(results['perfect']['popular']),
+        "perfect_technical_top": top_words(results['perfect']['technical']),
+        "near_perfect_popular_top": top_words(results['slant']['near_perfect']['popular']),
+        "near_perfect_technical_top": top_words(results['slant']['near_perfect']['technical']),
+        "assonance_popular_top": top_words(results['slant']['assonance']['popular']),
+        "assonance_technical_top": top_words(results['slant']['assonance']['technical']),
+        "colloquial_top": top_words(results['colloquial'])
+    }
+
+    log.info(
+        "ui.render id=%s elapsed_ms=%.1f counts=%s preview=%s",
+        req_id, (time.perf_counter() - t0) * 1000.0, counts, rendered_preview
+    )
+
+    return query_summary, results_summary, perfect_output, slant_output, colloquial_output, rap_output
+
+
+# Build Gradio interface
+with gr.Blocks(title="Anti-LLM Rhyme Engine - Complete Edition", theme=gr.themes.Soft()) as app:
+    gr.Markdown("""
+    # 🎯 Anti-LLM Rhyme Engine - Complete Edition
     
-    app_logger.info(f"Benchmark completed: {success_count}/{len(terms)} successful, avg {avg_time:.1f}ms")
+    **Find uncommon rhymes that LLMs miss and traditional dictionaries don't know.**
     
-    # Create CSV
-    csv_buffer = io.StringIO()
-    csv_writer = csv.DictWriter(csv_buffer, fieldnames=["term", "uncommon", "slant", "multiword", "rap_targets", "elapsed_ms"])
-    csv_writer.writeheader()
-    csv_writer.writerows(results)
+    Our unique value: **Technical rhymes (📚)** are found ONLY in the CMU Pronunciation Dictionary - nobody else has them!
     
-    # Save to temp file (use project directory, not /tmp which doesn't exist on Windows)
-    csv_path = Path("benchmark_results.csv")
-    csv_path.write_text(csv_buffer.getvalue())
-    app_logger.info(f"Benchmark results saved to {csv_path}")
+    **All Features:** Visual popularity bars • Syllable grouping • Multi-syllable detection • Alliteration bonuses • Pronunciation display • Query analysis • Results summary
     
-    return results, summary, str(csv_path)
+    ---
+    """)
 
-# ---------- Datamuse helpers (non-blocking, optional) ----------
-def dm_suggest(prefix: str):
-    p = (prefix or "").strip()
-    if not p:
-        return "(type above to get suggestions)"
-    try:
-        app_logger.debug(f"Datamuse suggest: '{p}'")
-        items = dm.sug(p, max_items=10)
-        words = [it.get("word","") for it in items]
-        return "Suggestions: " + (", ".join(words) if words else "(none)")
-    except Exception as e:
-        app_logger.error(f"Datamuse suggest failed: {str(e)}")
-        return "(suggestions unavailable)"
-
-def dm_related(term: str):
-    t = (term or "").strip()
-    if not t:
-        return "(enter a term above)"
-    try:
-        app_logger.debug(f"Datamuse related: '{t}'")
-        ml  = [w["word"] for w in dm.means_like(t, max_items=12)]
-        syn = [w["word"] for w in dm.related(t,"syn", max_items=12)]
-        trg = [w["word"] for w in dm.related(t,"trg", max_items=12)]
-        adj = [w["word"] for w in dm.adjectives_for(t, max_items=12)]
-        def line(lbl, arr): return f"**{lbl}:** " + (", ".join(arr) if arr else "—")
-        return "\n\n".join([
-            line("Means-like", ml),
-            line("Synonyms", syn),
-            line("Triggers", trg),
-            line(f'Adjectives for "{t}"', adj),
-        ])
-    except Exception as e:
-        app_logger.error(f"Datamuse related failed: {str(e)}")
-        return "(related words unavailable)"
-
-# ---------- main analyze callbacks ----------
-def go(term, max_items, relax_rap, include_rap, zipf_cutoff, min_each, zipf_cutoff_multi):
-    term = (term or "").strip()
-    if not term:
-        empty_tbl = [["Enter a term above.", ""]]
-        empty_csv = _rows_to_csv([("Enter a term above.", "")])
-        return "", empty_tbl, empty_tbl, empty_tbl, empty_tbl, empty_csv, empty_csv, empty_csv, empty_csv, ""
-
-    try:
-        res = search_all_categories(
-            term,
-            max_items=int(max_items),
-            relax_rap=bool(relax_rap),
-            include_rap=bool(include_rap),
-            zipf_max=float(zipf_cutoff),
-            min_each=int(min_each),
-            zipf_max_multi=float(zipf_cutoff_multi),
-        )
-
-        query_line = _fmt_query_line(res)
-
-        # Tables
-        uncommon_tbl = _pack_rows(res.get("uncommon", []))
-        slant_tbl    = _pack_rows(res.get("slant", []))
-        multi_tbl    = _pack_rows(res.get("multiword", []))
-        rap_tbl      = _pack_rows(res.get("rap_targets", []))
-
-        # CSVs
-        def no_ellipsis(rows): return [r for r in rows if not str(r[0]).startswith("...")]
-        unc_csv = _rows_to_csv(no_ellipsis(uncommon_tbl))
-        slt_csv = _rows_to_csv(no_ellipsis(slant_tbl))
-        mul_csv = _rows_to_csv(no_ellipsis(multi_tbl))
-        rap_csv = _rows_to_csv(no_ellipsis(rap_tbl))
-
-        keys = res.get("keys", {})
-        focus = res.get("focus_word", "")
-        debug = (f"focus='{focus}' | k1={keys.get('k1','')} k2={keys.get('k2','')} k3={keys.get('k3','')} "
-                 f"| zipf≤{zipf_cutoff} (perfect/slant), multiword zipf≤{zipf_cutoff_multi}, min_each={min_each}")
-
-        return query_line, uncommon_tbl, slant_tbl, multi_tbl, rap_tbl, unc_csv, slt_csv, mul_csv, rap_csv, debug
-        
-    except Exception as e:
-        error_msg = f"Error processing '{term}': {str(e)}"
-        app_logger.error(error_msg)
-        app_logger.error(traceback.format_exc())
-        
-        error_tbl = [[error_msg, "Error"]]
-        error_csv = _rows_to_csv([(error_msg, "Error")])
-        return "", error_tbl, error_tbl, error_tbl, error_tbl, error_csv, error_csv, error_csv, error_csv, f"ERROR: {str(e)}"
-
-def show_all(term, bucket, relax_rap, include_rap, zipf_cutoff, min_each, zipf_cutoff_multi):
-    try:
-        res = search_all_categories(
-            (term or "").strip(),
-            max_items=10_000,
-            relax_rap=bool(relax_rap),
-            include_rap=bool(include_rap),
-            zipf_max=float(zipf_cutoff),
-            min_each=int(min_each),
-            zipf_max_multi=float(zipf_cutoff_multi),
-        )
-        return _pack_rows(res.get(bucket, []))
-    except Exception as e:
-        app_logger.error(f"Show all failed for bucket '{bucket}': {str(e)}")
-        return [[f"Error: {str(e)}", "Error"]]
-
-# ---------- UI ----------
-with gr.Blocks() as demo:
-    gr.Markdown("# UncommonRhymesV3 — functional build")
-    gr.Markdown(f"*Logs are being saved to: `{LOGS_DIR.absolute()}`*")
-
+    # Input section
     with gr.Row():
-        term = gr.Textbox(label="Word or phrase", scale=3, value="double")
-        max_items = gr.Slider(5, 100, value=20, step=1, label="Max per category")
-        zipf_cutoff = gr.Slider(2.5, 7.0, value=4.0, step=0.1, label="Zipf cutoff (perfect/slant ≤)")
-        zipf_cutoff_multi = gr.Slider(3.0, 7.5, value=5.5, step=0.1, label="Zipf cutoff (multiword ≤)")
-        min_each = gr.Slider(1, 30, value=10, step=1, label="Min per bucket (top-up target)")
-
-    with gr.Row():
-        relax_rap = gr.Checkbox(value=True, label="Relax rap matching (use assonance if few)")
-        include_rap = gr.Checkbox(value=False, label="Include rap targets")
-
-    with gr.Row():
-        sugg_btn = gr.Button("Suggest spellings/sounds (Datamuse)")
-        rel_btn  = gr.Button("Related words (Datamuse)")
-    sugg_md = gr.Markdown()
-    rel_md  = gr.Markdown()
-
-    btn = gr.Button("Analyze", variant="primary")
-
-    query_md = gr.Markdown()
-
-    with gr.Tabs():
-        with gr.Tab("Benchmarks"):
-            gr.Markdown("Run benchmarks on a list of query terms (reads `benchmark.queries_used.txt` if present).")
-            with gr.Row():
-                bm_max = gr.Slider(5, 100, value=20, step=1, label="Max per category")
-                bm_zipf = gr.Slider(2.5, 7.0, value=4.0, step=0.1, label="Zipf cutoff perfect/slant ≤")
-                bm_zipf_multi = gr.Slider(3.0, 7.5, value=5.5, step=0.1, label="Zipf cutoff multiword ≤")
-                bm_min_each = gr.Slider(1, 40, value=10, step=1, label="Min per bucket")
-            with gr.Row():
-                bm_relax_rap = gr.Checkbox(value=True, label="Relax rap matching")
-                bm_include_rap = gr.Checkbox(value=False, label="Include rap targets")
-            bm_btn = gr.Button("Run Benchmarks", variant="primary")
-            bm_table = gr.Dataframe(headers=["term","uncommon","slant","multiword","rap_targets","elapsed_ms"], interactive=False)
-            bm_summary = gr.Textbox(label="Summary", lines=14, interactive=False)
-            bm_file = gr.File(label="Download CSV", interactive=False)
-
-            def _do_bench(bm_max, bm_relax_rap, bm_include_rap, bm_zipf, bm_min_each, bm_zipf_multi):
-                try:
-                    terms = _bench_load_terms()
-                    rows, summary, out_csv = _bench_run(
-                        terms, int(bm_max), bool(bm_relax_rap), bool(bm_include_rap),
-                        float(bm_zipf), int(bm_min_each), float(bm_zipf_multi)
-                    )
-                    # Dataframe wants list of lists
-                    table = [[r["term"], r["uncommon"], r["slant"], r["multiword"], r["rap_targets"], r["elapsed_ms"]] for r in rows]
-                    return table, summary, out_csv
-                except Exception as e:
-                    app_logger.error(f"Benchmark run failed: {str(e)}")
-                    app_logger.error(traceback.format_exc())
-                    error_msg = f"Benchmark failed: {str(e)}"
-                    return [], error_msg, None
-
-            bm_btn.click(
-                _do_bench,
-                inputs=[bm_max, bm_relax_rap, bm_include_rap, bm_zipf, bm_min_each, bm_zipf_multi],
-                outputs=[bm_table, bm_summary, bm_file]
+        with gr.Column(scale=3):
+            search_input = gr.Textbox(
+                label="Search Term",
+                placeholder="Enter a word (e.g., 'double', 'orange', 'month')",
+                show_label=True
             )
-        with gr.Tab("Uncommon Rhymes (perfect & uncommon)"):
-            uncommon = gr.Dataframe(headers=["Rhyme", "Why"], interactive=False)
-            show_all_unc = gr.Button("Show full list")
-            with gr.Accordion("CSV (copy/paste)", open=False):
-                unc_csv_txt = gr.Textbox(lines=8, show_label=False)
+        with gr.Column(scale=1):
+            search_btn = gr.Button("🔍 Search", variant="primary", size="lg")
 
-        with gr.Tab("Slant Rhymes (imperfect & uncommon)"):
-            slant = gr.Dataframe(headers=["Rhyme", "Why"], interactive=False)
-            show_all_slt = gr.Button("Show full list")
-            with gr.Accordion("CSV (copy/paste)", open=False):
-                slt_csv_txt = gr.Textbox(lines=8, show_label=False)
+    # Filters section
+    gr.Markdown("### 🎛️ Filters & Options")
 
-        with gr.Tab("Multiword Rhymes (CMU combinations)"):
-            multi = gr.Dataframe(headers=["Rhyme", "Why"], interactive=False)
-            show_all_mul = gr.Button("Show full list")
-            with gr.Accordion("CSV (copy/paste)", open=False):
-                mul_csv_txt = gr.Textbox(lines=8, show_label=False)
+    with gr.Row():
+        syl_filter = gr.Dropdown(
+            choices=["Any", "1", "2", "3", "4", "5+"],
+            value="Any",
+            label="Syllables",
+            scale=1
+        )
+        stress_filter = gr.Dropdown(
+            choices=["Any", "1-0", "0-1", "1-0-0", "0-0-1", "0-1-0"],
+            value="Any",
+            label="Stress Pattern",
+            scale=1
+        )
 
-        with gr.Tab("Rap Targets"):
-            rap = gr.Dataframe(headers=["Rhyme", "Why"], interactive=False)
-            show_all_rap = gr.Button("Show full list")
-            with gr.Accordion("CSV (copy/paste)", open=False):
-                rap_csv_txt = gr.Textbox(lines=8, show_label=False)
+    with gr.Row():
+        datamuse_toggle = gr.Checkbox(
+            value=True,
+            label="✓ Use Datamuse API",
+            info="Validate with Datamuse for popular/technical split",
+            scale=1
+        )
+        show_rare_only = gr.Checkbox(
+            value=False,
+            label="🔬 Show rare/technical only",
+            info="Hide popular rhymes, show only our unique finds",
+            scale=1
+        )
+        multisyl_only = gr.Checkbox(
+            value=False,
+            label="🎵 Multi-syllable rhymes only",
+            info="Only show double/triple rhymes (2+ syllables match)",
+            scale=1
+        )
 
-    debug = gr.Markdown()
+    with gr.Row():
+        enable_alliteration = gr.Checkbox(
+            value=True,
+            label="🔤 Enable alliteration bonus",
+            info="Boost rhymes with matching onset consonants",
+            scale=1
+        )
+        show_pronunciation = gr.Checkbox(
+            value=False,
+            label="🗣️ Show pronunciation",
+            info="Display ARPAbet phonemes for each rhyme",
+            scale=1
+        )
 
-    # main analyze
-    btn.click(
-        go,
-        inputs=[term, max_items, relax_rap, include_rap, zipf_cutoff, min_each, zipf_cutoff_multi],
-        outputs=[query_md, uncommon, slant, multi, rap, unc_csv_txt, slt_csv_txt, mul_csv_txt, rap_csv_txt, debug],
-    )
+    gr.Markdown("---")
+
+    # Query Summary Section
+    query_summary_output = gr.Markdown(value="", visible=True)
+
+    # Results Summary Section
+    results_summary_output = gr.Markdown(value="", visible=True)
+
+    gr.Markdown("---")
+
+    # Results tabs
+    with gr.Tabs() as tabs:
+        with gr.Tab("⭐ Perfect Rhymes"):
+            perfect_output = gr.Markdown(
+                value="Enter a word above to see perfect rhymes.",
+                line_breaks=True
+            )
+            gr.Markdown("""
+            **Legend:**
+            - ⭐ = K3 strict perfect (exact stressed rime, score 1.00)
+            - ✓ = K2 perfect by ear (stress-agnostic, score 0.85)
+            - ✓✓ = Popular (found in both CMU and Datamuse)
+            - 📚 = Technical (CMU only - our specialty!)
+            - 🔤 = Alliteration (matching onset consonants)
+            - 🎵×N = Multi-syllable rhyme (N syllables match)
+            - ████████░░ = Popularity bar (more bars = more common)
+            """)
+
+        with gr.Tab("≈ Slant Rhymes"):
+            slant_output = gr.Markdown(
+                value="Enter a word above to see slant rhymes.",
+                line_breaks=True
+            )
+            gr.Markdown("""
+            **Legend:**
+            - 🎯 = Near-perfect slant (score 0.60-0.74)
+            - ≈ = Assonance / vowel rhyme (score 0.35-0.59)
+            - ⚠️ = Fallback (weak match, shown only if few results)
+            - ✓✓ = Popular (found in multiple sources)
+            - 📚 = Technical (CMU only - uncommon/rare)
+            - 🔤 = Alliteration bonus applied
+            - 🎵×N = Multi-syllable rhyme
+            """)
+
+        with gr.Tab("💬 Colloquial"):
+            colloquial_output = gr.Markdown(
+                value="Enter a word above to see colloquial rhyming phrases.",
+                line_breaks=True
+            )
+            gr.Markdown("""
+            **Colloquial phrases** are multi-word expressions from Datamuse API.
+            These represent common usage and idiomatic rhymes.
+            
+            Example: "bubble bath", "double trouble", "on the double"
+            """)
+
+        with gr.Tab("🎤 Rap Database"):
+            rap_output = gr.Markdown(
+                value="""## 🎤 Rap Rhyme Database
+
+*Coming soon: Culturally-informed rhymes from hip-hop lyrics and poetry*
+
+This tab will feature:
+- Multi-syllable rhymes from rap lyrics
+- Slant rhymes popular in hip-hop culture
+- Regional pronunciation variants
+- Battle rap schemes and patterns
+
+Stay tuned!""",
+                line_breaks=True
+            )
+
+    # Footer
+    gr.Markdown("""
+    ---
     
-    # Enable Enter key to trigger search
-    term.submit(
-        go,
-        inputs=[term, max_items, relax_rap, include_rap, zipf_cutoff, min_each, zipf_cutoff_multi],
-        outputs=[query_md, uncommon, slant, multi, rap, unc_csv_txt, slt_csv_txt, mul_csv_txt, rap_csv_txt, debug],
-    )
+    ### About This Complete Tool
+    ...
+    """.replace("...", f"""
+    **Settings:** Max {cfg.max_items} results per category | Zipf threshold ≤ {cfg.zipf_max_slant} for slant rhymes
+    """))
 
-    # show full handlers
-    show_all_unc.click(
-        show_all,
-        inputs=[term, gr.State("uncommon"), relax_rap, include_rap, zipf_cutoff, min_each, zipf_cutoff_multi],
-        outputs=uncommon,
+    # Event handlers
+    search_btn.click(
+        fn=search_interface,
+        inputs=[search_input, syl_filter, stress_filter, datamuse_toggle, 
+                show_rare_only, multisyl_only, enable_alliteration, show_pronunciation],
+        outputs=[query_summary_output, results_summary_output, 
+                 perfect_output, slant_output, colloquial_output, rap_output]
     )
-    show_all_slt.click(
-        show_all,
-        inputs=[term, gr.State("slant"), relax_rap, include_rap, zipf_cutoff, min_each, zipf_cutoff_multi],
-        outputs=slant,
+    search_input.submit(
+        fn=search_interface,
+        inputs=[search_input, syl_filter, stress_filter, datamuse_toggle,
+                show_rare_only, multisyl_only, enable_alliteration, show_pronunciation],
+        outputs=[query_summary_output, results_summary_output,
+                 perfect_output, slant_output, colloquial_output, rap_output]
     )
-    show_all_mul.click(
-        show_all,
-        inputs=[term, gr.State("multiword"), relax_rap, include_rap, zipf_cutoff, min_each, zipf_cutoff_multi],
-        outputs=multi,
-    )
-    show_all_rap.click(
-        show_all,
-        inputs=[term, gr.State("rap_targets"), relax_rap, include_rap, zipf_cutoff, min_each, zipf_cutoff_multi],
-        outputs=rap,
-    )
-
-    # Datamuse hooks
-    sugg_btn.click(dm_suggest, inputs=[term], outputs=[sugg_md])
-    rel_btn.click(dm_related, inputs=[term], outputs=[rel_md])
 
 if __name__ == "__main__":
-    app_logger.info("Launching Gradio interface on http://127.0.0.1:7860")
-    try:
-        demo.launch(
-            share=False,
-            server_name="127.0.0.1",
-            server_port=7860,
-            inbrowser=False,
-            show_api=False
-        )
-    except Exception as e:
-        app_logger.critical(f"Failed to launch Gradio app: {str(e)}")
-        app_logger.critical(traceback.format_exc())
-        raise
-    finally:
-        app_logger.info("Application shutting down")
+    # Bind to localhost explicitly
+    app.launch(server_name="127.0.0.1", server_port=7860)

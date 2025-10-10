@@ -1,0 +1,25 @@
+2025-10-08 15:21:34 - UncommonRhymes - ERROR - _do_bench:452 - Benchmark run failed: [Errno 2] No such file or directory: '\\tmp\\benchmark_results.csv'
+2025-10-08 15:21:34 - UncommonRhymes - ERROR - _do_bench:453 - Traceback (most recent call last):
+  File "C:\Users\RobDods\apps\uncommonrhymesv3\app.py", line 444, in _do_bench
+    rows, summary, out_csv = _bench_run(
+                             ~~~~~~~~~~^
+        terms, int(bm_max), bool(bm_relax_rap), bool(bm_include_rap),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        float(bm_zipf), int(bm_min_each), float(bm_zipf_multi)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\RobDods\apps\uncommonrhymesv3\app.py", line 293, in _bench_run
+    csv_path.write_text(csv_buffer.getvalue())
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 555, in write_text
+    return PathBase.write_text(self, data, encoding, errors, newline)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_abc.py", line 651, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 537, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '\\tmp\\benchmark_results.csv'
+

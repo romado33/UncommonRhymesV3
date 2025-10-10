@@ -1,0 +1,184 @@
+2025-10-08 14:44:34 - UncommonRhymes - INFO - <module>:89 - ================================================================================
+2025-10-08 14:44:34 - UncommonRhymes - INFO - <module>:90 - UncommonRhymes Application Starting
+2025-10-08 14:44:34 - UncommonRhymes - INFO - <module>:91 - Logs directory: C:\Users\RobDods\apps\uncommonrhymesv3\logs
+2025-10-08 14:44:34 - UncommonRhymes - INFO - <module>:92 - ================================================================================
+2025-10-08 14:44:34 - UncommonRhymes - DEBUG - <module>:112 - Gradio client bool-schema hotfix applied
+2025-10-08 14:44:34 - UncommonRhymes - INFO - <module>:119 - Modules imported successfully
+2025-10-08 14:44:35 - UncommonRhymes - INFO - <module>:522 - Launching Gradio interface on http://127.0.0.1:7860
+2025-10-08 14:45:02 - UncommonRhymes - DEBUG - search_all_categories:135 - Search initiated: term='double', max_items=20, zipf_max=4.0
+2025-10-08 14:45:02 - UncommonRhymes.Queries - INFO - search_all_categories:136 - SEARCH: term='double' | max=20 | zipf=4.0 | multi=5.5
+2025-10-08 14:45:09 - UncommonRhymes.Performance - INFO - search_all_categories:152 - term='double' | elapsed=7819.7ms | results={'uncommon': 0, 'slant': 0, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 14:45:09 - UncommonRhymes - INFO - search_all_categories:153 - Search completed for 'double' in 7819.7ms: {'uncommon': 0, 'slant': 0, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 14:45:16 - UncommonRhymes - DEBUG - search_all_categories:135 - Search initiated: term='double', max_items=20, zipf_max=4.0
+2025-10-08 14:45:16 - UncommonRhymes.Queries - INFO - search_all_categories:136 - SEARCH: term='double' | max=20 | zipf=4.0 | multi=5.5
+2025-10-08 14:45:17 - UncommonRhymes.Performance - INFO - search_all_categories:152 - term='double' | elapsed=761.2ms | results={'uncommon': 0, 'slant': 0, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 14:45:17 - UncommonRhymes - INFO - search_all_categories:153 - Search completed for 'double' in 761.2ms: {'uncommon': 0, 'slant': 0, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 14:45:18 - UncommonRhymes - DEBUG - search_all_categories:135 - Search initiated: term='double', max_items=20, zipf_max=4.0
+2025-10-08 14:45:18 - UncommonRhymes.Queries - INFO - search_all_categories:136 - SEARCH: term='double' | max=20 | zipf=4.0 | multi=5.5
+2025-10-08 14:45:18 - UncommonRhymes.Performance - INFO - search_all_categories:152 - term='double' | elapsed=811.4ms | results={'uncommon': 0, 'slant': 0, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 14:45:18 - UncommonRhymes - INFO - search_all_categories:153 - Search completed for 'double' in 811.4ms: {'uncommon': 0, 'slant': 0, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 14:45:19 - UncommonRhymes - DEBUG - search_all_categories:135 - Search initiated: term='double', max_items=20, zipf_max=4.0
+2025-10-08 14:45:19 - UncommonRhymes.Queries - INFO - search_all_categories:136 - SEARCH: term='double' | max=20 | zipf=4.0 | multi=5.5
+2025-10-08 14:45:20 - UncommonRhymes.Performance - INFO - search_all_categories:152 - term='double' | elapsed=824.8ms | results={'uncommon': 0, 'slant': 0, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 14:45:20 - UncommonRhymes - INFO - search_all_categories:153 - Search completed for 'double' in 824.8ms: {'uncommon': 0, 'slant': 0, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 14:45:20 - UncommonRhymes - DEBUG - search_all_categories:135 - Search initiated: term='double', max_items=20, zipf_max=4.0
+2025-10-08 14:45:20 - UncommonRhymes.Queries - INFO - search_all_categories:136 - SEARCH: term='double' | max=20 | zipf=4.0 | multi=5.5
+2025-10-08 14:45:21 - UncommonRhymes.Performance - INFO - search_all_categories:152 - term='double' | elapsed=842.5ms | results={'uncommon': 0, 'slant': 0, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 14:45:21 - UncommonRhymes - INFO - search_all_categories:153 - Search completed for 'double' in 842.5ms: {'uncommon': 0, 'slant': 0, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 14:45:24 - UncommonRhymes - DEBUG - search_all_categories:135 - Search initiated: term='double', max_items=20, zipf_max=4.0
+2025-10-08 14:45:24 - UncommonRhymes.Queries - INFO - search_all_categories:136 - SEARCH: term='double' | max=20 | zipf=4.0 | multi=5.5
+2025-10-08 14:45:25 - UncommonRhymes.Performance - INFO - search_all_categories:152 - term='double' | elapsed=756.2ms | results={'uncommon': 0, 'slant': 0, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 14:45:25 - UncommonRhymes - INFO - search_all_categories:153 - Search completed for 'double' in 756.2ms: {'uncommon': 0, 'slant': 0, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 14:45:41 - UncommonRhymes - INFO - <module>:536 - Application shutting down
+2025-10-08 15:02:57 - UncommonRhymes - INFO - <module>:89 - ================================================================================
+2025-10-08 15:02:57 - UncommonRhymes - INFO - <module>:90 - UncommonRhymes Application Starting
+2025-10-08 15:02:57 - UncommonRhymes - INFO - <module>:91 - Logs directory: C:\Users\RobDods\apps\uncommonrhymesv3\logs
+2025-10-08 15:02:57 - UncommonRhymes - INFO - <module>:92 - ================================================================================
+2025-10-08 15:02:57 - UncommonRhymes - DEBUG - <module>:112 - Gradio client bool-schema hotfix applied
+2025-10-08 15:02:57 - UncommonRhymes - INFO - <module>:119 - Modules imported successfully
+2025-10-08 15:02:59 - UncommonRhymes - INFO - <module>:529 - Launching Gradio interface on http://127.0.0.1:7860
+2025-10-08 15:03:25 - UncommonRhymes - DEBUG - search_all_categories:135 - Search initiated: term='table', max_items=20, zipf_max=4.0
+2025-10-08 15:03:25 - UncommonRhymes.Queries - INFO - search_all_categories:136 - SEARCH: term='table' | max=20 | zipf=4.0 | multi=5.5
+2025-10-08 15:03:31 - UncommonRhymes.Performance - INFO - search_all_categories:152 - term='table' | elapsed=6149.9ms | results={'uncommon': 0, 'slant': 0, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 15:03:31 - UncommonRhymes - INFO - search_all_categories:153 - Search completed for 'table' in 6149.9ms: {'uncommon': 0, 'slant': 0, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 15:03:42 - UncommonRhymes - DEBUG - search_all_categories:135 - Search initiated: term='sister', max_items=20, zipf_max=4.0
+2025-10-08 15:03:42 - UncommonRhymes.Queries - INFO - search_all_categories:136 - SEARCH: term='sister' | max=20 | zipf=4.0 | multi=5.5
+2025-10-08 15:03:42 - UncommonRhymes.Performance - INFO - search_all_categories:152 - term='sister' | elapsed=812.4ms | results={'uncommon': 0, 'slant': 0, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 15:03:42 - UncommonRhymes - INFO - search_all_categories:153 - Search completed for 'sister' in 812.4ms: {'uncommon': 0, 'slant': 0, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 15:20:20 - UncommonRhymes - INFO - <module>:543 - Application shutting down
+2025-10-08 15:20:34 - UncommonRhymes - INFO - <module>:89 - ================================================================================
+2025-10-08 15:20:34 - UncommonRhymes - INFO - <module>:90 - UncommonRhymes Application Starting
+2025-10-08 15:20:34 - UncommonRhymes - INFO - <module>:91 - Logs directory: C:\Users\RobDods\apps\uncommonrhymesv3\logs
+2025-10-08 15:20:34 - UncommonRhymes - INFO - <module>:92 - ================================================================================
+2025-10-08 15:20:34 - UncommonRhymes - DEBUG - <module>:112 - Gradio client bool-schema hotfix applied
+2025-10-08 15:20:34 - UncommonRhymes - INFO - <module>:119 - Modules imported successfully
+2025-10-08 15:20:36 - UncommonRhymes - INFO - <module>:529 - Launching Gradio interface on http://127.0.0.1:7860
+2025-10-08 15:20:48 - UncommonRhymes - DEBUG - search_all_categories:135 - Search initiated: term='double', max_items=20, zipf_max=4.0
+2025-10-08 15:20:48 - UncommonRhymes.Queries - INFO - search_all_categories:136 - SEARCH: term='double' | max=20 | zipf=4.0 | multi=5.5
+2025-10-08 15:20:48 - UncommonRhymes.Engine - INFO - search:73 - Query 'double': k1=AH, k2=AH-B, k3=AH-B-AH-L, zipf=5.01
+2025-10-08 15:20:48 - UncommonRhymes.Engine - INFO - search:119 - Found 8 perfect rhymes, 20 slant rhymes
+2025-10-08 15:20:48 - UncommonRhymes.Performance - INFO - search_all_categories:152 - term='double' | elapsed=26.7ms | results={'uncommon': 8, 'slant': 20, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 15:20:48 - UncommonRhymes - INFO - search_all_categories:153 - Search completed for 'double' in 26.7ms: {'uncommon': 8, 'slant': 20, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 15:21:34 - UncommonRhymes - INFO - _bench_load_terms:228 - Using default benchmark terms (no file found)
+2025-10-08 15:21:34 - UncommonRhymes - INFO - _bench_run:233 - Starting benchmark run with 5 terms
+2025-10-08 15:21:34 - UncommonRhymes - DEBUG - search_all_categories:135 - Search initiated: term='double', max_items=20, zipf_max=4.0
+2025-10-08 15:21:34 - UncommonRhymes.Queries - INFO - search_all_categories:136 - SEARCH: term='double' | max=20 | zipf=4.0 | multi=5.5
+2025-10-08 15:21:34 - UncommonRhymes.Engine - INFO - search:73 - Query 'double': k1=AH, k2=AH-B, k3=AH-B-AH-L, zipf=5.01
+2025-10-08 15:21:34 - UncommonRhymes.Engine - INFO - search:119 - Found 8 perfect rhymes, 20 slant rhymes
+2025-10-08 15:21:34 - UncommonRhymes.Performance - INFO - search_all_categories:152 - term='double' | elapsed=6.3ms | results={'uncommon': 8, 'slant': 20, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 15:21:34 - UncommonRhymes - INFO - search_all_categories:153 - Search completed for 'double' in 6.3ms: {'uncommon': 8, 'slant': 20, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 15:21:34 - UncommonRhymes - DEBUG - _bench_run:260 - Benchmark 1/5: 'double' completed in 6.9ms
+2025-10-08 15:21:34 - UncommonRhymes - DEBUG - search_all_categories:135 - Search initiated: term='habit', max_items=20, zipf_max=4.0
+2025-10-08 15:21:34 - UncommonRhymes.Queries - INFO - search_all_categories:136 - SEARCH: term='habit' | max=20 | zipf=4.0 | multi=5.5
+2025-10-08 15:21:34 - UncommonRhymes.Engine - INFO - search:73 - Query 'habit': k1=AE, k2=AE-B, k3=AE-B-AH-T, zipf=4.24
+2025-10-08 15:21:34 - UncommonRhymes.Engine - INFO - search:119 - Found 6 perfect rhymes, 20 slant rhymes
+2025-10-08 15:21:34 - UncommonRhymes.Performance - INFO - search_all_categories:152 - term='habit' | elapsed=18.7ms | results={'uncommon': 6, 'slant': 20, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 15:21:34 - UncommonRhymes - INFO - search_all_categories:153 - Search completed for 'habit' in 18.7ms: {'uncommon': 6, 'slant': 20, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 15:21:34 - UncommonRhymes - DEBUG - _bench_run:260 - Benchmark 2/5: 'habit' completed in 19.1ms
+2025-10-08 15:21:34 - UncommonRhymes - DEBUG - search_all_categories:135 - Search initiated: term='paper', max_items=20, zipf_max=4.0
+2025-10-08 15:21:34 - UncommonRhymes.Queries - INFO - search_all_categories:136 - SEARCH: term='paper' | max=20 | zipf=4.0 | multi=5.5
+2025-10-08 15:21:34 - UncommonRhymes.Engine - INFO - search:73 - Query 'paper': k1=EY, k2=EY-P, k3=EY-P-ER, zipf=5.07
+2025-10-08 15:21:34 - UncommonRhymes.Engine - INFO - search:119 - Found 17 perfect rhymes, 20 slant rhymes
+2025-10-08 15:21:34 - UncommonRhymes.Performance - INFO - search_all_categories:152 - term='paper' | elapsed=15.3ms | results={'uncommon': 17, 'slant': 20, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 15:21:34 - UncommonRhymes - INFO - search_all_categories:153 - Search completed for 'paper' in 15.3ms: {'uncommon': 17, 'slant': 20, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 15:21:34 - UncommonRhymes - DEBUG - _bench_run:260 - Benchmark 3/5: 'paper' completed in 15.7ms
+2025-10-08 15:21:34 - UncommonRhymes - DEBUG - search_all_categories:135 - Search initiated: term='trouble', max_items=20, zipf_max=4.0
+2025-10-08 15:21:34 - UncommonRhymes.Queries - INFO - search_all_categories:136 - SEARCH: term='trouble' | max=20 | zipf=4.0 | multi=5.5
+2025-10-08 15:21:34 - UncommonRhymes.Engine - INFO - search:73 - Query 'trouble': k1=AH, k2=AH-B, k3=AH-B-AH-L, zipf=4.79
+2025-10-08 15:21:34 - UncommonRhymes.Engine - INFO - search:119 - Found 8 perfect rhymes, 20 slant rhymes
+2025-10-08 15:21:34 - UncommonRhymes.Performance - INFO - search_all_categories:152 - term='trouble' | elapsed=3.7ms | results={'uncommon': 8, 'slant': 20, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 15:21:34 - UncommonRhymes - INFO - search_all_categories:153 - Search completed for 'trouble' in 3.7ms: {'uncommon': 8, 'slant': 20, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 15:21:34 - UncommonRhymes - DEBUG - _bench_run:260 - Benchmark 4/5: 'trouble' completed in 4.3ms
+2025-10-08 15:21:34 - UncommonRhymes - DEBUG - search_all_categories:135 - Search initiated: term='simple', max_items=20, zipf_max=4.0
+2025-10-08 15:21:34 - UncommonRhymes.Queries - INFO - search_all_categories:136 - SEARCH: term='simple' | max=20 | zipf=4.0 | multi=5.5
+2025-10-08 15:21:34 - UncommonRhymes.Engine - INFO - search:73 - Query 'simple': k1=IH, k2=IH-M, k3=IH-M-P-AH-L, zipf=5.08
+2025-10-08 15:21:34 - UncommonRhymes.Engine - INFO - search:119 - Found 6 perfect rhymes, 20 slant rhymes
+2025-10-08 15:21:34 - UncommonRhymes.Performance - INFO - search_all_categories:152 - term='simple' | elapsed=27.9ms | results={'uncommon': 6, 'slant': 20, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 15:21:34 - UncommonRhymes - INFO - search_all_categories:153 - Search completed for 'simple' in 27.9ms: {'uncommon': 6, 'slant': 20, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 15:21:34 - UncommonRhymes - DEBUG - _bench_run:260 - Benchmark 5/5: 'simple' completed in 28.7ms
+2025-10-08 15:21:34 - UncommonRhymes - INFO - _bench_run:283 - Benchmark completed: 5/5 successful, avg 14.9ms
+2025-10-08 15:21:34 - UncommonRhymes - ERROR - _do_bench:452 - Benchmark run failed: [Errno 2] No such file or directory: '\\tmp\\benchmark_results.csv'
+2025-10-08 15:21:34 - UncommonRhymes - ERROR - _do_bench:453 - Traceback (most recent call last):
+  File "C:\Users\RobDods\apps\uncommonrhymesv3\app.py", line 444, in _do_bench
+    rows, summary, out_csv = _bench_run(
+                             ~~~~~~~~~~^
+        terms, int(bm_max), bool(bm_relax_rap), bool(bm_include_rap),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        float(bm_zipf), int(bm_min_each), float(bm_zipf_multi)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\RobDods\apps\uncommonrhymesv3\app.py", line 293, in _bench_run
+    csv_path.write_text(csv_buffer.getvalue())
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 555, in write_text
+    return PathBase.write_text(self, data, encoding, errors, newline)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_abc.py", line 651, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 537, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '\\tmp\\benchmark_results.csv'
+
+2025-10-08 15:24:27 - UncommonRhymes - INFO - <module>:543 - Application shutting down
+2025-10-09 11:19:54 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\UncommonRhymesV3\logs\app.log
+2025-10-09 11:20:00 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-09 11:20:00 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-09 11:20:00 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-09 11:20:10 | INFO | rhyme.app | ui.submit id=ed974c70-33e1-46d0-ac67-fd8414959fd0 term='brother' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-09 11:27:31 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\UncommonRhymesV3\logs\app.log
+2025-10-09 11:27:37 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-09 11:27:37 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-09 11:27:37 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-09 15:10:38 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\UncommonRhymesV3\logs\app.log
+2025-10-09 15:10:46 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-09 15:10:46 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-09 15:10:47 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-09 15:11:10 | INFO | rhyme.app | ui.submit id=2cd1c75e-2aa9-4400-a25e-fc0adc4f40e3 term='guitar' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-09 15:11:19 | INFO | rhyme.app | ui.submit id=0f8aad81-7b00-4cfb-b472-1d640612aded term='dog' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-09 15:11:20 | INFO | rhyme.app | ui.submit id=c47c44a3-d8c9-4a38-8800-fa6afc3c698b term='dog' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-09 15:23:51 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\UncommonRhymesV3\logs\app.log
+2025-10-09 15:23:58 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-09 15:23:58 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-09 15:23:59 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-09 15:27:15 | INFO | rhyme.app | ui.submit id=02c089d1-338d-4024-9f5a-8c8660c1b860 term='bed' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-09 15:27:20 | INFO | rhyme.app | ui.submit id=9f85e54d-d4ee-41eb-9da1-86d6c78313c4 term='bed' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-09 15:27:34 | INFO | rhyme.app | ui.submit id=3148d4e9-6eab-4f3d-88ef-9321c6fdb937 term='bedshhet' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-09 15:27:37 | INFO | rhyme.app | ui.submit id=02b827f3-9ce3-42ce-bf85-e7d624605956 term='bedsheet' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-09 15:27:38 | INFO | rhyme.app | ui.submit id=34688770-5d97-4498-9727-42a04214c6e9 term='bedsheet' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-09 15:57:17 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\UncommonRhymesV3\logs\app.log
+2025-10-09 15:57:25 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-09 15:57:25 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-09 15:57:25 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-09 16:23:48 | INFO | rhyme.app | ui.submit id=32125afa-3fc8-49ec-bd07-b88cd12fa21e term='bedsheet' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-09 16:23:48 | INFO | rhyme.app | ui.render id=32125afa-3fc8-49ec-bd07-b88cd12fa21e elapsed_ms=4.0 counts={'perfect_popular': 0, 'perfect_technical': 0, 'near_perfect_popular': 0, 'near_perfect_technical': 0, 'assonance_popular': 0, 'assonance_technical': 0, 'fallback': 0, 'colloquial': 0, 'rap': 0, 'total_slant': 0} preview={'perfect_popular_top': [], 'perfect_technical_top': [], 'near_perfect_popular_top': [], 'near_perfect_technical_top': [], 'assonance_popular_top': [], 'assonance_technical_top': [], 'colloquial_top': []}
+2025-10-09 16:24:03 | INFO | rhyme.app | ui.submit id=8116f284-018f-4d48-9268-bfeec856afff term='dog' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-09 16:24:03 | INFO | rhyme.app | ui.render id=8116f284-018f-4d48-9268-bfeec856afff elapsed_ms=549.5 counts={'perfect_popular': 0, 'perfect_technical': 0, 'near_perfect_popular': 0, 'near_perfect_technical': 0, 'assonance_popular': 0, 'assonance_technical': 0, 'fallback': 6, 'colloquial': 0, 'rap': 0, 'total_slant': 0} preview={'perfect_popular_top': [], 'perfect_technical_top': [], 'near_perfect_popular_top': [], 'near_perfect_technical_top': [], 'assonance_popular_top': [], 'assonance_technical_top': [], 'colloquial_top': []}
+2025-10-09 16:48:09 | INFO | rhyme.app | App starting� logging to C:\Users\RobDods\apps\uncommonrhymesv3\logs\app.log
+2025-10-09 16:48:09 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-09 16:48:10 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-09 16:48:10 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-09 16:48:10 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-09 16:48:33 | INFO | rhyme.app | ui.submit id=d97f05c9-dc71-438f-a1e1-f4c24636dad1 term='bedpost' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-09 16:48:33 | INFO | rhyme.app | ui.render id=d97f05c9-dc71-438f-a1e1-f4c24636dad1 elapsed_ms=1.9 counts={'perfect_popular': 0, 'perfect_technical': 0, 'near_perfect_popular': 0, 'near_perfect_technical': 0, 'assonance_popular': 0, 'assonance_technical': 0, 'fallback': 0, 'colloquial': 0, 'rap': 0, 'total_slant': 0} preview={'perfect_popular_top': [], 'perfect_technical_top': [], 'near_perfect_popular_top': [], 'near_perfect_technical_top': [], 'assonance_popular_top': [], 'assonance_technical_top': [], 'colloquial_top': []}
+2025-10-09 16:48:37 | INFO | rhyme.app | ui.submit id=c481e443-f0ec-4758-b4b7-2283c6e87d87 term='bedpost' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-09 16:48:37 | INFO | rhyme.app | ui.render id=c481e443-f0ec-4758-b4b7-2283c6e87d87 elapsed_ms=1.2 counts={'perfect_popular': 0, 'perfect_technical': 0, 'near_perfect_popular': 0, 'near_perfect_technical': 0, 'assonance_popular': 0, 'assonance_technical': 0, 'fallback': 0, 'colloquial': 0, 'rap': 0, 'total_slant': 0} preview={'perfect_popular_top': [], 'perfect_technical_top': [], 'near_perfect_popular_top': [], 'near_perfect_technical_top': [], 'assonance_popular_top': [], 'assonance_technical_top': [], 'colloquial_top': []}
+2025-10-09 16:48:38 | INFO | rhyme.app | ui.submit id=094151f2-621c-4a3a-bf74-8ed1e258ea36 term='bedpost' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-09 16:48:38 | INFO | rhyme.app | ui.render id=094151f2-621c-4a3a-bf74-8ed1e258ea36 elapsed_ms=1.3 counts={'perfect_popular': 0, 'perfect_technical': 0, 'near_perfect_popular': 0, 'near_perfect_technical': 0, 'assonance_popular': 0, 'assonance_technical': 0, 'fallback': 0, 'colloquial': 0, 'rap': 0, 'total_slant': 0} preview={'perfect_popular_top': [], 'perfect_technical_top': [], 'near_perfect_popular_top': [], 'near_perfect_technical_top': [], 'assonance_popular_top': [], 'assonance_technical_top': [], 'colloquial_top': []}
+2025-10-09 16:48:49 | INFO | rhyme.app | ui.submit id=ec3bfd3e-0a5d-4c75-8582-4011e903de69 term='dog' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-09 16:48:49 | INFO | rhyme.app | ui.render id=ec3bfd3e-0a5d-4c75-8582-4011e903de69 elapsed_ms=405.7 counts={'perfect_popular': 0, 'perfect_technical': 0, 'near_perfect_popular': 0, 'near_perfect_technical': 0, 'assonance_popular': 0, 'assonance_technical': 0, 'fallback': 6, 'colloquial': 0, 'rap': 0, 'total_slant': 0} preview={'perfect_popular_top': [], 'perfect_technical_top': [], 'near_perfect_popular_top': [], 'near_perfect_technical_top': [], 'assonance_popular_top': [], 'assonance_technical_top': [], 'colloquial_top': []}
+2025-10-09 16:48:51 | INFO | rhyme.app | ui.submit id=13468c40-2f7d-4da4-beb7-df8a11ac58ae term='dog' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-09 16:48:51 | INFO | rhyme.app | ui.render id=13468c40-2f7d-4da4-beb7-df8a11ac58ae elapsed_ms=1.7 counts={'perfect_popular': 0, 'perfect_technical': 0, 'near_perfect_popular': 0, 'near_perfect_technical': 0, 'assonance_popular': 0, 'assonance_technical': 0, 'fallback': 6, 'colloquial': 0, 'rap': 0, 'total_slant': 0} preview={'perfect_popular_top': [], 'perfect_technical_top': [], 'near_perfect_popular_top': [], 'near_perfect_technical_top': [], 'assonance_popular_top': [], 'assonance_technical_top': [], 'colloquial_top': []}
+2025-10-09 16:48:54 | INFO | rhyme.app | ui.submit id=e1af922a-edd0-4017-96a1-704091bf8e19 term='dog' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-09 16:48:54 | INFO | rhyme.app | ui.render id=e1af922a-edd0-4017-96a1-704091bf8e19 elapsed_ms=2.4 counts={'perfect_popular': 0, 'perfect_technical': 0, 'near_perfect_popular': 0, 'near_perfect_technical': 0, 'assonance_popular': 0, 'assonance_technical': 0, 'fallback': 6, 'colloquial': 0, 'rap': 0, 'total_slant': 0} preview={'perfect_popular_top': [], 'perfect_technical_top': [], 'near_perfect_popular_top': [], 'near_perfect_technical_top': [], 'assonance_popular_top': [], 'assonance_technical_top': [], 'colloquial_top': []}
+2025-10-09 17:06:52 | INFO | rhyme.app | ui.submit id=aec7f190-482c-4a23-9529-5ef959b8c7f4 term='window' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-09 17:06:52 | INFO | rhyme.app | ui.render id=aec7f190-482c-4a23-9529-5ef959b8c7f4 elapsed_ms=8.9 counts={'perfect_popular': 0, 'perfect_technical': 0, 'near_perfect_popular': 0, 'near_perfect_technical': 0, 'assonance_popular': 0, 'assonance_technical': 0, 'fallback': 0, 'colloquial': 0, 'rap': 0, 'total_slant': 0} preview={'perfect_popular_top': [], 'perfect_technical_top': [], 'near_perfect_popular_top': [], 'near_perfect_technical_top': [], 'assonance_popular_top': [], 'assonance_technical_top': [], 'colloquial_top': []}
+2025-10-10 11:31:40 | INFO | rhyme.app | App starting� logging to C:\Users\RobDods\apps\uncommonrhymesv3\logs\app.log
+2025-10-10 11:31:41 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-10 11:31:41 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-10 11:31:41 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-10 11:31:42 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-10 11:32:02 | INFO | rhyme.app | ui.submit id=642038eb-145f-40a7-8967-eae2db1849b7 term='sister' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-10 11:32:06 | INFO | rhyme.app | ui.render id=642038eb-145f-40a7-8967-eae2db1849b7 elapsed_ms=3878.9 counts={'perfect_popular': 0, 'perfect_technical': 18, 'near_perfect_popular': 3, 'near_perfect_technical': 30, 'assonance_popular': 11, 'assonance_technical': 30, 'fallback': 30, 'colloquial': 4, 'rap': 0, 'total_slant': 74} preview={'perfect_popular_top': [], 'perfect_technical_top': ['istre', 'rister', 'kister'], 'near_perfect_popular_top': ['cistern', 'sisters', 'vista'], 'near_perfect_technical_top': ['sisti', 'sisto', 'cist'], 'assonance_popular_top': ['silver', 'whisker', 'lifter'], 'assonance_technical_top': ['switzer', 'syndicats', 'cicio'], 'colloquial_top': ['stage whisper', 'kissed her', 'miss her']}

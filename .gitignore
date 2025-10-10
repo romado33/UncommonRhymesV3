@@ -26,9 +26,14 @@ ENV/
 .DS_Store
 Thumbs.db
 
-# Logs
-*.log
-logs/
+# Logs - REMOVED FROM GITIGNORE (logs will now be tracked)
+# *.log
+# logs/
+
+# Shell/Batch/PowerShell scripts
+*.sh
+*.bat
+*.ps1
 
 # Test outputs
 test_results/

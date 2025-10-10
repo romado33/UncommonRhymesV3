@@ -1,0 +1,14 @@
+2025-10-08 14:45:09 - term='double' | elapsed=7819.7ms | results={'uncommon': 0, 'slant': 0, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 14:45:17 - term='double' | elapsed=761.2ms | results={'uncommon': 0, 'slant': 0, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 14:45:18 - term='double' | elapsed=811.4ms | results={'uncommon': 0, 'slant': 0, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 14:45:20 - term='double' | elapsed=824.8ms | results={'uncommon': 0, 'slant': 0, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 14:45:21 - term='double' | elapsed=842.5ms | results={'uncommon': 0, 'slant': 0, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 14:45:25 - term='double' | elapsed=756.2ms | results={'uncommon': 0, 'slant': 0, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 15:03:31 - term='table' | elapsed=6149.9ms | results={'uncommon': 0, 'slant': 0, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 15:03:42 - term='sister' | elapsed=812.4ms | results={'uncommon': 0, 'slant': 0, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 15:20:48 - term='double' | elapsed=26.7ms | results={'uncommon': 8, 'slant': 20, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 15:21:34 - term='double' | elapsed=6.3ms | results={'uncommon': 8, 'slant': 20, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 15:21:34 - term='habit' | elapsed=18.7ms | results={'uncommon': 6, 'slant': 20, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 15:21:34 - term='paper' | elapsed=15.3ms | results={'uncommon': 17, 'slant': 20, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 15:21:34 - term='trouble' | elapsed=3.7ms | results={'uncommon': 8, 'slant': 20, 'multiword': 0, 'rap_targets': 0}
+2025-10-08 15:21:34 - term='simple' | elapsed=27.9ms | results={'uncommon': 6, 'slant': 20, 'multiword': 0, 'rap_targets': 0}

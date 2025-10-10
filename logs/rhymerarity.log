@@ -1,0 +1,31 @@
+2025-10-10 10:44:03 [INFO] config :: ================================================================================
+2025-10-10 10:44:03 [INFO] config :: RhymeRarity Configuration Initialized
+2025-10-10 10:44:03 [INFO] config :: ================================================================================
+2025-10-10 10:44:03 [INFO] config :: APP_ROOT: C:\Users\RobDods\Apps\UncommonRhymesV3
+2025-10-10 10:44:03 [INFO] config :: DATA_DIR: C:\Users\RobDods\Apps\UncommonRhymesV3
+2025-10-10 10:44:03 [INFO] config :: LOG_DIR: C:\Users\RobDods\Apps\UncommonRhymesV3\logs
+2025-10-10 10:44:03 [INFO] config :: LOG_FILE: C:\Users\RobDods\Apps\UncommonRhymesV3\logs\rhymerarity.log
+2025-10-10 10:44:03 [INFO] config :: CMU_DB: C:\Users\RobDods\Apps\UncommonRhymesV3\cmudict.db (exists: True)
+2025-10-10 10:44:03 [INFO] config :: RHYME_DB: C:\Users\RobDods\Apps\UncommonRhymesV3\rhyme.db (exists: True)
+2025-10-10 10:44:03 [INFO] config :: PATTERNS_DB: C:\Users\RobDods\Apps\UncommonRhymesV3\patterns.db (exists: False)
+2025-10-10 10:44:03 [INFO] config :: CULTURAL_DB: C:\Users\RobDods\Apps\UncommonRhymesV3\cultural.db (exists: False)
+2025-10-10 10:44:03 [INFO] config :: LOG_LEVEL: INFO
+2025-10-10 10:44:03 [INFO] config :: MAX_RESULTS: 1000
+2025-10-10 10:44:03 [INFO] config :: CACHE_SIZE: 10000
+2025-10-10 10:44:03 [INFO] config :: ================================================================================
+2025-10-10 10:44:03 [WARNING] config :: PATTERNS_DB not found at expected path
+2025-10-10 10:44:03 [WARNING] config :: CULTURAL_DB not found at expected path
+2025-10-10 10:44:03 [WARNING] config :: Missing databases: PATTERNS_DB, CULTURAL_DB
+2025-10-10 10:44:03 [WARNING] config :: Run database builders to create missing databases
+2025-10-10 10:44:03 [INFO] phonetics :: CMUDict initialized with path: C:\Users\RobDods\Apps\UncommonRhymesV3\cmudict.db
+2025-10-10 10:44:03 [INFO] phonetics :: CMU database found (size: 11,993,088 bytes)
+2025-10-10 10:44:03 [INFO] phonetics :: CMU database tables: words
+2025-10-10 10:44:03 [WARNING] phonetics :: Expected table 'entries' not found in database
+2025-10-10 10:44:03 [INFO] phonetics ::   words: 135,166 rows
+2025-10-10 10:44:03 [WARNING] phonetics :: Expected table 'pronunciations' not found in database
+2025-10-10 10:44:03 [ERROR] phonetics :: Database error looking up 'double': no such table: entries
+Traceback (most recent call last):
+  File "C:\Users\RobDods\apps\uncommonrhymesv3\phonetics.py", line 260, in get_pronunciations
+    cursor.execute(query, (clean_word, like_pattern))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: entries

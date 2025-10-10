@@ -11,7 +11,6 @@ import requests
 from functools import lru_cache
 import time
 from collections import defaultdict
-from pathlib import Path
 
 @dataclass
 class Config:
@@ -58,15 +57,7 @@ EMOJI = {
 
 def get_db():
     """Get database connection"""
-    # Import here to avoid circular imports
-    try:
-        from rhyme_core.data.paths import words_db
-        db_path = str(words_db())
-    except ImportError:
-        # Fallback to data/words_index.sqlite if paths module not available
-        db_path = str(Path(__file__).parent.parent / "data" / "words_index.sqlite")
-    
-    return sqlite3.connect(db_path)
+    return sqlite3.connect(cfg.db_path)
 
 def strip_stress(phoneme: str) -> str:
     """Remove stress markers (0, 1, 2) from phoneme"""
@@ -222,8 +213,7 @@ def get_word_pronunciation(term: str) -> Optional[Tuple[str, List[str]]]:
     conn = get_db()
     cur = conn.cursor()
     
-    # Database stores words in lowercase
-    lookup = term.lower().strip()
+    lookup = term.upper().strip()
     cur.execute("SELECT word, pron FROM words WHERE word = ? LIMIT 1", (lookup,))
     row = cur.fetchone()
     

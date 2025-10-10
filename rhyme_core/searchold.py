@@ -1,13 +1,9 @@
 ﻿from __future__ import annotations
 import os, sqlite3
-import logging
 from typing import Any, Dict, List, Tuple, Optional
 
 from .data.paths import words_db
 from .phonetics import parse_pron, k_keys, coda, meter_name, tail_distance
-
-# Initialize logger for this module
-app_logger = logging.getLogger('UncommonRhymes.Search')
 
 # ----------------- DB helpers -----------------
 def _con(path: str) -> sqlite3.Connection:

@@ -71,8 +71,85 @@ def k_keys(phones: List[str]) -> Tuple[str, str, str]:
 def coda(phones: List[str]) -> List[str]:
     return list(rhyme_tail(phones)[1])
 
+# =============================================================================
+# MISSING FUNCTIONS - Added for diagnostic_tests.py compatibility
+# =============================================================================
+
+def extract_stress_pattern(phones: List[str]) -> str:
+    """
+    Extract stress pattern from phoneme list.
+    
+    Args:
+        phones: List of phonemes (e.g., ['D', 'AA1', 'B', 'AH0', 'L'])
+    
+    Returns:
+        Stress pattern string (e.g., '1-0' for double)
+    
+    Examples:
+        ['D', 'AA1', 'L', 'ER0'] -> '1-0'
+        ['K', 'AE1', 'T'] -> '1'
+        ['S', 'IH0', 'L', 'AE1', 'B', 'AH0', 'L'] -> '0-1-0'
+    """
+    stress_marks = []
+    for phone in phones:
+        if _is_vowel(phone):
+            # Extract stress digit (0, 1, or 2)
+            if phone[-1] in '012':
+                stress_marks.append(phone[-1])
+            else:
+                stress_marks.append('0')  # Default to unstressed
+    
+    return '-'.join(stress_marks)
+
+def extract_stress(phones: List[str]) -> str:
+    """
+    Alias for extract_stress_pattern for backward compatibility.
+    
+    This is the function that diagnostic_tests.py imports.
+    """
+    return extract_stress_pattern(phones)
+
+def strip_stress(phone: str) -> str:
+    """
+    Remove stress marker from a phoneme.
+    
+    Args:
+        phone: Phoneme with optional stress (e.g., 'AA1', 'B', 'AH0')
+    
+    Returns:
+        Phoneme without stress marker (e.g., 'AA', 'B', 'AH')
+    
+    Examples:
+        strip_stress('AA1') -> 'AA'
+        strip_stress('B') -> 'B'
+        strip_stress('AH0') -> 'AH'
+    """
+    if phone and phone[-1] in '012':
+        return phone[:-1]
+    return phone
+
+def is_vowel(phone: str) -> bool:
+    """
+    Public wrapper for _is_vowel for external use.
+    
+    Args:
+        phone: Phoneme to check (e.g., 'AA1', 'B', 'AH0')
+    
+    Returns:
+        True if phone is a vowel, False otherwise
+    """
+    return _is_vowel(phone)
+
 def meter_name(stress_pattern: str) -> str:
-    # trivial mapper; keep as before if you already had one
+    """
+    Map stress pattern to poetic meter name.
+    
+    Args:
+        stress_pattern: Stress pattern string (e.g., '1-0', '0-1')
+    
+    Returns:
+        Meter name (e.g., 'trochee', 'iamb', 'mixed')
+    """
     if not stress_pattern:
         return "unknown"
     if stress_pattern.endswith("01") or stress_pattern=="01":

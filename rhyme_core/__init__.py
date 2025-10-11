@@ -1,21 +1,16 @@
 """
-RhymeCore - Anti-LLM Rhyme Engine
-Complete phonetic analysis and rhyme generation system
+RhymeRarity - Anti-LLM Rhyme Engine
+Advanced phonetic analysis and rare rhyme generation
 """
 
-from .engine import (
-    search_rhymes,
-    get_result_counts,
-    organize_by_syllables,
-    cfg,
-    Config
-)
+try:
+    from .search import search_all_categories, search_rhymes
+    from .phonetics import parse_pron, k_keys, extract_stress
+except ImportError as e:
+    print(f"Warning: Could not import rhyme_core modules: {e}")
+    # Provide fallback None values
+    search_all_categories = None
+    search_rhymes = None
 
 __version__ = "1.0.0"
-__all__ = [
-    'search_rhymes',
-    'get_result_counts', 
-    'organize_by_syllables',
-    'cfg',
-    'Config'
-]
+__all__ = ['search_all_categories', 'search_rhymes']

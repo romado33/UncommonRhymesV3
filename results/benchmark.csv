@@ -1,0 +1,97 @@
+query,bucket,our_count,datamuse_total,overlap_count,we_missed_count,technical_only_count,recall_pct,latency_ms,error,we_missed_examples,technical_only_examples
+barbecue,uncommon,20,134,10,124,50,7.462686567164178,203.3,,accrue|adieu|afternoon,a. true|acute|andrews|are true|as true
+barbecue,slant,20,134,10,124,50,7.462686567164178,,,accrue|adieu|afternoon,a. true|acute|andrews|are true|as true
+barbecue,multiword,20,134,10,124,50,7.462686567164178,,,accrue|adieu|afternoon,a. true|acute|andrews|are true|as true
+beat it,uncommon,0,0,0,0,0,0.0,2.6,,,
+beat it,slant,0,0,0,0,0,0.0,,,,
+beat it,multiword,0,0,0,0,0,0.0,,,,
+café latte,uncommon,0,0,0,0,0,0.0,0.8,,,
+café latte,slant,0,0,0,0,0,0.0,,,,
+café latte,multiword,0,0,0,0,0,0.0,,,,
+chandelier,uncommon,20,200,3,197,57,1.5,166.5,,abhor|adhere|adore,a. four-year|amid|are four-year|as four-year|be four-year
+chandelier,slant,20,200,3,197,57,1.5,,,abhor|adhere|adore,a. four-year|amid|are four-year|as four-year|be four-year
+chandelier,multiword,20,200,3,197,57,1.5,,,abhor|adhere|adore,a. four-year|amid|are four-year|as four-year|be four-year
+choir,uncommon,20,150,11,139,49,7.333333333333333,64.1,,acquire|acquired|amplifier,a. fire|admire|admired|archive|are fire
+choir,slant,20,150,11,139,49,7.333333333333333,,,acquire|acquired|amplifier,a. fire|admire|admired|archive|are fire
+choir,multiword,20,150,11,139,49,7.333333333333333,,,acquire|acquired|amplifier,a. fire|admire|admired|archive|are fire
+double,uncommon,20,92,24,68,36,26.08695652173913,42.3,,a bill|air bubble|ask for trouble,a. w|are w|as w|be w|bmw
+double,slant,20,92,24,68,36,26.08695652173913,,,a bill|air bubble|ask for trouble,a. w|are w|as w|be w|bmw
+double,multiword,20,92,24,68,36,26.08695652173913,,,a bill|air bubble|ask for trouble,a. w|are w|as w|be w|bmw
+downside,uncommon,20,109,7,102,53,6.422018348623854,46.7,,abide|alongside|amplified,a. side|archive|are side|as side|be side
+downside,slant,20,109,7,102,53,6.422018348623854,,,abide|alongside|amplified,a. side|archive|are side|as side|be side
+downside,multiword,20,109,7,102,53,6.422018348623854,,,abide|alongside|amplified,a. side|archive|are side|as side|be side
+hat,uncommon,20,100,3,97,57,3.0,85.3,,acrobat|aerostat|alley cat,a. matter|abraham|adapt|ag|anatomy
+hat,slant,20,100,3,97,57,3.0,,,acrobat|aerostat|alley cat,a. matter|abraham|adapt|ag|anatomy
+hat,multiword,20,100,3,97,57,3.0,,,acrobat|aerostat|alley cat,a. matter|abraham|adapt|ag|anatomy
+machine learning,uncommon,0,0,0,0,0,0.0,2.5,,,
+machine learning,slant,0,0,0,0,0,0.0,,,,
+machine learning,multiword,0,0,0,0,0,0.0,,,,
+onomatopoeia,uncommon,0,1,0,1,0,0.0,0.9,,onomatopoeical,
+onomatopoeia,slant,0,1,0,1,0,0.0,,,onomatopoeical,
+onomatopoeia,multiword,0,1,0,1,0,0.0,,,onomatopoeical,
+orange,uncommon,20,52,2,50,38,3.8461538461538463,79.4,,abhorrence|abhorrent|adoring,a. order|are order|as order|be order|boarding
+orange,slant,0,52,2,50,38,3.8461538461538463,,,abhorrence|abhorrent|adoring,a. order|are order|as order|be order|boarding
+orange,multiword,20,52,2,50,38,3.8461538461538463,,,abhorrence|abhorrent|adoring,a. order|are order|as order|be order|boarding
+queue,uncommon,20,100,7,93,53,7.000000000000001,39.9,,accrue|adieu|anew,a. true|acute|altitude|andrews|are true
+queue,slant,20,100,7,93,53,7.000000000000001,,,accrue|adieu|anew,a. true|acute|altitude|andrews|are true
+queue,multiword,20,100,7,93,53,7.000000000000001,,,accrue|adieu|anew,a. true|acute|altitude|andrews|are true
+rhythm,uncommon,16,58,10,48,46,17.24137931034483,83.0,,addition|algorithm|cataclysm,a. rhythm|activism|alcoholism|algorithmic|are rhythm
+rhythm,slant,20,58,10,48,46,17.24137931034483,,,addition|algorithm|cataclysm,a. rhythm|activism|alcoholism|algorithmic|are rhythm
+rhythm,multiword,20,58,10,48,46,17.24137931034483,,,addition|algorithm|cataclysm,a. rhythm|activism|alcoholism|algorithmic|are rhythm
+rough,uncommon,20,75,5,70,55,6.666666666666667,39.0,,acuff|bruff|chuff,a. stuff|are stuff|as stuff|be stuff|buffer
+rough,slant,20,75,5,70,55,6.666666666666667,,,acuff|bruff|chuff,a. stuff|are stuff|as stuff|be stuff|buffer
+rough,multiword,20,75,5,70,55,6.666666666666667,,,acuff|bruff|chuff,a. stuff|are stuff|as stuff|be stuff|buffer
+through time,uncommon,0,0,0,0,0,0.0,1.0,,,
+through time,slant,0,0,0,0,0,0.0,,,,
+through time,multiword,0,0,0,0,0,0.0,,,,
+dollar,uncommon,20,147,12,135,48,8.16326530612245,98.1,,all er|all her|aller,a. following|alcoholic|apollo|are following|as following
+dollar,slant,20,147,12,135,48,8.16326530612245,,,all er|all her|aller,a. following|alcoholic|apollo|are following|as following
+dollar,multiword,20,147,12,135,48,8.16326530612245,,,all er|all her|aller,a. following|alcoholic|apollo|are following|as following
+collar,uncommon,20,149,10,139,50,6.7114093959731544,81.3,,all er|all her|aller,a. following|alcoholic|allah|apollo|are following
+collar,slant,20,149,10,139,50,6.7114093959731544,,,all er|all her|aller,a. following|alcoholic|allah|apollo|are following
+collar,multiword,20,149,10,139,50,6.7114093959731544,,,all er|all her|aller,a. following|alcoholic|allah|apollo|are following
+holler,uncommon,20,149,11,138,49,7.38255033557047,74.8,,all er|all her|aller,a. following|alcoholic|allah|apollo|are following
+holler,slant,20,149,11,138,49,7.38255033557047,,,all er|all her|aller,a. following|alcoholic|allah|apollo|are following
+holler,multiword,20,149,11,138,49,7.38255033557047,,,all er|all her|aller,a. following|alcoholic|allah|apollo|are following
+scholar,uncommon,20,149,6,143,54,4.026845637583892,73.6,,all er|all her|aller,a. following|alcoholic|allah|apollo|are following
+scholar,slant,20,149,6,143,54,4.026845637583892,,,all er|all her|aller,a. following|alcoholic|allah|apollo|are following
+scholar,multiword,20,149,6,143,54,4.026845637583892,,,all er|all her|aller,a. following|alcoholic|allah|apollo|are following
+chart,uncommon,20,200,2,198,58,1.0,87.5,,a la carte|abort|abstract art,a. far|alot|alt|are far|armor
+chart,slant,20,200,2,198,58,1.0,,,a la carte|abort|abstract art,a. far|alot|alt|are far|armor
+chart,multiword,20,200,2,198,58,1.0,,,a la carte|abort|abstract art,a. far|alot|alt|are far|armor
+dart,uncommon,20,200,2,198,58,1.0,107.2,,a la carte|abort|abstract art,a. far|alot|alt|are far|armor
+dart,slant,20,200,2,198,58,1.0,,,a la carte|abort|abstract art,a. far|alot|alt|are far|armor
+dart,multiword,20,200,2,198,58,1.0,,,a la carte|abort|abstract art,a. far|alot|alt|are far|armor
+heart,uncommon,20,200,2,198,58,1.0,101.6,,a la carte|abort|abstract art,a. far|alot|alt|are far|armor
+heart,slant,20,200,2,198,58,1.0,,,a la carte|abort|abstract art,a. far|alot|alt|are far|armor
+heart,multiword,20,200,2,198,58,1.0,,,a la carte|abort|abstract art,a. far|alot|alt|are far|armor
+smart,uncommon,20,200,2,198,58,1.0,82.9,,a la carte|abort|abstract art,a. far|alot|alt|are far|armor
+smart,slant,20,200,2,198,58,1.0,,,a la carte|abort|abstract art,a. far|alot|alt|are far|armor
+smart,multiword,20,200,2,198,58,1.0,,,a la carte|abort|abstract art,a. far|alot|alt|are far|armor
+art,uncommon,20,200,2,198,58,1.0,83.6,,a la carte|abort|active transport,a. far|alot|alt|are far|armor
+art,slant,20,200,2,198,58,1.0,,,a la carte|abort|active transport,a. far|alot|alt|are far|armor
+art,multiword,20,200,2,198,58,1.0,,,a la carte|abort|active transport,a. far|alot|alt|are far|armor
+cart,uncommon,20,200,1,199,59,0.5,81.1,,a la carte|abort|abstract art,a. far|alot|alt|are far|armor
+cart,slant,20,200,1,199,59,0.5,,,a la carte|abort|abstract art,a. far|alot|alt|are far|armor
+cart,multiword,20,200,1,199,59,0.5,,,a la carte|abort|abstract art,a. far|alot|alt|are far|armor
+part,uncommon,20,200,2,198,58,1.0,94.4,,a la carte|abort|abstract art,a. far|alot|alt|are far|armor
+part,slant,20,200,2,198,58,1.0,,,a la carte|abort|abstract art,a. far|alot|alt|are far|armor
+part,multiword,20,200,2,198,58,1.0,,,a la carte|abort|abstract art,a. far|alot|alt|are far|armor
+start,uncommon,20,200,2,198,58,1.0,86.2,,a la carte|abort|abstract art,a. far|alot|alt|are far|armor
+start,slant,20,200,2,198,58,1.0,,,a la carte|abort|abstract art,a. far|alot|alt|are far|armor
+start,multiword,20,200,2,198,58,1.0,,,a la carte|abort|abstract art,a. far|alot|alt|are far|armor
+sporange,uncommon,0,0,0,0,0,0.0,2.6,,,
+sporange,slant,0,0,0,0,0,0.0,,,,
+sporange,multiword,0,0,0,0,0,0.0,,,,
+algorithm,uncommon,16,57,7,50,49,12.280701754385964,71.1,,al gore ism|algorism|alpha rhythm,a. rhythm|activism|algorithmic|are rhythm|arrhythmia
+algorithm,slant,20,57,7,50,49,12.280701754385964,,,al gore ism|algorism|alpha rhythm,a. rhythm|activism|algorithmic|are rhythm|arrhythmia
+algorithm,multiword,20,57,7,50,49,12.280701754385964,,,al gore ism|algorism|alpha rhythm,a. rhythm|activism|algorithmic|are rhythm|arrhythmia
+prism,uncommon,20,156,14,142,39,8.974358974358974,71.8,,absolutism|algorithm|alpha rhythm,a. non-business|are non-business|as non-business|be non-business|bingham
+prism,slant,13,156,14,142,39,8.974358974358974,,,absolutism|algorithm|alpha rhythm,a. non-business|are non-business|as non-business|be non-business|bingham
+prism,multiword,20,156,14,142,39,8.974358974358974,,,absolutism|algorithm|alpha rhythm,a. non-business|are non-business|as non-business|be non-business|bingham
+trouble,uncommon,20,93,22,71,38,23.655913978494624,34.8,,a bill|air bubble|befuddle,a. w|are w|as w|be w|bmw
+trouble,slant,20,93,22,71,38,23.655913978494624,,,a bill|air bubble|befuddle,a. w|are w|as w|be w|bmw
+trouble,multiword,20,93,22,71,38,23.655913978494624,,,a bill|air bubble|befuddle,a. w|are w|as w|be w|bmw
+bubble,uncommon,20,93,22,71,38,23.655913978494624,32.7,,a bill|ask for trouble|babble,a. w|are w|as w|be w|bmw
+bubble,slant,20,93,22,71,38,23.655913978494624,,,a bill|ask for trouble|babble,a. w|are w|as w|be w|bmw
+bubble,multiword,20,93,22,71,38,23.655913978494624,,,a bill|ask for trouble|babble,a. w|are w|as w|be w|bmw

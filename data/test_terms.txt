@@ -1,0 +1,46 @@
+# RhymeRarity Comprehensive Benchmark Test Terms
+# 32 queries covering classics, phonetic validation, and edge cases
+
+# ===== ORIGINAL 15 CLASSICS =====
+# Famous "hard to rhyme" words and multi-word phrases
+barbecue
+beat it
+café latte
+chandelier
+choir
+double
+downside
+hat
+machine learning
+onomatopoeia
+orange
+queue
+rhythm
+rough
+through time
+
+# ===== DOLLAR/ART PHONETIC FIX VALIDATION =====
+# Critical: Tests proper phonetic family separation
+# AH family (should match each other, NOT the AR family below)
+dollar
+collar
+holler
+scholar
+
+# AR family (should match each other, NOT the AH family above)
+chart
+dart
+heart
+smart
+art
+cart
+part
+start
+
+# ===== EDGE CASES & RARE ENDINGS =====
+# Tests technical rhyme discovery
+sporange
+algorithm
+prism
+trouble
+bubble

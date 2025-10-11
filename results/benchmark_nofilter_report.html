@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>RhymeRarity NO-FILTER Benchmark</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+               max-width: 1200px; margin: 40px auto; padding: 20px; background: #f5f5f5; }
+        h1 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
+        .banner { background: #ff9800; color: white; padding: 15px; border-radius: 8px; margin: 20px 0; font-weight: bold; }
+        .summary { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin: 20px 0; }
+        .metric { display: inline-block; margin: 10px 20px; }
+        .metric-label { font-size: 12px; color: #7f8c8d; text-transform: uppercase; }
+        .metric-value { font-size: 32px; font-weight: bold; color: #2c3e50; }
+        .success { color: #27ae60; }
+        .warning { color: #f39c12; }
+        .error { color: #e74c3c; }
+        table { width: 100%; background: white; border-collapse: collapse; margin: 20px 0; 
+                 box-shadow: 0 2px 4px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden; }
+        th { background: #3498db; color: white; padding: 12px; text-align: left; font-weight: 600; }
+        td { padding: 10px 12px; border-bottom: 1px solid #ecf0f1; }
+        tr:hover { background: #f8f9fa; }
+        .recall-high { color: #27ae60; font-weight: bold; }
+        .recall-medium { color: #f39c12; font-weight: bold; }
+        .recall-low { color: #e74c3c; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>🎯 RhymeRarity NO-FILTER Benchmark</h1>
+    <div class="banner">
+        ⚠️ TESTING MODE: All zipf filters removed for fair comparison with Datamuse
+    </div>
+    
+    <div class="summary">
+        <h2>📊 Summary Statistics</h2>
+        <div class="metric">
+            <div class="metric-label">Queries</div>
+            <div class="metric-value">32</div>
+        </div>
+        <div class="metric">
+            <div class="metric-label">Avg Recall</div>
+            <div class="metric-value error">
+                22.6%
+            </div>
+        </div>
+        <div class="metric">
+            <div class="metric-label">Our Rhymes</div>
+            <div class="metric-value">13862</div>
+        </div>
+        <div class="metric">
+            <div class="metric-label">Technical Only</div>
+            <div class="metric-value success">38952</div>
+        </div>
+    </div>
+    
+    <h2>📋 Detailed Results</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Query</th>
+                <th>Bucket</th>
+                <th>Our Count</th>
+                <th>Datamuse</th>
+                <th>Recall</th>
+                <th>Missed</th>
+                <th>Technical</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>barbecue</strong></td>
+                <td>uncommon</td>
+                <td>200</td>
+                <td>134</td>
+                <td class="recall-low">59.7%</td>
+                <td>54</td>
+                <td>520</td>
+            </tr>
+            <tr>
+                <td><strong>barbecue</strong></td>
+                <td>slant</td>
+                <td>200</td>
+                <td>134</td>
+                <td class="recall-low">59.7%</td>
+                <td>54</td>
+                <td>520</td>
+            </tr>
+            <tr>
+                <td><strong>barbecue</strong></td>
+                <td>multiword</td>
+                <td>200</td>
+                <td>134</td>
+                <td class="recall-low">59.7%</td>
+                <td>54</td>
+                <td>520</td>
+            </tr>
+            <tr>
+                <td><strong>beat it</strong></td>
+                <td>uncommon</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="recall-low">0.0%</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td><strong>beat it</strong></td>
+                <td>slant</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="recall-low">0.0%</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td><strong>beat it</strong></td>
+                <td>multiword</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="recall-low">0.0%</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td><strong>café latte</strong></td>
+                <td>uncommon</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="recall-low">0.0%</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td><strong>café latte</strong></td>
+                <td>slant</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="recall-low">0.0%</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td><strong>café latte</strong></td>
+                <td>multiword</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="recall-low">0.0%</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td><strong>chandelier</strong></td>
+                <td>uncommon</td>
+                <td>200</td>
+                <td>200</td>
+                <td class="recall-low">26.0%</td>
+                <td>148</td>
+                <td>548</td>
+            </tr>
+            <tr>
+                <td><strong>chandelier</strong></td>
+                <td>slant</td>
+                <td>200</td>
+                <td>200</td>
+                <td class="recall-low">26.0%</td>
+                <td>148</td>
+                <td>548</td>
+            </tr>
+            <tr>
+                <td><strong>chandelier</strong></td>
+                <td>multiword</td>
+                <td>200</td>
+                <td>200</td>
+                <td class="recall-low">26.0%</td>
+                <td>148</td>
+                <td>548</td>
+            </tr>
+            <tr>
+                <td><strong>choir</strong></td>
+                <td>uncommon</td>
+                <td>126</td>
+                <td>150</td>
+                <td class="recall-low">48.7%</td>
+                <td>77</td>
+                <td>453</td>
+            </tr>
+            <tr>
+                <td><strong>choir</strong></td>
+                <td>slant</td>
+                <td>200</td>
+                <td>150</td>
+                <td class="recall-low">48.7%</td>
+                <td>77</td>
+                <td>453</td>
+            </tr>
+            <tr>
+                <td><strong>choir</strong></td>
+                <td>multiword</td>
+                <td>200</td>
+                <td>150</td>
+                <td class="recall-low">48.7%</td>
+                <td>77</td>
+                <td>453</td>
+            </tr>
+            <tr>
+                <td><strong>double</strong></td>
+                <td>uncommon</td>
+                <td>116</td>
+                <td>92</td>
+                <td class="recall-low">53.3%</td>
+                <td>43</td>
+                <td>320</td>
+            </tr>
+            <tr>
+                <td><strong>double</strong></td>
+                <td>slant</td>
+                <td>53</td>
+                <td>92</td>
+                <td class="recall-low">53.3%</td>
+                <td>43</td>
+                <td>320</td>
+            </tr>
+            <tr>
+                <td><strong>double</strong></td>
+                <td>multiword</td>
+                <td>200</td>
+                <td>92</td>
+                <td class="recall-low">53.3%</td>
+                <td>43</td>
+                <td>320</td>
+            </tr>
+            <tr>
+                <td><strong>downside</strong></td>
+                <td>uncommon</td>
+                <td>200</td>
+                <td>109</td>
+                <td class="recall-medium">72.5%</td>
+                <td>30</td>
+                <td>521</td>
+            </tr>
+            <tr>
+                <td><strong>downside</strong></td>
+                <td>slant</td>
+                <td>200</td>
+                <td>109</td>
+                <td class="recall-medium">72.5%</td>
+                <td>30</td>
+                <td>521</td>
+            </tr>
+            <tr>
+                <td><strong>downside</strong></td>
+                <td>multiword</td>
+                <td>200</td>
+                <td>109</td>
+                <td class="recall-medium">72.5%</td>
+                <td>30</td>
+                <td>521</td>
+            </tr>
+            <tr>
+                <td><strong>hat</strong></td>
+                <td>uncommon</td>
+                <td>200</td>
+                <td>100</td>
+                <td class="recall-low">40.0%</td>
+                <td>60</td>
+                <td>560</td>
+            </tr>
+            <tr>
+                <td><strong>hat</strong></td>
+                <td>slant</td>
+                <td>200</td>
+                <td>100</td>
+                <td class="recall-low">40.0%</td>
+                <td>60</td>
+                <td>560</td>
+            </tr>
+            <tr>
+                <td><strong>hat</strong></td>
+                <td>multiword</td>
+                <td>200</td>
+                <td>100</td>
+                <td class="recall-low">40.0%</td>
+                <td>60</td>
+                <td>560</td>
+            </tr>
+            <tr>
+                <td><strong>machine learning</strong></td>
+                <td>uncommon</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="recall-low">0.0%</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td><strong>machine learning</strong></td>
+                <td>slant</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="recall-low">0.0%</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td><strong>machine learning</strong></td>
+                <td>multiword</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="recall-low">0.0%</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td><strong>onomatopoeia</strong></td>
+                <td>uncommon</td>
+                <td>0</td>
+                <td>1</td>
+                <td class="recall-low">0.0%</td>
+                <td>1</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td><strong>onomatopoeia</strong></td>
+                <td>slant</td>
+                <td>0</td>
+                <td>1</td>
+                <td class="recall-low">0.0%</td>
+                <td>1</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td><strong>onomatopoeia</strong></td>
+                <td>multiword</td>
+                <td>0</td>
+                <td>1</td>
+                <td class="recall-low">0.0%</td>
+                <td>1</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td><strong>orange</strong></td>
+                <td>uncommon</td>
+                <td>200</td>
+                <td>52</td>
+                <td class="recall-low">23.1%</td>
+                <td>40</td>
+                <td>588</td>
+            </tr>
+            <tr>
+                <td><strong>orange</strong></td>
+                <td>slant</td>
+                <td>200</td>
+                <td>52</td>
+                <td class="recall-low">23.1%</td>
+                <td>40</td>
+                <td>588</td>
+            </tr>
+            <tr>
+                <td><strong>orange</strong></td>
+                <td>multiword</td>
+                <td>200</td>
+                <td>52</td>
+                <td class="recall-low">23.1%</td>
+                <td>40</td>
+                <td>588</td>
+            </tr>
+            <tr>
+                <td><strong>queue</strong></td>
+                <td>uncommon</td>
+                <td>200</td>
+                <td>100</td>
+                <td class="recall-medium">70.0%</td>
+                <td>30</td>
+                <td>530</td>
+            </tr>
+            <tr>
+                <td><strong>queue</strong></td>
+                <td>slant</td>
+                <td>200</td>
+                <td>100</td>
+                <td class="recall-medium">70.0%</td>
+                <td>30</td>
+                <td>530</td>
+            </tr>
+            <tr>
+                <td><strong>queue</strong></td>
+                <td>multiword</td>
+                <td>200</td>
+                <td>100</td>
+                <td class="recall-medium">70.0%</td>
+                <td>30</td>
+                <td>530</td>
+            </tr>
+            <tr>
+                <td><strong>rhythm</strong></td>
+                <td>uncommon</td>
+                <td>18</td>
+                <td>58</td>
+                <td class="recall-low">25.9%</td>
+                <td>43</td>
+                <td>231</td>
+            </tr>
+            <tr>
+                <td><strong>rhythm</strong></td>
+                <td>slant</td>
+                <td>28</td>
+                <td>58</td>
+                <td class="recall-low">25.9%</td>
+                <td>43</td>
+                <td>231</td>
+            </tr>
+            <tr>
+                <td><strong>rhythm</strong></td>
+                <td>multiword</td>
+                <td>200</td>
+                <td>58</td>
+                <td class="recall-low">25.9%</td>
+                <td>43</td>
+                <td>231</td>
+            </tr>
+            <tr>
+                <td><strong>rough</strong></td>
+                <td>uncommon</td>
+                <td>91</td>
+                <td>75</td>
+                <td class="recall-low">26.7%</td>
+                <td>55</td>
+                <td>471</td>
+            </tr>
+            <tr>
+                <td><strong>rough</strong></td>
+                <td>slant</td>
+                <td>200</td>
+                <td>75</td>
+                <td class="recall-low">26.7%</td>
+                <td>55</td>
+                <td>471</td>
+            </tr>
+            <tr>
+                <td><strong>rough</strong></td>
+                <td>multiword</td>
+                <td>200</td>
+                <td>75</td>
+                <td class="recall-low">26.7%</td>
+                <td>55</td>
+                <td>471</td>
+            </tr>
+            <tr>
+                <td><strong>through time</strong></td>
+                <td>uncommon</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="recall-low">0.0%</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td><strong>through time</strong></td>
+                <td>slant</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="recall-low">0.0%</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td><strong>through time</strong></td>
+                <td>multiword</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="recall-low">0.0%</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td><strong>dollar</strong></td>
+                <td>uncommon</td>
+                <td>200</td>
+                <td>147</td>
+                <td class="recall-low">11.6%</td>
+                <td>130</td>
+                <td>583</td>
+            </tr>
+            <tr>
+                <td><strong>dollar</strong></td>
+                <td>slant</td>
+                <td>200</td>
+                <td>147</td>
+                <td class="recall-low">11.6%</td>
+                <td>130</td>
+                <td>583</td>
+            </tr>
+            <tr>
+                <td><strong>dollar</strong></td>
+                <td>multiword</td>
+                <td>200</td>
+                <td>147</td>
+                <td class="recall-low">11.6%</td>
+                <td>130</td>
+                <td>583</td>
+            </tr>
+            <tr>
+                <td><strong>collar</strong></td>
+                <td>uncommon</td>
+                <td>200</td>
+                <td>149</td>
+                <td class="recall-low">10.1%</td>
+                <td>134</td>
+                <td>585</td>
+            </tr>
+            <tr>
+                <td><strong>collar</strong></td>
+                <td>slant</td>
+                <td>200</td>
+                <td>149</td>
+                <td class="recall-low">10.1%</td>
+                <td>134</td>
+                <td>585</td>
+            </tr>
+            <tr>
+                <td><strong>collar</strong></td>
+                <td>multiword</td>
+                <td>200</td>
+                <td>149</td>
+                <td class="recall-low">10.1%</td>
+                <td>134</td>
+                <td>585</td>
+            </tr>
+            <tr>
+                <td><strong>holler</strong></td>
+                <td>uncommon</td>
+                <td>200</td>
+                <td>149</td>
+                <td class="recall-low">10.7%</td>
+                <td>133</td>
+                <td>584</td>
+            </tr>
+            <tr>
+                <td><strong>holler</strong></td>
+                <td>slant</td>
+                <td>200</td>
+                <td>149</td>
+                <td class="recall-low">10.7%</td>
+                <td>133</td>
+                <td>584</td>
+            </tr>
+            <tr>
+                <td><strong>holler</strong></td>
+                <td>multiword</td>
+                <td>200</td>
+                <td>149</td>
+                <td class="recall-low">10.7%</td>
+                <td>133</td>
+                <td>584</td>
+            </tr>
+            <tr>
+                <td><strong>scholar</strong></td>
+                <td>uncommon</td>
+                <td>200</td>
+                <td>149</td>
+                <td class="recall-low">6.7%</td>
+                <td>139</td>
+                <td>590</td>
+            </tr>
+            <tr>
+                <td><strong>scholar</strong></td>
+                <td>slant</td>
+                <td>200</td>
+                <td>149</td>
+                <td class="recall-low">6.7%</td>
+                <td>139</td>
+                <td>590</td>
+            </tr>
+            <tr>
+                <td><strong>scholar</strong></td>
+                <td>multiword</td>
+                <td>200</td>
+                <td>149</td>
+                <td class="recall-low">6.7%</td>
+                <td>139</td>
+                <td>590</td>
+            </tr>
+            <tr>
+                <td><strong>chart</strong></td>
+                <td>uncommon</td>
+                <td>200</td>
+                <td>200</td>
+                <td class="recall-low">9.0%</td>
+                <td>182</td>
+                <td>582</td>
+            </tr>
+            <tr>
+                <td><strong>chart</strong></td>
+                <td>slant</td>
+                <td>200</td>
+                <td>200</td>
+                <td class="recall-low">9.0%</td>
+                <td>182</td>
+                <td>582</td>
+            </tr>
+            <tr>
+                <td><strong>chart</strong></td>
+                <td>multiword</td>
+                <td>200</td>
+                <td>200</td>
+                <td class="recall-low">9.0%</td>
+                <td>182</td>
+                <td>582</td>
+            </tr>
+            <tr>
+                <td><strong>dart</strong></td>
+                <td>uncommon</td>
+                <td>200</td>
+                <td>200</td>
+                <td class="recall-low">9.0%</td>
+                <td>182</td>
+                <td>582</td>
+            </tr>
+            <tr>
+                <td><strong>dart</strong></td>
+                <td>slant</td>
+                <td>200</td>
+                <td>200</td>
+                <td class="recall-low">9.0%</td>
+                <td>182</td>
+                <td>582</td>
+            </tr>
+            <tr>
+                <td><strong>dart</strong></td>
+                <td>multiword</td>
+                <td>200</td>
+                <td>200</td>
+                <td class="recall-low">9.0%</td>
+                <td>182</td>
+                <td>582</td>
+            </tr>
+            <tr>
+                <td><strong>heart</strong></td>
+                <td>uncommon</td>
+                <td>200</td>
+                <td>200</td>
+                <td class="recall-low">9.0%</td>
+                <td>182</td>
+                <td>582</td>
+            </tr>
+            <tr>
+                <td><strong>heart</strong></td>
+                <td>slant</td>
+                <td>200</td>
+                <td>200</td>
+                <td class="recall-low">9.0%</td>
+                <td>182</td>
+                <td>582</td>
+            </tr>
+            <tr>
+                <td><strong>heart</strong></td>
+                <td>multiword</td>
+                <td>200</td>
+                <td>200</td>
+                <td class="recall-low">9.0%</td>
+                <td>182</td>
+                <td>582</td>
+            </tr>
+            <tr>
+                <td><strong>smart</strong></td>
+                <td>uncommon</td>
+                <td>200</td>
+                <td>200</td>
+                <td class="recall-low">9.0%</td>
+                <td>182</td>
+                <td>582</td>
+            </tr>
+            <tr>
+                <td><strong>smart</strong></td>
+                <td>slant</td>
+                <td>200</td>
+                <td>200</td>
+                <td class="recall-low">9.0%</td>
+                <td>182</td>
+                <td>582</td>
+            </tr>
+            <tr>
+                <td><strong>smart</strong></td>
+                <td>multiword</td>
+                <td>200</td>
+                <td>200</td>
+                <td class="recall-low">9.0%</td>
+                <td>182</td>
+                <td>582</td>
+            </tr>
+            <tr>
+                <td><strong>art</strong></td>
+                <td>uncommon</td>
+                <td>200</td>
+                <td>200</td>
+                <td class="recall-low">9.0%</td>
+                <td>182</td>
+                <td>582</td>
+            </tr>
+            <tr>
+                <td><strong>art</strong></td>
+                <td>slant</td>
+                <td>200</td>
+                <td>200</td>
+                <td class="recall-low">9.0%</td>
+                <td>182</td>
+                <td>582</td>
+            </tr>
+            <tr>
+                <td><strong>art</strong></td>
+                <td>multiword</td>
+                <td>200</td>
+                <td>200</td>
+                <td class="recall-low">9.0%</td>
+                <td>182</td>
+                <td>582</td>
+            </tr>
+            <tr>
+                <td><strong>cart</strong></td>
+                <td>uncommon</td>
+                <td>200</td>
+                <td>200</td>
+                <td class="recall-low">9.0%</td>
+                <td>182</td>
+                <td>582</td>
+            </tr>
+            <tr>
+                <td><strong>cart</strong></td>
+                <td>slant</td>
+                <td>200</td>
+                <td>200</td>
+                <td class="recall-low">9.0%</td>
+                <td>182</td>
+                <td>582</td>
+            </tr>
+            <tr>
+                <td><strong>cart</strong></td>
+                <td>multiword</td>
+                <td>200</td>
+                <td>200</td>
+                <td class="recall-low">9.0%</td>
+                <td>182</td>
+                <td>582</td>
+            </tr>
+            <tr>
+                <td><strong>part</strong></td>
+                <td>uncommon</td>
+                <td>200</td>
+                <td>200</td>
+                <td class="recall-low">9.0%</td>
+                <td>182</td>
+                <td>582</td>
+            </tr>
+            <tr>
+                <td><strong>part</strong></td>
+                <td>slant</td>
+                <td>200</td>
+                <td>200</td>
+                <td class="recall-low">9.0%</td>
+                <td>182</td>
+                <td>582</td>
+            </tr>
+            <tr>
+                <td><strong>part</strong></td>
+                <td>multiword</td>
+                <td>200</td>
+                <td>200</td>
+                <td class="recall-low">9.0%</td>
+                <td>182</td>
+                <td>582</td>
+            </tr>
+            <tr>
+                <td><strong>start</strong></td>
+                <td>uncommon</td>
+                <td>200</td>
+                <td>200</td>
+                <td class="recall-low">9.0%</td>
+                <td>182</td>
+                <td>582</td>
+            </tr>
+            <tr>
+                <td><strong>start</strong></td>
+                <td>slant</td>
+                <td>200</td>
+                <td>200</td>
+                <td class="recall-low">9.0%</td>
+                <td>182</td>
+                <td>582</td>
+            </tr>
+            <tr>
+                <td><strong>start</strong></td>
+                <td>multiword</td>
+                <td>200</td>
+                <td>200</td>
+                <td class="recall-low">9.0%</td>
+                <td>182</td>
+                <td>582</td>
+            </tr>
+            <tr>
+                <td><strong>sporange</strong></td>
+                <td>uncommon</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="recall-low">0.0%</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td><strong>sporange</strong></td>
+                <td>slant</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="recall-low">0.0%</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td><strong>sporange</strong></td>
+                <td>multiword</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="recall-low">0.0%</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td><strong>algorithm</strong></td>
+                <td>uncommon</td>
+                <td>18</td>
+                <td>57</td>
+                <td class="recall-low">14.0%</td>
+                <td>49</td>
+                <td>238</td>
+            </tr>
+            <tr>
+                <td><strong>algorithm</strong></td>
+                <td>slant</td>
+                <td>28</td>
+                <td>57</td>
+                <td class="recall-low">14.0%</td>
+                <td>49</td>
+                <td>238</td>
+            </tr>
+            <tr>
+                <td><strong>algorithm</strong></td>
+                <td>multiword</td>
+                <td>200</td>
+                <td>57</td>
+                <td class="recall-low">14.0%</td>
+                <td>49</td>
+                <td>238</td>
+            </tr>
+            <tr>
+                <td><strong>prism</strong></td>
+                <td>uncommon</td>
+                <td>200</td>
+                <td>156</td>
+                <td class="recall-low">57.1%</td>
+                <td>67</td>
+                <td>357</td>
+            </tr>
+            <tr>
+                <td><strong>prism</strong></td>
+                <td>slant</td>
+                <td>46</td>
+                <td>156</td>
+                <td class="recall-low">57.1%</td>
+                <td>67</td>
+                <td>357</td>
+            </tr>
+            <tr>
+                <td><strong>prism</strong></td>
+                <td>multiword</td>
+                <td>200</td>
+                <td>156</td>
+                <td class="recall-low">57.1%</td>
+                <td>67</td>
+                <td>357</td>
+            </tr>
+            <tr>
+                <td><strong>trouble</strong></td>
+                <td>uncommon</td>
+                <td>116</td>
+                <td>93</td>
+                <td class="recall-low">47.3%</td>
+                <td>49</td>
+                <td>325</td>
+            </tr>
+            <tr>
+                <td><strong>trouble</strong></td>
+                <td>slant</td>
+                <td>53</td>
+                <td>93</td>
+                <td class="recall-low">47.3%</td>
+                <td>49</td>
+                <td>325</td>
+            </tr>
+            <tr>
+                <td><strong>trouble</strong></td>
+                <td>multiword</td>
+                <td>200</td>
+                <td>93</td>
+                <td class="recall-low">47.3%</td>
+                <td>49</td>
+                <td>325</td>
+            </tr>
+            <tr>
+                <td><strong>bubble</strong></td>
+                <td>uncommon</td>
+                <td>116</td>
+                <td>93</td>
+                <td class="recall-low">48.4%</td>
+                <td>48</td>
+                <td>324</td>
+            </tr>
+            <tr>
+                <td><strong>bubble</strong></td>
+                <td>slant</td>
+                <td>53</td>
+                <td>93</td>
+                <td class="recall-low">48.4%</td>
+                <td>48</td>
+                <td>324</td>
+            </tr>
+            <tr>
+                <td><strong>bubble</strong></td>
+                <td>multiword</td>
+                <td>200</td>
+                <td>93</td>
+                <td class="recall-low">48.4%</td>
+                <td>48</td>
+                <td>324</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

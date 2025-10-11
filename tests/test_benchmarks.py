@@ -1,5 +1,11 @@
 ﻿import os
+import sys
 from pathlib import Path
+
+# Add project root to Python path if running from tests/ directory
+project_root = Path(__file__).parent.parent
+if str(project_root) not in sys.path:
+    sys.path.insert(0, str(project_root))
 
 # Flexible import handling - works whether search.py is standalone or in package
 try:
@@ -21,6 +27,8 @@ def _load_terms():
         Path("benchmark.queries_used.txt"),
         Path("data/dev/benchmark.queries_used.txt"),
         Path("tests/benchmark.queries_used.txt"),
+        project_root / "benchmark.queries_used.txt",
+        project_root / "data" / "dev" / "benchmark.queries_used.txt",
     ]
     for p in candidates:
         if p.exists():
@@ -89,8 +97,11 @@ def test_nonsense_term():
 
 if __name__ == "__main__":
     # Allow running tests directly
-    import sys
-    print(f"Testing with {len(TERMS)} terms...")
+    print(f"Project root: {project_root}")
+    print(f"Python path: {sys.path[0]}")
+    print(f"Testing with {len(TERMS)} terms: {TERMS}")
+    print()
+    
     try:
         test_benchmarks_smoke()
         print("✓ test_benchmarks_smoke passed")

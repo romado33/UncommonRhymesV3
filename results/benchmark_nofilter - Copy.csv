@@ -1,0 +1,97 @@
+query,bucket,our_count,datamuse_total,overlap_count,we_missed_count,technical_only_count,recall_pct,latency_ms,error,we_missed_examples,technical_only_examples
+barbecue,uncommon,200,134,79,55,521,58.95522388059702,309.2,,adieu|allude|askew|attend to|ballyhoo,a. to|abdul|about to|absolute|abuse
+barbecue,slant,200,134,79,55,521,58.95522388059702,,,adieu|allude|askew|attend to|ballyhoo,a. to|abdul|about to|absolute|abuse
+barbecue,multiword,200,134,79,55,521,58.95522388059702,,,adieu|allude|askew|attend to|ballyhoo,a. to|abdul|about to|absolute|abuse
+beat it,uncommon,0,0,0,0,0,0.0,4.7,,,
+beat it,slant,0,0,0,0,0,0.0,,,,
+beat it,multiword,0,0,0,0,0,0.0,,,,
+café latte,uncommon,0,0,0,0,0,0.0,1.2,,,
+café latte,slant,0,0,0,0,0,0.0,,,,
+café latte,multiword,0,0,0,0,0,0.0,,,,
+chandelier,uncommon,200,200,32,168,568,16.0,249.5,,abhor|adore|affair|air|allure,a. year|about year|adherence|admit|after year
+chandelier,slant,200,200,32,168,568,16.0,,,abhor|adore|affair|air|allure,a. year|about year|adherence|admit|after year
+chandelier,multiword,200,200,32,168,568,16.0,,,abhor|adore|affair|air|allure,a. year|about year|adherence|admit|after year
+choir,uncommon,127,150,63,87,464,42.0,122.5,,antiaircraft fire|baling wire|ball of fire|barbed wire|barrage fire,a. fire|about fire|acquires|admired|advice
+choir,slant,200,150,63,87,464,42.0,,,antiaircraft fire|baling wire|ball of fire|barbed wire|barrage fire,a. fire|about fire|acquires|admired|advice
+choir,multiword,200,150,63,87,464,42.0,,,antiaircraft fire|baling wire|ball of fire|barbed wire|barrage fire,a. fire|about fire|acquires|admired|advice
+double,uncommon,117,92,49,43,322,53.2608695652174,89.3,,a bill|air bubble|ask for trouble|befuddle|chesible,a. public|about public|after public|again public|all public
+double,slant,54,92,49,43,322,53.2608695652174,,,a bill|air bubble|ask for trouble|befuddle|chesible,a. public|about public|after public|again public|all public
+double,multiword,200,92,49,43,322,53.2608695652174,,,a bill|air bubble|ask for trouble|befuddle|chesible,a. public|about public|after public|again public|all public
+downside,uncommon,200,109,60,49,540,55.04587155963303,109.8,,admire|assisted suicide|astride|backslide|betide,a. side|abiding|about side|acquired|advice
+downside,slant,200,109,60,49,540,55.04587155963303,,,admire|assisted suicide|astride|backslide|betide,a. side|abiding|about side|acquired|advice
+downside,multiword,200,109,60,49,540,55.04587155963303,,,admire|assisted suicide|astride|backslide|betide,a. side|abiding|about side|acquired|advice
+hat,uncommon,200,100,24,76,576,24.0,165.9,,acrobat|aerostat|alley cat|and that|aristocrat,a. that|ab|about that|abraham|abstract
+hat,slant,200,100,24,76,576,24.0,,,acrobat|aerostat|alley cat|and that|aristocrat,a. that|ab|about that|abraham|abstract
+hat,multiword,200,100,24,76,576,24.0,,,acrobat|aerostat|alley cat|and that|aristocrat,a. that|ab|about that|abraham|abstract
+machine learning,uncommon,0,0,0,0,0,0.0,4.4,,,
+machine learning,slant,0,0,0,0,0,0.0,,,,
+machine learning,multiword,0,0,0,0,0,0.0,,,,
+onomatopoeia,uncommon,0,1,0,1,0,0.0,1.2,,onomatopoeical,
+onomatopoeia,slant,0,1,0,1,0,0.0,,,onomatopoeical,
+onomatopoeia,multiword,0,1,0,1,0,0.0,,,onomatopoeical,
+orange,uncommon,200,52,8,44,392,15.384615384615385,127.2,,abhorrence|abhorrent|adoring|aurand|borage,a. for|abortion|about for|according|afford
+orange,slant,0,52,8,44,392,15.384615384615385,,,abhorrence|abhorrent|adoring|aurand|borage,a. for|abortion|about for|according|afford
+orange,multiword,200,52,8,44,392,15.384615384615385,,,abhorrence|abhorrent|adoring|aurand|borage,a. for|abortion|about for|according|afford
+queue,uncommon,200,100,60,40,540,60.0,78.9,,adieu|askew|attend to|ballyhoo|bugaboo,a. to|abdul|about to|absolute|abuse
+queue,slant,200,100,60,40,540,60.0,,,adieu|askew|attend to|ballyhoo|bugaboo,a. to|abdul|about to|absolute|abuse
+queue,multiword,200,100,60,40,540,60.0,,,adieu|askew|attend to|ballyhoo|bugaboo,a. to|abdul|about to|absolute|abuse
+rhythm,uncommon,19,58,19,39,337,32.758620689655174,219.5,,addition|chism|collision|common logarithm|competition,a. with|about with|activism|after with|again with
+rhythm,slant,137,58,19,39,337,32.758620689655174,,,addition|chism|collision|common logarithm|competition,a. with|about with|activism|after with|again with
+rhythm,multiword,200,58,19,39,337,32.758620689655174,,,addition|chism|collision|common logarithm|competition,a. with|about with|activism|after with|again with
+rough,uncommon,92,75,20,55,472,26.666666666666668,71.1,,acuff|bruff|chuff|cluff|cream puff,a. enough|about enough|above|after enough|again enough
+rough,slant,200,75,20,55,472,26.666666666666668,,,acuff|bruff|chuff|cluff|cream puff,a. enough|about enough|above|after enough|again enough
+rough,multiword,200,75,20,55,472,26.666666666666668,,,acuff|bruff|chuff|cluff|cream puff,a. enough|about enough|above|after enough|again enough
+through time,uncommon,0,0,0,0,0,0.0,4.7,,,
+through time,slant,0,0,0,0,0,0.0,,,,
+through time,multiword,0,0,0,0,0,0.0,,,,
+dollar,uncommon,200,147,29,118,445,19.727891156462583,203.7,,all er|all her|aller|allor|alter,a. following|abolish|abolished|about following|acknowledge
+dollar,slant,74,147,29,118,445,19.727891156462583,,,all er|all her|aller|allor|alter,a. following|abolish|abolished|about following|acknowledge
+dollar,multiword,200,147,29,118,445,19.727891156462583,,,all er|all her|aller|allor|alter,a. following|abolish|abolished|about following|acknowledge
+collar,uncommon,200,149,29,120,445,19.463087248322147,168.9,,all er|all her|aller|allor|altar,a. following|abolish|abolished|about following|acknowledge
+collar,slant,74,149,29,120,445,19.463087248322147,,,all er|all her|aller|allor|altar,a. following|abolish|abolished|about following|acknowledge
+collar,multiword,200,149,29,120,445,19.463087248322147,,,all er|all her|aller|allor|altar,a. following|abolish|abolished|about following|acknowledge
+holler,uncommon,200,149,30,119,444,20.13422818791946,178.4,,all er|all her|aller|allor|auger,a. following|abolish|abolished|about following|acknowledge
+holler,slant,74,149,30,119,444,20.13422818791946,,,all er|all her|aller|allor|auger,a. following|abolish|abolished|about following|acknowledge
+holler,multiword,200,149,30,119,444,20.13422818791946,,,all er|all her|aller|allor|auger,a. following|abolish|abolished|about following|acknowledge
+scholar,uncommon,200,149,29,120,445,19.463087248322147,151.0,,all er|all her|aller|allor|altar,a. following|abolish|abolished|about following|acknowledge
+scholar,slant,74,149,29,120,445,19.463087248322147,,,all er|all her|aller|allor|altar,a. following|abolish|abolished|about following|acknowledge
+scholar,multiword,200,149,29,120,445,19.463087248322147,,,all er|all her|aller|allor|altar,a. following|abolish|abolished|about following|acknowledge
+chart,uncommon,200,200,8,192,536,4.0,203.4,,a la carte|abort|abstract art|active transport|after part,a. are|about are|adopt|after are|afterthought
+chart,slant,144,200,8,192,536,4.0,,,a la carte|abort|abstract art|active transport|after part,a. are|about are|adopt|after are|afterthought
+chart,multiword,200,200,8,192,536,4.0,,,a la carte|abort|abstract art|active transport|after part,a. are|about are|adopt|after are|afterthought
+dart,uncommon,200,200,9,191,535,4.5,169.8,,a la carte|abort|abstract art|active transport|after part,a. are|about are|adopt|after are|afterthought
+dart,slant,144,200,9,191,535,4.5,,,a la carte|abort|abstract art|active transport|after part,a. are|about are|adopt|after are|afterthought
+dart,multiword,200,200,9,191,535,4.5,,,a la carte|abort|abstract art|active transport|after part,a. are|about are|adopt|after are|afterthought
+heart,uncommon,200,200,8,192,536,4.0,186.2,,a la carte|abort|abstract art|active transport|after part,a. are|about are|adopt|after are|afterthought
+heart,slant,144,200,8,192,536,4.0,,,a la carte|abort|abstract art|active transport|after part,a. are|about are|adopt|after are|afterthought
+heart,multiword,200,200,8,192,536,4.0,,,a la carte|abort|abstract art|active transport|after part,a. are|about are|adopt|after are|afterthought
+smart,uncommon,200,200,8,192,536,4.0,190.3,,a la carte|abort|abstract art|active transport|after part,a. are|about are|adopt|after are|afterthought
+smart,slant,144,200,8,192,536,4.0,,,a la carte|abort|abstract art|active transport|after part,a. are|about are|adopt|after are|afterthought
+smart,multiword,200,200,8,192,536,4.0,,,a la carte|abort|abstract art|active transport|after part,a. are|about are|adopt|after are|afterthought
+art,uncommon,200,200,8,192,536,4.0,179.3,,a la carte|abort|active transport|after part|appellate court,a. are|about are|adopt|after are|afterthought
+art,slant,144,200,8,192,536,4.0,,,a la carte|abort|active transport|after part|appellate court,a. are|about are|adopt|after are|afterthought
+art,multiword,200,200,8,192,536,4.0,,,a la carte|abort|active transport|after part|appellate court,a. are|about are|adopt|after are|afterthought
+cart,uncommon,200,200,8,192,536,4.0,174.0,,a la carte|abort|abstract art|active transport|after part,a. are|about are|adopt|after are|afterthought
+cart,slant,144,200,8,192,536,4.0,,,a la carte|abort|abstract art|active transport|after part,a. are|about are|adopt|after are|afterthought
+cart,multiword,200,200,8,192,536,4.0,,,a la carte|abort|abstract art|active transport|after part,a. are|about are|adopt|after are|afterthought
+part,uncommon,200,200,8,192,536,4.0,176.9,,a la carte|abort|abstract art|active transport|appellate court,a. are|about are|adopt|after are|afterthought
+part,slant,144,200,8,192,536,4.0,,,a la carte|abort|abstract art|active transport|appellate court,a. are|about are|adopt|after are|afterthought
+part,multiword,200,200,8,192,536,4.0,,,a la carte|abort|abstract art|active transport|appellate court,a. are|about are|adopt|after are|afterthought
+start,uncommon,200,200,8,192,536,4.0,181.5,,a la carte|abort|abstract art|active transport|after part,a. are|about are|adopt|after are|afterthought
+start,slant,144,200,8,192,536,4.0,,,a la carte|abort|abstract art|active transport|after part,a. are|about are|adopt|after are|afterthought
+start,multiword,200,200,8,192,536,4.0,,,a la carte|abort|abstract art|active transport|after part,a. are|about are|adopt|after are|afterthought
+sporange,uncommon,0,0,0,0,0,0.0,4.2,,,
+sporange,slant,0,0,0,0,0,0.0,,,,
+sporange,multiword,0,0,0,0,0,0.0,,,,
+algorithm,uncommon,19,57,19,38,337,33.33333333333333,239.4,,al gore ism|algorism|alpha rhythm|aneurism|antirrhinum,a. with|about with|activism|after with|again with
+algorithm,slant,137,57,19,38,337,33.33333333333333,,,al gore ism|algorism|alpha rhythm|aneurism|antirrhinum,a. with|about with|activism|after with|again with
+algorithm,multiword,200,57,19,38,337,33.33333333333333,,,al gore ism|algorism|alpha rhythm|aneurism|antirrhinum,a. with|about with|activism|after with|again with
+prism,uncommon,200,156,73,83,342,46.794871794871796,161.1,,absolutism|alpha rhythm|anachronism|anachronisms|animism,a. is|about is|abysmal|after is|again is
+prism,slant,15,156,73,83,342,46.794871794871796,,,absolutism|alpha rhythm|anachronism|anachronisms|animism,a. is|about is|abysmal|after is|again is
+prism,multiword,200,156,73,83,342,46.794871794871796,,,absolutism|alpha rhythm|anachronism|anachronisms|animism,a. is|about is|abysmal|after is|again is
+trouble,uncommon,117,93,44,49,327,47.31182795698925,81.0,,a bill|air bubble|befuddle|bundle|chesible,a. public|about public|after public|again public|all public
+trouble,slant,54,93,44,49,327,47.31182795698925,,,a bill|air bubble|befuddle|bundle|chesible,a. public|about public|after public|again public|all public
+trouble,multiword,200,93,44,49,327,47.31182795698925,,,a bill|air bubble|befuddle|bundle|chesible,a. public|about public|after public|again public|all public
+bubble,uncommon,117,93,45,48,326,48.38709677419355,78.9,,a bill|ask for trouble|babble|befuddle|bible,a. public|about public|after public|again public|all public
+bubble,slant,54,93,45,48,326,48.38709677419355,,,a bill|ask for trouble|babble|befuddle|bible,a. public|about public|after public|again public|all public
+bubble,multiword,200,93,45,48,326,48.38709677419355,,,a bill|ask for trouble|babble|befuddle|bible,a. public|about public|after public|again public|all public

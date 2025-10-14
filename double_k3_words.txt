@@ -1,8 +1,0 @@
-double               zipf=5.01
-trouble              zipf=4.79
-bubble               zipf=4.16
-rubble               zipf=3.44
-hubble               zipf=3.12
-stubble              zipf=2.87
-hubbell              zipf=2.55
-redouble             zipf=2.26

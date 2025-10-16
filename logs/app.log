@@ -196,3 +196,19 @@ FileNotFoundError: [Errno 2] No such file or directory: '\\tmp\\benchmark_result
 2025-10-14 12:20:09 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
 2025-10-14 12:20:21 | INFO | rhyme.app | ui.submit id=746c2d58-51ca-423c-85a0-0bbfd06fd4e2 term='dollar' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
 2025-10-14 12:20:23 | INFO | rhyme.app | ui.render id=746c2d58-51ca-423c-85a0-0bbfd06fd4e2 elapsed_ms=1151.3 counts={'perfect_popular': 24, 'perfect_technical': 49, 'near_perfect_popular': 33, 'near_perfect_technical': 0, 'assonance_popular': 50, 'assonance_technical': 10, 'colloquial': 26, 'fallback': 0, 'total_slant': 93} preview={'perfect_popular_top': ['crawler', 'color', 'hauler'], 'perfect_technical_top': ['dahler', 'koller', 'kahler'], 'near_perfect_popular_top': ['hollow', 'falter', 'proper'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['document', 'donald', 'doc'], 'assonance_technical_top': ['revolver', 'collared', 'collars'], 'colloquial_top': ['dog collar', 'clerical collar', 'eton collar']}
+2025-10-16 01:36:59 | INFO | rhyme.app | App starting… logging to /workspace/logs/app.log
+2025-10-16 01:37:00 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-16 01:37:00 | INFO | httpx | HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-10-16 01:37:00 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-10-16 01:37:00 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-16 01:37:00 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-16 02:55:05 | INFO | rhyme.app | App starting… logging to /workspace/logs/app.log
+2025-10-16 02:55:05 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-16 02:55:05 | INFO | httpx | HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-10-16 02:55:05 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-16 02:55:56 | INFO | rhyme.app | App starting… logging to /workspace/logs/app.log
+2025-10-16 02:55:56 | INFO | rhyme.app | Launching Gradio via runner on http://127.0.0.1:7861
+2025-10-16 02:55:56 | INFO | httpx | HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-10-16 02:55:56 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7861/startup-events "HTTP/1.1 200 OK"
+2025-10-16 02:55:56 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7861/ "HTTP/1.1 200 OK"
+2025-10-16 02:55:56 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"

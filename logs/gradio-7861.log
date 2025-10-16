@@ -1,0 +1,9 @@
+2025-10-16 02:55:56 | INFO | rhyme.app | App starting… logging to /workspace/logs/app.log
+2025-10-16 02:55:56 | INFO | rhyme.app | Launching Gradio via runner on http://127.0.0.1:7861
+2025-10-16 02:55:56 | INFO | httpx | HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+Running on local URL:  http://127.0.0.1:7861
+2025-10-16 02:55:56 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7861/startup-events "HTTP/1.1 200 OK"
+2025-10-16 02:55:56 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7861/ "HTTP/1.1 200 OK"
+
+To create a public link, set `share=True` in `launch()`.
+2025-10-16 02:55:56 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"

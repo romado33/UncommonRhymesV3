@@ -15,6 +15,9 @@ DEFAULTS: Dict[str, Any] = {
     "multi_coda_max": 0,
     # integrations
     "use_datamuse": True,
+    "use_homophones": True,
+    "use_phrase_generation": True,
+    "use_enhanced_scoring": True,
     # LLM feature flags
     "features": {
         "llm_spellfix": False,

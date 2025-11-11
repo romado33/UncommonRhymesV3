@@ -332,6 +332,126 @@ We welcome contributions! Please see our guidelines:
 
 ---
 
+## 🎯 About This Enhanced Tool (FIXED VERSION)
+
+**Our Competitive Advantage:** We find **technical rhymes (📚)** that only exist in the CMU Pronunciation Dictionary.
+These are uncommon, archaic, or specialized terms that:
+- Traditional rhyme dictionaries don't include
+- Datamuse API doesn't return  
+- LLMs hallucinate or miss entirely
+- Give users vocabulary nobody else has
+
+**Enhanced Features (Inspired by RhymeZone, B-Rhymes, Rhymer):**
+- 📊 **Visual Popularity Bars** - See word frequency at a glance
+- 📁 **Syllable Grouping** - Results organized by syllable count  
+- 🔬 **Rare Only Filter** - Focus on technical rhymes
+- 🎵 **Multi-Syllable Detection** - Find double/triple rhymes
+- 🔤 **Alliteration Bonus** - Rewards matching onset consonants
+- 🗣️ **Pronunciation Display** - Educational ARPAbet phonemes
+- 🎼 **Metrical Analysis** - Stress patterns and metrical feet display
+- 📜 **Column Layout** - Results visible side-by-side for easy comparison
+
+**Categories Explained:**
+- **✓✓ Popular:** Found in both CMU Dictionary and Datamuse - widely recognized, high-confidence rhymes
+- **📚 Technical:** Found ONLY in CMU Dictionary - rare finds that showcase our unique database  
+- **💬 Colloquial:** Multi-word phrases from Datamuse - common expressions and idioms
+
+**Scoring System:**
+- **K3 (1.00):** Exact stressed rime - perfect rhyme with same stress
+- **K2 (0.85):** Perfect by ear - same sounds, stress-agnostic
+- **Near-Perfect (0.60-0.74):** Very close slant rhymes
+- **Assonance (0.35-0.59):** Vowel rhymes with different consonants
+- **+0.10 bonus:** Alliteration (matching onset)
+- **+0.05 bonus:** Multi-syllable rhyme (2+ syllables match)
+
+**Metrical Feet:**
+- **Iamb:** unstressed-stressed (x /) - e.g., "begin", "away"
+- **Trochee:** stressed-unstressed (/ x) - e.g., "table", "happy"
+- **Dactyl:** stressed-unstressed-unstressed (/ x x) - e.g., "merrily"
+- **Anapest:** unstressed-unstressed-stressed (x x /) - e.g., "understand"
+- **Spondee:** stressed-stressed (/ /)
+- **Pyrrhic:** unstressed-unstressed (x x)
+- **Amphibrach:** unstressed-stressed-unstressed (x / x) - e.g., "another"
+- **Amphimacer:** stressed-unstressed-stressed (/ x /) - e.g., "hot and cold"
+
+**Data Sources:**
+- CMU Pronunciation Dictionary (ARPAbet phonemes)
+- Datamuse API (validation & colloquial phrases)
+- Zipf frequency scores (lower = rarer words)
+
+**Symbols Legend:**
+- ⭐ = K3 strict perfect (exact stressed rime, score 1.00)
+- ✓ = K2 perfect by ear (stress-agnostic, score 0.85)
+- ✓✓ = Popular (found in both CMU and Datamuse)
+- 📚 = Technical (CMU only - our specialty!)
+- 🔤 = Alliteration (matching onset consonants)
+- 🎵×N = Multi-syllable rhyme (N syllables match)
+- ██████░░░░ = Popularity bar (more bars = more common)
+- 🎯 = Near-perfect slant (score 0.60-0.74)
+- ≈ = Assonance / vowel rhyme (score 0.35-0.59)
+- ⚠️ = Fallback (weak match, shown only if few results)
+
+**Settings:** Max 75 results per category | Zipf threshold ≤ 5.0 for slant rhymes
+
+**Logging:** All searches logged to `logs/app.log` for monitoring and troubleshooting
+
+**Integration Status:** ✅ All components properly connected and tested
+
+---
+
+## About This Enhanced Tool (FIXED VERSION)
+
+**Our Competitive Advantage:** We find **technical rhymes (📚)** that only exist in the CMU Pronunciation Dictionary.
+These are uncommon, archaic, or specialized terms that:
+- Traditional rhyme dictionaries don't include
+- Datamuse API doesn't return
+- LLMs hallucinate or miss entirely
+- Give users vocabulary nobody else has
+
+**Enhanced Features (Inspired by RhymeZone, B-Rhymes, Rhymer):**
+- 📊 **Visual Popularity Bars** - See word frequency at a glance
+- 📁 **Syllable Grouping** - Results organized by syllable count
+- 🔬 **Rare Only Filter** - Focus on technical rhymes
+- 🎵 **Multi-Syllable Detection** - Find double/triple rhymes
+- 🔤 **Alliteration Bonus** - Rewards matching onset consonants
+- 🗣️ **Pronunciation Display** - Educational ARPAbet phonemes
+- 🎼 **Metrical Analysis** - Stress patterns and metrical feet display
+- 📜 **Column Layout** - Results visible side-by-side for easy comparison
+
+**Categories Explained:**
+- **✓✓ Popular:** Found in both CMU Dictionary and Datamuse - widely recognized, high-confidence rhymes
+- **📚 Technical:** Found ONLY in CMU Dictionary - rare finds that showcase our unique database
+- **💬 Colloquial:** Multi-word phrases from Datamuse - common expressions and idioms
+
+**Scoring System:**
+- **K3 (1.00):** Exact stressed rime - perfect rhyme with same stress
+- **K2 (0.85):** Perfect by ear - same sounds, stress-agnostic
+- **Near-Perfect (0.60-0.74):** Very close slant rhymes
+- **Assonance (0.35-0.59):** Vowel rhymes with different consonants
+- **+0.10 bonus:** Alliteration (matching onset)
+- **+0.05 bonus:** Multi-syllable rhyme (2+ syllables match)
+
+**Metrical Feet:**
+- **Iamb:** unstressed-stressed (x /) - e.g., "begin", "away"
+- **Trochee:** stressed-unstressed (/ x) - e.g., "table", "happy"
+- **Dactyl:** stressed-unstressed-unstressed (/ x x) - e.g., "merrily"
+- **Anapest:** unstressed-unstressed-stressed (x x /) - e.g., "understand"
+- **Spondee:** stressed-stressed (/ /)
+- **Pyrrhic:** unstressed-unstressed (x x)
+- **Amphibrach:** unstressed-stressed-unstressed (x / x) - e.g., "another"
+- **Amphimacer:** stressed-unstressed-stressed (/ x /) - e.g., "hot and cold"
+
+**Data Sources:**
+- CMU Pronunciation Dictionary (ARPAbet phonemes)
+- Datamuse API (validation & colloquial phrases)
+- Zipf frequency scores (lower = rarer words)
+
+**Settings:** Max 50 results per category | Zipf threshold ≤ 4.5 for slant rhymes
+
+**Logging:** All searches logged to `logs/app.log` for monitoring and troubleshooting
+
+---
+
 **Built with the principle that features grow and improve, never disappear for simplicity.**
 
 *RhymeRarity - Finding the rhymes LLMs miss*

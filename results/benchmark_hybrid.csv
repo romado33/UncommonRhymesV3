@@ -1,0 +1,33 @@
+query,our_count,datamuse_total,overlap_count,we_missed_count,technical_only_count,recall_pct,latency_ms,error,we_missed_examples,technical_only_examples
+barbecue,242,134,103,31,139,76.86567164179104,1142.4,,avenue|barb accuse|bathing suit|breakthrough|cartoon,accused|ague|ainu|amadou|appeal to
+beat it,0,0,0,0,0,0.0,2.3,,,
+café latte,0,0,0,0,0,0.0,0.6,,,
+chandelier,300,200,129,71,171,64.5,944.3,,adhere|adore|atmosphere|austere|blare,adar|admire|admitted|aer|ajar
+choir,239,150,141,9,98,94.0,730.4,,desired|fighter|fires|justin biber|pyre,alliance|alongside|alright|anxiety|arrival
+double,137,92,88,4,49,95.65217391304348,720.8,,cousin|humble|russell|tunnel,colors|colour|covering|custom|cuts
+downside,216,109,66,43,150,60.550458715596335,1020.6,,amplified|backside|bedside|blindside|bromide,acidified|acquired|actinide|alcide|alliance
+hat,201,100,95,5,106,95.0,1273.8,,batt|blatt|gat|platt|splat,acid|actress|alan|arnatt|arrive at
+machine learning,0,0,0,0,0,0.0,0.6,,,
+onomatopoeia,0,1,0,1,0,0.0,0.3,,onomatopoeical,
+orange,96,52,47,5,49,90.38461538461539,946.9,,lawrence|mortgage|scoring|warrant|warren,assault|authors|authors'|auto|chocolate
+queue,205,100,52,48,153,52.0,1201.7,,accrue|adieu|anew|askew|blue,accused|aircrew|amadou|appeal to|approval
+rhythm,101,58,53,5,48,91.37931034482759,877.4,,composition|hidden|serum|william|wisdom,admitted|atmosphere|bullshit|children's|consistent
+rough,125,75,75,0,50,100.0,846.8,,,colors|colour|comfort|cousin|covering
+through time,0,0,0,0,0,0.0,0.9,,,
+dollar,192,147,142,5,50,96.5986394557823,902.4,,bother|copper|honor|honour|scholars,argue|awful|bars|blocks|charlie
+collar,213,149,145,4,68,97.31543624161074,733.2,,bother|honor|honour|scholars,carl|carter|charlie|charlotte|chart
+holler,216,149,145,4,71,97.31543624161074,907.4,,bother|copper|honor|scholars,argue|awful|bars|blocks|charlie
+scholar,216,149,144,5,72,96.64429530201343,952.5,,bother|copper|honor|honour|scholars,argue|awful|bars|blocks|charlie
+chart,253,200,133,67,120,66.5,951.7,,abort|abstract art|after part|appellate court|artificial heart,ahart|alert|artcc|autopart|banghart
+dart,253,200,133,67,120,66.5,966.1,,abort|abstract art|after part|appellate court|artificial heart,ahart|alert|argue|artcc|autopart
+heart,253,200,133,67,120,66.5,803.5,,abort|abstract art|after part|appellate court|bass part,ahart|alert|argue|artcc|autopart
+smart,253,200,133,67,120,66.5,724.3,,abort|abstract art|after part|appellate court|artificial heart,ahart|alert|argue|artcc|autopart
+art,253,200,133,67,120,66.5,826.5,,abort|after part|artificial heart|at heart|atrium of the heart,ahart|alarm|alert|ali|argue
+cart,253,200,133,67,120,66.5,832.8,,abort|abstract art|after part|appellate court|artificial heart,ahart|alert|artcc|autopart|banghart
+part,253,200,134,66,119,67.0,854.7,,abort|abstract art|appellate court|artificial heart|at heart,ahart|alert|argue|artcc|autopart
+start,253,200,133,67,120,66.5,885.0,,abort|abstract art|after part|appellate court|artificial heart,ahart|alert|argue|artcc|autopart
+sporange,0,0,0,0,0,0.0,2.0,,,
+algorithm,105,57,55,2,50,96.49122807017544,859.6,,hidden|wisdom,admitted|assist|atmosphere|bullshit|children's
+prism,248,156,104,52,144,66.66666666666666,993.4,,atheism|barbarism|bolshevism|capitalism|catechism,abolitionism|abstract expressionism|admitted|air embolism|alcoholism
+trouble,139,93,92,1,47,98.9247311827957,809.4,,humble,colors|colour|comfort|covering|custom
+bubble,140,93,91,2,49,97.84946236559139,850.2,,humble|tunnel,backup|begun|beloved|bloody|brush

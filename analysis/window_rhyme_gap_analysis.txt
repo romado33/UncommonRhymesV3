@@ -1,0 +1,85 @@
+Window rhyme coverage findings (generated 2025-11-06)
+=====================================================
+
+Summary
+-------
+- Target word: window (k1 = IH, k2 = IH|N D OW0)
+- Datamuse “perfect” returns: 7 items (5 single-word, 2 multi-word)
+- Search engine coverage of 190 RhymeZone near-rhyme terms: 29 covered, 161 missing
+- Missing causes (top-level):
+  * 100 not present in local CMU database (`words_index.sqlite`)
+  * 61 rejected by K1/K2 gate despite final-vowel agreement
+      - 16 of these are supplied by Datamuse but filtered out
+  * 45 not returned by Datamuse at all (names/phrases)
+
+Datamuse “perfect” list
+-----------------------
+- Supported in Perfect column: indo, lindo, jindo, lindow, indo-
+- Routed to multi-word column: thin dough, window o
+
+Breakdown of RhymeZone terms (sample of 190)
+--------------------------------------------
+Legend:
+- covered-perfect  → Perfect column
+- covered-slant    → Slant column
+- covered-multi    → Multi-word column
+- missing(CMU)     → Not in words_index.sqlite
+- missing(k1/k2,dm)→ In CMU but filtered (mismatch); in Datamuse
+- missing(k1/k2)   → In CMU but filtered (mismatch); not in Datamuse
+- missing(DM)      → In CMU, vowel match OK, but Datamuse doesn’t return
+
+covered-perfect: indo, lindo
+covered-slant: jacinto, minto, quinto, windows, widow, info, minnow, kiddo,
+  windowed, minow, intro, limbo, crescendo, endo, limo, innuendo, flamingo,
+  domingo, dingo, francisco, disco, hippo
+covered-multi: been po, john doe
+
+missing(CMU): fp scf indo, been low, kin though, skin show, been so, been no,
+  since so, cabildo, freneau, finno, bidault, until dough, stiff dough,
+  skin dose, been towed, int row, ming cho, big toe, rimbaud, big o, big show,
+  it go, is no, is so, been shown, in vitro, did so, it so, is low, been known,
+  give no, did know, did no, been slow, here so, been both, libro, igbo, ipso,
+  cuando, been home, been those, appear so, his low, did show, fondo, his so,
+  hear no, here no, appeared so, his show, mismo, it though, his foe, give so,
+  been sown, hear so, its so, miso, filho, abydos, iro, illo, momento, giro,
+  deutero, cyclo, kinfolk, cinquecento, big joe, drilled hole (total 100)
+
+missing(k1/k2,dm): pinto, shinto, tinto, bingo, gringo, nintendo, hero, lingo,
+  cond o, billow, hondo, ando, kondo, mondo, lando, pinto (duplicates omitted)
+
+missing(k1/k2): prideaux, cinco, ditto, tiptoe, cristo, christo, bristow,
+  simcoe, mingo, nimmo, galindo, ingo, timo, jingo, cond o (duplicates omitted)
+
+missing(DM): mundo, ling o, hero (if DM absent), christo, bristow, nimmo,
+  galindo, ingo, etc. (see detailed table in log output)
+
+Key observations
+----------------
+1. CMU coverage gap is the dominant blocker (~53% of missing items).
+2. K1/K2 equality check removes many recognisable “-o” endings
+   (pinto, shinto, gringo), even though Datamuse confirms them.
+3. Datamuse itself omits numerous phrases/names; additional data sources
+   or manual seeding would be required to mirror the RhymeZone list.
+4. Multi-word list currently enforces total syllables ≤ target; relaxing
+   this would allow phrases like “been known” (3 syllables) if desired.
+
+Recommended actions
+-------------------
+1. Loosen CMU slant retrieval: rely on final vowel/tail analysis instead
+   of strict K1/K2 equality so Datamuse-proven matches are retained.
+2. Integrate an expanded phonetic lexicon or ingest high-priority names/
+   phrases from RhymeZone into `words_index.sqlite`.
+3. Supplement Datamuse data with additional endpoints or curated
+   multi-word phrase lists to reduce dependence on their coverage.
+4. Review syllable cap rules for multi-word results to determine whether
+   longer phrases should be permitted on a per-feature basis.
+
+Tooling provenance
+------------------
+- Datamuse query: `fetch_datamuse_comprehensive('window')`
+- CMU lookup: `words_index.sqlite`
+- Comparison script: ad-hoc Python run in PowerShell (see session history)
+
+
+
+

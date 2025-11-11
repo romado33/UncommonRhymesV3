@@ -59,6 +59,37 @@ METRICAL_FEET = {
     (1, 0, 1): "amphimacer (stressed-unstressed-stressed: / x /)",
 }
 
+def estimate_syllables(word: str) -> int:
+    """
+    Estimate syllable count for words not in CMU database.
+    Simple vowel-based counting with some common patterns.
+    """
+    word = word.lower().strip()
+    if not word:
+        return 0
+    
+    # Count vowel groups (consecutive vowels count as one syllable)
+    vowels = 'aeiouy'
+    syllable_count = 0
+    prev_was_vowel = False
+    
+    for char in word:
+        is_vowel = char in vowels
+        if is_vowel and not prev_was_vowel:
+            syllable_count += 1
+        prev_was_vowel = is_vowel
+    
+    # Handle silent 'e' at the end
+    if word.endswith('e') and syllable_count > 1:
+        syllable_count -= 1
+    
+    # Handle common patterns
+    if word.endswith('le') and len(word) > 2 and word[-3] not in vowels:
+        syllable_count += 1
+    
+    # Minimum 1 syllable for any word
+    return max(1, syllable_count)
+
 def get_stress_pattern_from_db(word: str) -> tuple:
     """
     Get stress pattern and metrical foot for a word from CMU database
@@ -75,7 +106,7 @@ def get_stress_pattern_from_db(word: str) -> tuple:
             db_path = Path(__file__).parent / "data" / "words_index.sqlite"
         
         if not db_path.exists():
-            return None, None, 0
+            return None, None, estimate_syllables(word)
         
         conn = sqlite3.connect(str(db_path))
         cursor = conn.cursor()
@@ -101,17 +132,29 @@ def get_stress_pattern_from_db(word: str) -> tuple:
         conn.close()
         
         if not result:
-            return None, None, 0
+            # Word not in database - estimate syllables
+            estimated_syls = estimate_syllables(word)
+            return None, None, estimated_syls
         
         pronunciation, stress, syls = result
         
         # Parse stress pattern
         if stress:
-            stress_list = [int(s) for s in stress.split('-') if s.isdigit()]
+            # Handle both "10" and "1-0" formats
+            if '-' in stress:
+                stress_list = [int(s) for s in stress.split('-') if s.isdigit()]
+            else:
+                # Handle "10" format - split each digit
+                stress_list = [int(s) for s in stress if s.isdigit()]
             stress_tuple = tuple(stress_list)
             
-            # Find matching metrical foot
-            metrical_foot = METRICAL_FEET.get(stress_tuple, None)
+            # Find matching metrical foot - extract just the name, not the description
+            metrical_foot_full = METRICAL_FEET.get(stress_tuple, None)
+            if metrical_foot_full:
+                # Extract just the metrical foot name (before any parentheses or descriptions)
+                metrical_foot = metrical_foot_full.split(' (')[0].strip()
+            else:
+                metrical_foot = None
             
             # Format stress pattern for display
             stress_display = stress.replace('-', '‑')  # Non-breaking hyphen
@@ -149,21 +192,42 @@ def format_search_term_info(term: str) -> str:
 # FORMATTING FUNCTIONS
 # =============================================================================
 
-def format_popularity_bar(zipf: float) -> str:
-    """
-    Create visual popularity bar from zipf score.
-    Zipf 0-2 = rare (1-2 bars)
-    Zipf 2-4 = uncommon (3-5 bars)
-    Zipf 4-6 = common (6-8 bars)
-    Zipf 6+ = very common (9-10 bars)
-    """
-    bars_filled = min(10, max(1, int((zipf / 7.0) * 10)))
-    filled = "█" * bars_filled
-    empty = "░" * (10 - bars_filled)
-    return f"{filled}{empty}"
 
-def format_rhyme_item(item: dict, emoji: str = "", show_pronunciation: bool = False) -> str:
-    """Format a single rhyme result with emoji, visual popularity, and optional pronunciation"""
+def ensure_complete_metrical_data(item: dict) -> dict:
+    """
+    Ensure all rhyme items have complete metrical data (syllables, stress, metrical foot).
+    This function guarantees consistent display across DM and CMU results.
+    """
+    word = item['word']
+    
+    # Get current data
+    current_syls = item.get('syls', 0)
+    current_stress = item.get('stress', '')
+    current_metrical = item.get('metrical_foot', '')
+    
+    # If any data is missing, try database lookup
+    if current_syls == 0 or not current_stress or not current_metrical:
+        stress_from_db, metrical_from_db, syls_from_db = get_stress_pattern_from_db(word)
+        
+        # Use database data to fill in missing information
+        if current_syls == 0 and syls_from_db > 0:
+            item['syls'] = syls_from_db
+        if not current_stress and stress_from_db:
+            item['stress'] = stress_from_db
+        if not current_metrical and metrical_from_db:
+            item['metrical_foot'] = metrical_from_db
+    
+    # Final check: ensure we have at least estimated syllables
+    if item.get('syls', 0) == 0:
+        item['syls'] = estimate_syllables(word)
+    
+    return item
+
+def format_rhyme_item(item: dict, emoji: str = "", show_pronunciation: bool = False, item_number: int = 0) -> str:
+    """Format a single rhyme result with emoji, metrical pattern info, and source color coding"""
+    # Ensure complete metrical data first
+    item = ensure_complete_metrical_data(item)
+    
     word = item['word']
     score = item.get('score', 0)
     zipf = item.get('zipf', 0)
@@ -172,15 +236,56 @@ def format_rhyme_item(item: dict, emoji: str = "", show_pronunciation: bool = Fa
     pron = item.get('pron', '')
     has_alliteration = item.get('has_alliteration', False)
     matching_syls = item.get('matching_syllables', 0)
+    datamuse_verified = item.get('datamuse_verified', False)
+    source = item.get('source', '')
+    metrical_foot = item.get('metrical_foot', '')
     
-    # Visual popularity bar
-    pop_bar = format_popularity_bar(zipf) if zipf else "░░░░░░░░░░"
+    metrical_display = f" *{metrical_foot}*" if metrical_foot else ""
     
-    # Format stress pattern nicely
-    stress_display = stress.replace('-', '‑') if stress else 'N/A'  # Non-breaking hyphen
+    # Format stress pattern nicely (ensure 1-0 format)
+    if stress:
+        # Clean stress pattern - replace any '2's with '1's and ensure hyphens
+        stress_clean = stress.replace('2', '1')
+        # If it's like "10", convert to "1-0"
+        if len(stress_clean) == 2 and stress_clean.isdigit():
+            stress_display = f"{stress_clean[0]}-{stress_clean[1]}"
+        else:
+            stress_display = stress_clean.replace(' ', '-')
+    else:
+        stress_display = 'N/A'
     
-    # Build display string
-    result = f"{emoji} **{word}** ({pop_bar})"
+    # Determine source color coding
+    if datamuse_verified or 'datamuse' in source.lower():
+        source_indicator = "🔵"  # Blue for Datamuse
+        source_text = "DM"
+    else:
+        source_indicator = "🟢"  # Green for CMU/our model
+        source_text = "CMU"
+    
+    # Build display string with source color coding and score
+    # Use numbered format if item_number is provided, otherwise use emoji
+    if item_number > 0:
+        result = f"{item_number}. {source_indicator}{source_text} **{word}**"
+    else:
+        result = f"{emoji} {source_indicator}{source_text} **{word}**"
+    
+    # Add score display for debugging - handle both 0-1 scale (Datamuse) and 0-100 scale (CMU)
+    if score >= 85 or score >= 0.95:
+        score_type = "K3"
+        score_str = f"📊{score:.2f}"
+    elif score >= 80 or score >= 0.80:
+        score_type = "K2"
+        score_str = f"📊{score:.2f}"
+    elif score >= 60 or score >= 0.60:
+        score_type = "Near"
+        score_str = f"📊{score:.2f}"
+    elif score >= 35 or score >= 0.35:
+        score_type = "Asson"
+        score_str = f"📊{score:.2f}"
+    else:
+        score_type = "Low"
+        score_str = f"📊{score:.2f}"
+    result += f" {score_str}({score_type})"
     
     # Add alliteration indicator
     if has_alliteration:
@@ -190,7 +295,8 @@ def format_rhyme_item(item: dict, emoji: str = "", show_pronunciation: bool = Fa
     if matching_syls >= 2:
         result += f" 🎵×{matching_syls}"
     
-    result += f" ({syls}syl, {stress_display})"
+    # Add metrical info in the requested format: Word: syllables * stress-pattern, metrical-foot
+    result += f": {syls} * {stress_display}{metrical_display}"
     
     # Add pronunciation if enabled
     if show_pronunciation and pron:
@@ -215,8 +321,8 @@ def format_syllable_section(items: list, emoji: str, show_pronunciation: bool = 
         output.append(f"\n**{syl_count}-syllable ({count} rhymes):**\n")
         
         # Items
-        for item in syl_items:
-            output.append(format_rhyme_item(item, emoji, show_pronunciation))
+        for i, item in enumerate(syl_items, 1):
+            output.append(format_rhyme_item(item, emoji, show_pronunciation, i))
         
     return output
 
@@ -232,34 +338,25 @@ def format_perfect_section(results: dict, counts: dict, show_pronunciation: bool
     
     # Popular section (both sources)
     if perfect_pop:
-        output.append("#### ✓✓ Popular Perfect Rhymes")
-        output.append("*Found in both CMU Dictionary and Datamuse - widely recognized*\n")
-        
         # Organize by syllables
         by_syl = organize_by_syllables(perfect_pop)
         for syl_count in sorted(by_syl.keys()):
             syl_items = by_syl[syl_count]
             output.append(f"\n**{syl_count}-syllable ({len(syl_items)} rhymes):**\n")
             for item in syl_items:
-                emoji = "⭐" if item.get('score', 0) >= 1.00 else "✓"
-                output.append(format_rhyme_item(item, emoji, show_pronunciation))
+                output.append(format_rhyme_item(item, "•", show_pronunciation))
         
         output.append("")  # Blank line
     
     # Technical section (CMU only) - OUR SPECIALTY
     if perfect_tech:
-        output.append("#### 📚 Technical Perfect Rhymes")
-        output.append("*Found only in CMU Dictionary - rare/archaic/technical terms*")
-        output.append("*This is our unique value proposition!*\n")
-        
         # Organize by syllables
         by_syl = organize_by_syllables(perfect_tech)
         for syl_count in sorted(by_syl.keys()):
             syl_items = by_syl[syl_count]
             output.append(f"\n**{syl_count}-syllable ({len(syl_items)} rhymes):**\n")
             for item in syl_items:
-                emoji = "⭐" if item.get('score', 0) >= 1.00 else "✓"
-                output.append(format_rhyme_item(item, emoji, show_pronunciation))
+                output.append(format_rhyme_item(item, "•", show_pronunciation))
         
         output.append("")
     
@@ -270,66 +367,174 @@ def format_perfect_section(results: dict, counts: dict, show_pronunciation: bool
     return "\n".join(output)
 
 def format_slant_section(results: dict, counts: dict, show_pronunciation: bool = False) -> str:
-    """Format Slant Rhymes section with visual grouping and Popular/Technical subsections"""
+    """Format Slant Rhymes section with all new K-key categories"""
     output = []
     
+    # Get all slant rhyme categories
     near_pop = results['slant']['near_perfect']['popular']
     near_tech = results['slant']['near_perfect']['technical']
     asso_pop = results['slant']['assonance']['popular']
     asso_tech = results['slant']['assonance']['technical']
+    terminal_pop = results['slant'].get('terminal_match', {}).get('popular', [])
+    terminal_tech = results['slant'].get('terminal_match', {}).get('technical', [])
+    consonance_pop = results['slant'].get('consonance', {}).get('popular', [])
+    consonance_tech = results['slant'].get('consonance', {}).get('technical', [])
+    family_pop = results['slant'].get('family_rhymes', {}).get('popular', [])
+    family_tech = results['slant'].get('family_rhymes', {}).get('technical', [])
+    pararhyme_pop = results['slant'].get('pararhyme', {}).get('popular', [])
+    pararhyme_tech = results['slant'].get('pararhyme', {}).get('technical', [])
+    multisyl_pop = results['slant'].get('multisyllabic', {}).get('popular', [])
+    multisyl_tech = results['slant'].get('multisyllabic', {}).get('technical', [])
+    upstream_pop = results['slant'].get('upstream_assonance', {}).get('popular', [])
+    upstream_tech = results['slant'].get('upstream_assonance', {}).get('technical', [])
     fallback = results['slant'].get('fallback', [])
     
-    if not any([near_pop, near_tech, asso_pop, asso_tech, fallback]):
+    # Check if we have any slant rhymes
+    all_slant_items = (near_pop + near_tech + asso_pop + asso_tech + 
+                      terminal_pop + terminal_tech + consonance_pop + consonance_tech +
+                      family_pop + family_tech + pararhyme_pop + pararhyme_tech +
+                      multisyl_pop + multisyl_tech + upstream_pop + upstream_tech)
+    
+    if not all_slant_items and not fallback:
         return "No slant rhymes found. Try adjusting filters or check other sections."
     
-    # NEAR-PERFECT SECTION (0.60-0.74)
-    if near_pop or near_tech:
-        output.append("#### 🎯 NEAR-PERFECT SLANT RHYMES")
-        output.append("*Very close to perfect - strong imperfect rhymes (score 0.60-0.74)*\n")
-        
-        if near_pop:
-            output.append("##### ✓✓ Popular Near-Perfect")
-            output.append("*Recognized by multiple sources*\n")
-            output.extend(format_syllable_section(near_pop, "🎯", show_pronunciation))
-            output.append("")
-        
-        if near_tech:
-            output.append("##### 📚 Technical Near-Perfect")
-            output.append("*Uncommon finds - only in CMU Dictionary*\n")
-            output.extend(format_syllable_section(near_tech, "🎯", show_pronunciation))
-            output.append("")
+    # Combine all slant rhyme items with type indicators
+    all_items = []
     
-    # ASSONANCE SECTION (0.35-0.59)
-    if asso_pop or asso_tech:
-        output.append("#### ≈ ASSONANCE (Vowel Rhymes)")
-        output.append("*Same vowel sound, different consonants (score 0.35-0.59)*\n")
+    # Add items with type indicators
+    for item in near_pop + near_tech:
+        item_copy = item.copy()
+        item_copy['rhyme_type'] = 'near_perfect'
+        all_items.append(item_copy)
+    
+    for item in asso_pop + asso_tech:
+        item_copy = item.copy()
+        item_copy['rhyme_type'] = 'assonance'
+        all_items.append(item_copy)
+    
+    for item in terminal_pop + terminal_tech:
+        item_copy = item.copy()
+        item_copy['rhyme_type'] = 'terminal_match'
+        all_items.append(item_copy)
+    
+    for item in consonance_pop + consonance_tech:
+        item_copy = item.copy()
+        item_copy['rhyme_type'] = 'consonance'
+        all_items.append(item_copy)
+    
+    for item in family_pop + family_tech:
+        item_copy = item.copy()
+        item_copy['rhyme_type'] = 'family_rhymes'
+        all_items.append(item_copy)
+    
+    for item in pararhyme_pop + pararhyme_tech:
+        item_copy = item.copy()
+        item_copy['rhyme_type'] = 'pararhyme'
+        all_items.append(item_copy)
+    
+    for item in multisyl_pop + multisyl_tech:
+        item_copy = item.copy()
+        item_copy['rhyme_type'] = 'multisyllabic'
+        all_items.append(item_copy)
+    
+    for item in upstream_pop + upstream_tech:
+        item_copy = item.copy()
+        item_copy['rhyme_type'] = 'upstream_assonance'
+        all_items.append(item_copy)
+    
+    if not all_items:
+        return "No slant rhymes found. Try adjusting filters or check other sections."
+    
+    # Group by syllables first, then by type within each syllable group
+    by_syl = organize_by_syllables(all_items)
+    
+    for syl_count in sorted(by_syl.keys()):
+        syl_items = by_syl[syl_count]
+        count = len(syl_items)
         
-        if asso_pop:
-            output.append("##### ✓✓ Popular Assonance")
-            output.append("*Recognized by multiple sources*\n")
-            output.extend(format_syllable_section(asso_pop, "≈", show_pronunciation))
-            output.append("")
+        # Syllable header
+        output.append(f"\n**{syl_count}-syllable ({count} rhymes):**\n")
         
-        if asso_tech:
-            output.append("##### 📚 Technical Assonance")
-            output.append("*Uncommon finds - only in CMU Dictionary*\n")
-            output.extend(format_syllable_section(asso_tech, "≈", show_pronunciation))
+        # Group by type within this syllable count
+        type_groups = {
+            'near_perfect': [item for item in syl_items if item.get('rhyme_type') == 'near_perfect'],
+            'terminal_match': [item for item in syl_items if item.get('rhyme_type') == 'terminal_match'],
+            'assonance': [item for item in syl_items if item.get('rhyme_type') == 'assonance'],
+            'consonance': [item for item in syl_items if item.get('rhyme_type') == 'consonance'],
+            'family_rhymes': [item for item in syl_items if item.get('rhyme_type') == 'family_rhymes'],
+            'pararhyme': [item for item in syl_items if item.get('rhyme_type') == 'pararhyme'],
+            'multisyllabic': [item for item in syl_items if item.get('rhyme_type') == 'multisyllabic'],
+            'upstream_assonance': [item for item in syl_items if item.get('rhyme_type') == 'upstream_assonance']
+        }
+        
+        # Add items by type with appropriate symbols
+        item_num = 1
+        for rhyme_type, items in type_groups.items():
+            if items:
+                # Add type header for clarity
+                type_names = {
+                    'near_perfect': 'Near-Perfect',
+                    'terminal_match': 'Terminal Match',
+                    'assonance': 'Assonance',
+                    'consonance': 'Consonance',
+                    'family_rhymes': 'Family Rhymes',
+                    'pararhyme': 'Pararhyme',
+                    'multisyllabic': 'Multisyllabic',
+                    'upstream_assonance': 'Upstream Assonance'
+                }
+                
+                if len(type_groups) > 1:  # Only show type headers if multiple types
+                    output.append(f"*{type_names[rhyme_type]}:*")
+                
+                for item in items:
+                    # Choose appropriate symbol based on rhyme type
+                    symbols = {
+                        'near_perfect': '•',
+                        'terminal_match': '◐',
+                        'assonance': '○',
+                        'consonance': '◑',
+                        'family_rhymes': '◒',
+                        'pararhyme': '◓',
+                        'multisyllabic': '◔',
+                        'upstream_assonance': '◕'
+                    }
+                    symbol = symbols.get(rhyme_type, '•')
+                    output.append(format_rhyme_item(item, symbol, show_pronunciation, item_num))
+                    item_num += 1
+        
             output.append("")
     
     # FALLBACK SECTION (only if total slant < 5)
     if fallback and counts['total_slant'] < 5:
-        output.append("#### ⚠️ FALLBACK MATCHES")
+        output.append("#### FALLBACK MATCHES")
         output.append("*Weak matches shown due to limited results (score < 0.35)*\n")
-        for item in fallback:
-            output.append(format_rhyme_item(item, "⚠️", show_pronunciation))
+        for i, item in enumerate(fallback, 1):
+            output.append(format_rhyme_item(item, "•", show_pronunciation, i))
         output.append("")
     
     # Summary stats
     total_slant = counts['total_slant']
     total_with_fallback = total_slant + (counts['fallback'] if counts['total_slant'] < 5 else 0)
     output.append(f"\n**Total:** {total_with_fallback} slant rhymes")
-    output.append(f"- Near-Perfect: {counts['near_perfect_popular'] + counts['near_perfect_technical']} ({counts['near_perfect_popular']} popular, {counts['near_perfect_technical']} technical)")
-    output.append(f"- Assonance: {counts['assonance_popular'] + counts['assonance_technical']} ({counts['assonance_popular']} popular, {counts['assonance_technical']} technical)")
+    
+    # Add counts for each category
+    categories = [
+        ('Near-Perfect', 'near_perfect'),
+        ('Terminal Match', 'terminal_match'),
+        ('Assonance', 'assonance'),
+        ('Consonance', 'consonance'),
+        ('Family Rhymes', 'family_rhymes'),
+        ('Pararhyme', 'pararhyme'),
+        ('Multisyllabic', 'multisyllabic'),
+        ('Upstream Assonance', 'upstream_assonance')
+    ]
+    
+    for name, key in categories:
+        pop_count = len(results['slant'].get(key, {}).get('popular', []))
+        tech_count = len(results['slant'].get(key, {}).get('technical', []))
+        if pop_count > 0 or tech_count > 0:
+            output.append(f"- {name}: {pop_count + tech_count} ({pop_count} popular, {tech_count} technical)")
+    
     if fallback and counts['total_slant'] < 5:
         output.append(f"- Fallback: {counts['fallback']}")
     
@@ -342,16 +547,15 @@ def format_colloquial_section(results: dict, counts: dict) -> str:
     colloquial = results.get('colloquial', [])
     
     if not colloquial:
-        return "No colloquial phrases found. These are multi-word rhyming expressions from Datamuse."
+        return "No multi-word rhymes found."
     
-    output.append("#### 💬 Colloquial Rhyming Phrases")
-    output.append("*Multi-word expressions and phrases that rhyme*")
-    output.append("*Source: Datamuse API (common usage)*\n")
     
-    for item in colloquial:
-        output.append(f"💬 **{item['word']}**")
+    for i, item in enumerate(colloquial, 1):
+        # Use the same formatting as other results
+        formatted_item = format_rhyme_item(item, "•", False, i)
+        output.append(formatted_item)
     
-    output.append(f"\n**Total:** {counts['colloquial']} colloquial phrases")
+    output.append(f"\n**Total:** {counts['colloquial']} multi-word rhymes")
     
     return "\n".join(output)
 
@@ -376,7 +580,8 @@ Stay tuned!"""
 def search_interface(term: str, syl_filter: str, stress_filter: str, 
                      use_datamuse: bool, show_rare_only: bool, 
                      multisyl_only: bool, enable_alliteration: bool,
-                     show_pronunciation: bool):
+                     show_pronunciation: bool, show_popular_rhymes: bool = False,
+                     show_obscure_rhymes: bool = False):
     """Main search interface function with all filters and comprehensive logging"""
     
     # Generate unique request ID for tracking
@@ -401,6 +606,12 @@ def search_interface(term: str, syl_filter: str, stress_filter: str,
         # Format search term info
         term_info = format_search_term_info(term.strip())
         
+        # Extract numerical pattern from metrical pattern selection
+        # Handle both "1-0" and "1-0 (trochee)" formats
+        if stress_filter != "Any" and "(" in stress_filter:
+            # Extract just the numerical pattern from "1-0 (trochee)"
+            stress_filter = stress_filter.split(" (")[0].strip()
+        
         # Perform search - NOW WITH CORRECT SIGNATURE
         results = search_rhymes(
             term.strip(), 
@@ -410,6 +621,58 @@ def search_interface(term: str, syl_filter: str, stress_filter: str,
             multisyl_only=multisyl_only,
             enable_alliteration=enable_alliteration
         )
+        
+        # Handle hidden rhymes if user wants to see them
+        if show_popular_rhymes or show_obscure_rhymes:
+            hidden = results.get('_hidden', {})
+            
+            if show_popular_rhymes and hidden.get('popular'):
+                # Add popular rhymes back to results
+                for item in hidden['popular']:
+                    category = item['category']
+                    if category == 'perfect':
+                        if item.get('freq', 0) >= 2.0:
+                            results['perfect']['popular'].append(item)
+                        else:
+                            results['perfect']['technical'].append(item)
+                    elif category == 'slant':
+                        score = item.get('score', 0)
+                        if score >= 0.60:
+                            if item.get('freq', 0) >= 2.0:
+                                results['slant']['near_perfect']['popular'].append(item)
+                            else:
+                                results['slant']['near_perfect']['technical'].append(item)
+                        else:
+                            if item.get('freq', 0) >= 2.0:
+                                results['slant']['assonance']['popular'].append(item)
+                            else:
+                                results['slant']['assonance']['technical'].append(item)
+                    elif category == 'multiword':
+                        results['colloquial'].append(item)
+            
+            if show_obscure_rhymes and hidden.get('obscure'):
+                # Add obscure rhymes back to results
+                for item in hidden['obscure']:
+                    category = item['category']
+                    if category == 'perfect':
+                        if item.get('freq', 0) >= 2.0:
+                            results['perfect']['popular'].append(item)
+                        else:
+                            results['perfect']['technical'].append(item)
+                    elif category == 'slant':
+                        score = item.get('score', 0)
+                        if score >= 0.60:
+                            if item.get('freq', 0) >= 2.0:
+                                results['slant']['near_perfect']['popular'].append(item)
+                            else:
+                                results['slant']['near_perfect']['technical'].append(item)
+                        else:
+                            if item.get('freq', 0) >= 2.0:
+                                results['slant']['assonance']['popular'].append(item)
+                            else:
+                                results['slant']['assonance']['technical'].append(item)
+                    elif category == 'multiword':
+                        results['colloquial'].append(item)
         
         # Apply "show rare only" filter
         if show_rare_only:
@@ -438,8 +701,17 @@ def search_interface(term: str, syl_filter: str, stress_filter: str,
             f"ui.render id={request_id} elapsed_ms={elapsed_ms:.1f} counts={counts} preview={preview}"
         )
         
+        # Add hidden rhymes summary to results
+        hidden_summary = ""
+        if '_hidden' in results:
+            hidden = results['_hidden']
+            popular_count = len(hidden.get('popular', []))
+            obscure_count = len(hidden.get('obscure', []))
+            if popular_count > 0 or obscure_count > 0:
+                hidden_summary = f"\n**Hidden Rhymes:** {popular_count} popular, {obscure_count} obscure (use checkboxes above to show)"
+        
         # Format each section
-        perfect_output = format_perfect_section(results, counts, show_pronunciation)
+        perfect_output = format_perfect_section(results, counts, show_pronunciation) + hidden_summary
         slant_output = format_slant_section(results, counts, show_pronunciation)
         colloquial_output = format_colloquial_section(results, counts)
         rap_output = format_rap_section()
@@ -457,7 +729,51 @@ def search_interface(term: str, syl_filter: str, stress_filter: str,
 # =============================================================================
 
 # Build Gradio interface
-with gr.Blocks(title="Anti-LLM Rhyme Engine - Enhanced", theme=gr.themes.Soft()) as app:
+with gr.Blocks(
+    title="Anti-LLM Rhyme Engine - Enhanced", 
+    theme=gr.themes.Soft(),
+    css="""
+    /* Force all content to start at top */
+    .gradio-container {
+        max-width: 1400px !important;
+        margin: 0 auto !important;
+    }
+    /* Target specific columns with class */
+    .top-align-column {
+        align-self: flex-start !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+    }
+    .top-align-column > * {
+        align-self: flex-start !important;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        width: 100% !important;
+    }
+    /* Remove all vertical centering from rows */
+    .gradio-row {
+        align-items: flex-start !important;
+        display: flex !important;
+    }
+    /* Remove spacing from headers */
+    .gradio-markdown h3 {
+        margin: 0 0 5px 0 !important;
+        padding: 0 !important;
+    }
+    /* Remove spacing from tables */
+    .gradio-markdown table {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    /* Force markdown content to top */
+    .gradio-markdown {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    """
+) as app:
     gr.Markdown("""
     # 🎯 Anti-LLM Rhyme Engine - Enhanced Edition (FIXED)
     
@@ -465,7 +781,7 @@ with gr.Blocks(title="Anti-LLM Rhyme Engine - Enhanced", theme=gr.themes.Soft())
     
     Our unique value: **Technical rhymes (📚)** are found ONLY in the CMU Pronunciation Dictionary - nobody else has them!
     
-    **New Features:** Visual popularity bars, syllable grouping, multi-syllable detection, alliteration bonuses, metrical analysis
+    **New Features:** Syllable grouping, multi-syllable detection, alliteration bonuses, metrical analysis
     
     **Integration Fixed:** All components now properly connected and tested
     
@@ -483,56 +799,76 @@ with gr.Blocks(title="Anti-LLM Rhyme Engine - Enhanced", theme=gr.themes.Soft())
         with gr.Column(scale=1):
             search_btn = gr.Button("🔍 Search", variant="primary", size="lg")
     
-    # Filters section
-    gr.Markdown("### 🎛️ Filters & Options")
-    
-    with gr.Row():
-        syl_filter = gr.Dropdown(
-            choices=["Any", "1", "2", "3", "4", "5+"],
-            value="Any",
-            label="Syllables",
-            scale=1
-        )
-        stress_filter = gr.Dropdown(
-            choices=["Any", "1-0", "0-1", "1-0-0", "0-0-1", "0-1-0"],
-            value="Any",
-            label="Stress Pattern",
-            scale=1
-        )
-    
-    with gr.Row():
-        datamuse_toggle = gr.Checkbox(
-            value=True,
-            label="✓ Use Datamuse API",
-            info="Validate with Datamuse for popular/technical split",
-            scale=1
-        )
-        show_rare_only = gr.Checkbox(
-            value=False,
-            label="🔬 Show rare/technical only",
-            info="Hide popular rhymes, show only our unique finds",
-            scale=1
-        )
-        multisyl_only = gr.Checkbox(
-            value=False,
-            label="🎵 Multi-syllable rhymes only",
-            info="Only show double/triple rhymes (2+ syllables match)",
-            scale=1
-        )
-    
-    with gr.Row():
-        enable_alliteration = gr.Checkbox(
-            value=True,
-            label="🔤 Enable alliteration bonus",
-            info="Boost rhymes with matching onset consonants",
-            scale=1
-        )
-        show_pronunciation = gr.Checkbox(
-            value=False,
-            label="🗣️ Show pronunciation",
-            info="Display ARPAbet phonemes for each rhyme",
-            scale=1
-        )
+    # Filters section - collapsed into accordion
+    with gr.Accordion("🎛️ Filters & Options", open=False):
+        with gr.Row():
+            syl_filter = gr.Dropdown(
+                choices=["Any", "1", "2", "3", "4", "5+"],
+                value="Any",
+                label="Syllables",
+                scale=1
+            )
+            stress_filter = gr.Dropdown(
+                    choices=[
+                        "Any", 
+                        "1-0 (trochee)", "0-1 (iamb)", 
+                        "1-0-0 (dactyl)", "0-0-1 (anapest)", "0-1-0 (amphibrach)",
+                        "1-1 (spondee)", "0-0 (pyrrhic)"
+                    ],
+                value="Any",
+                    label="Metrical Pattern",
+                    info="Filter by stress pattern or metrical foot",
+                scale=1
+            )
+        
+        with gr.Row():
+            datamuse_toggle = gr.Checkbox(
+                value=True,
+                label="✓ Use Datamuse API",
+                info="Validate with Datamuse for popular/technical split",
+                scale=1
+            )
+            show_rare_only = gr.Checkbox(
+                value=False,
+                label="🔬 Show rare/technical only",
+                info="Hide popular rhymes, show only our unique finds",
+                scale=1
+            )
+            multisyl_only = gr.Checkbox(
+                value=False,
+                label="🎵 Multi-syllable rhymes only",
+                info="Only show double/triple rhymes (2+ syllables match)",
+                scale=1
+            )
+        
+        with gr.Row():
+            enable_alliteration = gr.Checkbox(
+                value=True,
+                label="🔤 Enable alliteration bonus",
+                info="Boost rhymes with matching onset consonants",
+                scale=1
+            )
+            show_pronunciation = gr.Checkbox(
+                value=False,
+                label="🗣️ Show pronunciation",
+                info="Display ARPAbet phonemes for each rhyme",
+                    scale=1
+                )
+            
+            # Uncommon rhyme controls
+            gr.Markdown("**Uncommon Rhyme Settings:**")
+            show_popular_rhymes = gr.Checkbox(
+                value=False,
+                label="Show Popular Rhymes",
+                info="Display clichéd popular rhymes (normally hidden)",
+                scale=1
+            )
+            show_obscure_rhymes = gr.Checkbox(
+                value=False,
+                label="Show Obscure Rhymes", 
+                info="Display very rare/obscure rhymes (normally hidden)",
+                scale=1
+            )
     
     gr.Markdown("---")
     
@@ -546,55 +882,60 @@ with gr.Blocks(title="Anti-LLM Rhyme Engine - Enhanced", theme=gr.themes.Soft())
     gr.Markdown("*All results displayed below in columns - scroll to see each category*")
     
     # Row 1: Perfect | Slant | Colloquial (3 columns)
-    with gr.Row(equal_height=True):
+    with gr.Row(equal_height=False):
         # Column 1: Perfect Rhymes
-        with gr.Column(scale=1):
-            gr.Markdown("### ⭐ Perfect Rhymes")
+        with gr.Column(scale=1, elem_classes="top-align-column"):
+            gr.Markdown("### Perfect Rhymes")
             perfect_output = gr.Markdown(
                 value="Enter a word above to see perfect rhymes.",
                 line_breaks=True
             )
-            with gr.Accordion("📖 Perfect Rhymes Legend", open=False):
+            with gr.Accordion("Perfect Rhymes Legend", open=False):
                 gr.Markdown("""
                 **Symbols:**
-                - ⭐ = K3 strict perfect (exact stressed rime, score 1.00)
-                - ✓ = K2 perfect by ear (stress-agnostic, score 0.85)
-                - ✓✓ = Popular (found in both CMU and Datamuse)
-                - 📚 = Technical (CMU only - our specialty!)
-                - 🔤 = Alliteration (matching onset consonants)
-                - 🎵×N = Multi-syllable rhyme (N syllables match)
+                - • = K3 strict perfect (exact stressed rime, score 1.00)
+                - • = K2 perfect by ear (stress-agnostic, score 0.85)
+                - • = Popular (found in both CMU and Datamuse)
+                - • = Technical (CMU only - our specialty!)
+                - • = Alliteration (matching onset consonants)
+                - •×N = Multi-syllable rhyme (N syllables match)
                 - ██████░░░░ = Popularity bar (more bars = more common)
                 """)
         
         # Column 2: Slant Rhymes
-        with gr.Column(scale=1):
-            gr.Markdown("### ≈ Slant Rhymes")
+        with gr.Column(scale=1, elem_classes="top-align-column"):
+            gr.Markdown("### Slant Rhymes")
             slant_output = gr.Markdown(
                 value="Enter a word above to see slant rhymes.",
                 line_breaks=True
             )
-            with gr.Accordion("📖 Slant Rhymes Legend", open=False):
+            with gr.Accordion("Slant Rhymes Legend", open=False):
                 gr.Markdown("""
                 **Symbols:**
-                - 🎯 = Near-perfect slant (score 0.60-0.74)
-                - ≈ = Assonance / vowel rhyme (score 0.35-0.59)
-                - ⚠️ = Fallback (weak match, shown only if few results)
-                - ✓✓ = Popular (found in multiple sources)
-                - 📚 = Technical (CMU only - uncommon/rare)
-                - 🔤 = Alliteration bonus applied
-                - 🎵×N = Multi-syllable rhyme
+                - • = Near-perfect slant (score 0.60-0.74)
+                - ◐ = Terminal match (compounds, score 0.60-0.74)
+                - ○ = Assonance / vowel rhyme (score 0.35-0.59)
+                - ◑ = Consonance / consonant rhyme (score 0.20-0.59)
+                - ◒ = Family rhymes (phonetic similarity, score 0.15-0.59)
+                - ◓ = Pararhyme (consonant frame, score 0.15-0.59)
+                - ◔ = Multisyllabic (2+ syllables, score 0.10-0.59)
+                - ◕ = Upstream assonance (pre-tail vowels, score 0.10-0.25)
+                - • = Popular (found in multiple sources)
+                - • = Technical (CMU only - uncommon/rare)
+                - • = Alliteration bonus applied
+                - •×N = Multi-syllable rhyme
                 """)
         
         # Column 3: Colloquial
-        with gr.Column(scale=1):
-            gr.Markdown("### 💬 Colloquial Phrases")
+        with gr.Column(scale=1, elem_classes="top-align-column"):
+            gr.Markdown("### Multi-word Rhymes")
             colloquial_output = gr.Markdown(
-                value="Enter a word above to see colloquial rhyming phrases.",
+                value="Enter a word above to see multi-word rhyming phrases.",
                 line_breaks=True
             )
-            with gr.Accordion("📖 About Colloquial Phrases", open=False):
+            with gr.Accordion("About Multi-word Rhymes", open=False):
                 gr.Markdown("""
-                **Colloquial phrases** are multi-word expressions from Datamuse API.
+                **Multi-word rhymes** are phrases with multiple words that rhyme with your query.
                 These represent common usage and idiomatic rhymes.
                 
                 **Example:** "bubble bath", "double trouble", "on the double"
@@ -615,37 +956,19 @@ with gr.Blocks(title="Anti-LLM Rhyme Engine - Enhanced", theme=gr.themes.Soft())
     gr.Markdown("""
     ---
     
-    ### About This Enhanced Tool (FIXED VERSION)
-    
-    **Our Competitive Advantage:** We find **technical rhymes (📚)** that only exist in the CMU Pronunciation Dictionary.
-    These are uncommon, archaic, or specialized terms that:
-    - Traditional rhyme dictionaries don't include
-    - Datamuse API doesn't return
-    - LLMs hallucinate or miss entirely
-    - Give users vocabulary nobody else has
-    
-    **Enhanced Features (Inspired by RhymeZone, B-Rhymes, Rhymer):**
-    - 📊 **Visual Popularity Bars** - See word frequency at a glance
-    - 📁 **Syllable Grouping** - Results organized by syllable count
-    - 🔬 **Rare Only Filter** - Focus on technical rhymes
-    - 🎵 **Multi-Syllable Detection** - Find double/triple rhymes
-    - 🔤 **Alliteration Bonus** - Rewards matching onset consonants
-    - 🗣️ **Pronunciation Display** - Educational ARPAbet phonemes
-    - 🎼 **Metrical Analysis** - Stress patterns and metrical feet display
-    - 📜 **Column Layout** - Results visible side-by-side for easy comparison
-    
-    **Categories Explained:**
-    - **✓✓ Popular:** Found in both CMU Dictionary and Datamuse - widely recognized, high-confidence rhymes
-    - **📚 Technical:** Found ONLY in CMU Dictionary - rare finds that showcase our unique database
-    - **💬 Colloquial:** Multi-word phrases from Datamuse - common expressions and idioms
-    
     **Scoring System:**
     - **K3 (1.00):** Exact stressed rime - perfect rhyme with same stress
     - **K2 (0.85):** Perfect by ear - same sounds, stress-agnostic
-    - **Near-Perfect (0.60-0.74):** Very close slant rhymes
-    - **Assonance (0.35-0.59):** Vowel rhymes with different consonants
+    - **K2.5 (0.60-0.74):** Terminal match - final syllable rime (compounds)
+    - **K1 (0.35-0.59):** Assonance - vowel rhymes with different consonants
+    - **KC (0.20-0.59):** Consonance - consonant rhymes with different vowels
+    - **KF (0.15-0.59):** Family rhymes - phonetic similarity by place/manner/voicing
+    - **KP (0.15-0.59):** Pararhyme - consonant frame match with vowel change
+    - **KM (0.10-0.59):** Multisyllabic - consecutive syllable matches
+    - **K0 (0.10-0.25):** Upstream assonance - shared vowels before rhyme tail
     - **+0.10 bonus:** Alliteration (matching onset)
     - **+0.05 bonus:** Multi-syllable rhyme (2+ syllables match)
+    - **+0.20 bonus:** Rarity (KR) - uncommon rhyme patterns
     
     **Metrical Feet:**
     - **Iamb:** unstressed-stressed (x /) - e.g., "begin", "away"
@@ -673,14 +996,16 @@ with gr.Blocks(title="Anti-LLM Rhyme Engine - Enhanced", theme=gr.themes.Soft())
     search_btn.click(
         fn=search_interface,
         inputs=[search_input, syl_filter, stress_filter, datamuse_toggle, 
-                show_rare_only, multisyl_only, enable_alliteration, show_pronunciation],
+                show_rare_only, multisyl_only, enable_alliteration, show_pronunciation,
+                show_popular_rhymes, show_obscure_rhymes],
         outputs=[term_info_output, perfect_output, slant_output, colloquial_output, rap_output]
     )
     
     search_input.submit(
         fn=search_interface,
         inputs=[search_input, syl_filter, stress_filter, datamuse_toggle,
-                show_rare_only, multisyl_only, enable_alliteration, show_pronunciation],
+                show_rare_only, multisyl_only, enable_alliteration, show_pronunciation,
+                show_popular_rhymes, show_obscure_rhymes],
         outputs=[term_info_output, perfect_output, slant_output, colloquial_output, rap_output]
     )
 

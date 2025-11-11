@@ -1,0 +1,23 @@
+# RhymeRarity Songs Database - Python Dependencies
+# Install these with: pip install -r requirements.txt
+
+# Core dependencies
+pandas>=1.3.0
+sqlite3  # Usually comes with Python
+hashlib  # Built-in Python module
+unicodedata  # Built-in Python module
+difflib  # Built-in Python module
+
+# Optional but recommended for better performance
+python-Levenshtein>=0.12.0  # For fuzzy string matching (optional)
+
+# For development/debugging
+json  # Built-in Python module
+os    # Built-in Python module
+re    # Built-in Python module
+sys   # Built-in Python module
+datetime  # Built-in Python module
+pathlib   # Built-in Python module
+
+# Note: Most dependencies are built-in Python modules
+# Only pandas and optionally python-Levenshtein need installation

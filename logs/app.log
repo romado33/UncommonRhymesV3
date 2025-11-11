@@ -196,3 +196,814 @@ FileNotFoundError: [Errno 2] No such file or directory: '\\tmp\\benchmark_result
 2025-10-14 12:20:09 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
 2025-10-14 12:20:21 | INFO | rhyme.app | ui.submit id=746c2d58-51ca-423c-85a0-0bbfd06fd4e2 term='dollar' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
 2025-10-14 12:20:23 | INFO | rhyme.app | ui.render id=746c2d58-51ca-423c-85a0-0bbfd06fd4e2 elapsed_ms=1151.3 counts={'perfect_popular': 24, 'perfect_technical': 49, 'near_perfect_popular': 33, 'near_perfect_technical': 0, 'assonance_popular': 50, 'assonance_technical': 10, 'colloquial': 26, 'fallback': 0, 'total_slant': 93} preview={'perfect_popular_top': ['crawler', 'color', 'hauler'], 'perfect_technical_top': ['dahler', 'koller', 'kahler'], 'near_perfect_popular_top': ['hollow', 'falter', 'proper'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['document', 'donald', 'doc'], 'assonance_technical_top': ['revolver', 'collared', 'collars'], 'colloquial_top': ['dog collar', 'clerical collar', 'eton collar']}
+2025-10-15 14:38:06 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 14:38:06 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-15 14:38:07 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-15 14:38:07 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-15 14:38:07 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 14:38:12 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 14:38:13 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 14:38:36 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 14:38:36 | INFO | rhyme.app | LLM feature 'llm_ranker' enabled
+2025-10-15 14:38:37 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 14:39:21 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 14:39:21 | INFO | rhyme.app | LLM feature 'llm_ranker' enabled
+2025-10-15 14:39:22 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 14:43:31 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 14:43:32 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 14:44:20 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 14:44:21 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 14:44:49 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 14:44:50 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 14:44:58 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 14:44:59 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 14:45:11 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 14:45:12 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 14:45:39 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 14:45:39 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 14:45:46 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 14:45:47 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 14:46:14 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 14:46:15 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 15:04:02 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 15:04:03 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 15:04:28 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 15:04:28 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 15:08:58 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 15:08:59 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 15:09:34 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 15:09:35 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 15:20:27 | INFO | rhyme.app | ui.submit id=4bb8b2bf-bdfd-445b-867c-0729f8053394 term='sister' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-15 15:20:28 | INFO | rhyme.app | ui.render id=4bb8b2bf-bdfd-445b-867c-0729f8053394 elapsed_ms=1021.6 counts={'perfect_popular': 8, 'perfect_technical': 11, 'near_perfect_popular': 35, 'near_perfect_technical': 0, 'assonance_popular': 50, 'assonance_technical': 12, 'colloquial': 21, 'fallback': 0, 'total_slant': 97} preview={'perfect_popular_top': ['mr', 'mr.', 'mister'], 'perfect_technical_top': ['pfister', 'bicester', 'fister'], 'near_perfect_popular_top': ['whisper', 'figure', 'bitter'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['symptoms', 'superior', 'singles'], 'assonance_technical_top': ['whisker', 'blisters', 'swifter'], 'colloquial_top': ['blood blister', 'stage whisper', 'fever blister']}
+2025-10-15 16:21:17 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 16:21:18 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 16:24:49 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 16:24:49 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 16:25:09 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 16:25:10 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 16:25:20 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 16:25:21 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 16:25:52 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 16:25:52 | INFO | rhyme.app | ui.submit id=39727da1-5ddb-4ce4-86e5-9a36df0a3897 term='sister' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-15 16:25:52 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 16:25:53 | INFO | rhyme.app | ui.render id=39727da1-5ddb-4ce4-86e5-9a36df0a3897 elapsed_ms=964.4 counts={'perfect_popular': 6, 'perfect_technical': 10, 'near_perfect_popular': 31, 'near_perfect_technical': 0, 'assonance_popular': 10, 'assonance_technical': 12, 'colloquial': 21, 'fallback': 0, 'total_slant': 53} preview={'perfect_popular_top': ['mr', 'mr.', 'mister'], 'perfect_technical_top': ['pfister', 'bicester', 'fister'], 'near_perfect_popular_top': ['whisper', 'figure', 'bitter'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['silver', 'pictures', "pictures'"], 'assonance_technical_top': ['whisker', 'blisters', 'swifter'], 'colloquial_top': ['blood blister', 'stage whisper', 'fever blister']}
+2025-10-15 16:26:08 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 16:26:09 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 16:27:39 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 16:27:39 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-15 16:27:39 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 16:29:47 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 16:29:47 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-15 16:29:48 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-15 16:29:48 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-15 16:29:48 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 16:30:10 | INFO | rhyme.app | ui.submit id=71ce7f7c-42ea-4b86-b081-e10721096f2f term='sister' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-15 16:30:11 | INFO | rhyme.app | ui.render id=71ce7f7c-42ea-4b86-b081-e10721096f2f elapsed_ms=1136.1 counts={'perfect_popular': 8, 'perfect_technical': 11, 'near_perfect_popular': 32, 'near_perfect_technical': 0, 'assonance_popular': 12, 'assonance_technical': 12, 'colloquial': 21, 'fallback': 0, 'total_slant': 56} preview={'perfect_popular_top': ['mr', 'mr.', 'mister'], 'perfect_technical_top': ['pfister', 'bicester', 'fister'], 'near_perfect_popular_top': ['whisper', 'figure', 'bitter'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['silver', 'particular', 'consider'], 'assonance_technical_top': ['whisker', 'blisters', 'swifter'], 'colloquial_top': ['blood blister', 'stage whisper', 'fever blister']}
+2025-10-15 16:39:10 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 16:39:10 | INFO | rhyme.app | ui.submit id=c5b3a3aa-f6c2-4c00-85d8-0cf3bafd87b3 term='sister' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-15 16:39:11 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 16:39:11 | INFO | rhyme.app | ui.render id=c5b3a3aa-f6c2-4c00-85d8-0cf3bafd87b3 elapsed_ms=1255.2 counts={'perfect_popular': 6, 'perfect_technical': 10, 'near_perfect_popular': 31, 'near_perfect_technical': 0, 'assonance_popular': 10, 'assonance_technical': 12, 'colloquial': 21, 'fallback': 0, 'total_slant': 53} preview={'perfect_popular_top': ['mr', 'mr.', 'mister'], 'perfect_technical_top': ['pfister', 'bicester', 'fister'], 'near_perfect_popular_top': ['whisper', 'figure', 'bitter'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['silver', 'pictures', "pictures'"], 'assonance_technical_top': ['whisker', 'blisters', 'swifter'], 'colloquial_top': ['blood blister', 'stage whisper', 'fever blister']}
+2025-10-15 16:39:23 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 16:39:23 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-15 16:39:23 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-15 16:39:23 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-15 16:39:24 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 16:39:50 | INFO | rhyme.app | ui.submit id=5e5680a2-f2cd-48b5-8d75-9820be33c0ed term='sister' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-15 16:39:52 | INFO | rhyme.app | ui.render id=5e5680a2-f2cd-48b5-8d75-9820be33c0ed elapsed_ms=1338.4 counts={'perfect_popular': 8, 'perfect_technical': 11, 'near_perfect_popular': 32, 'near_perfect_technical': 0, 'assonance_popular': 12, 'assonance_technical': 12, 'colloquial': 21, 'fallback': 0, 'total_slant': 56} preview={'perfect_popular_top': ['mr', 'mr.', 'mister'], 'perfect_technical_top': ['pfister', 'bicester', 'fister'], 'near_perfect_popular_top': ['whisper', 'figure', 'bitter'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['silver', 'particular', 'consider'], 'assonance_technical_top': ['whisker', 'blisters', 'swifter'], 'colloquial_top': ['blood blister', 'stage whisper', 'fever blister']}
+2025-10-15 16:43:31 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 16:43:31 | INFO | rhyme.app | ui.submit id=500d59a2-2581-41a2-bb5f-d9ec97bd9e7f term='sister' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-15 16:43:31 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 16:43:32 | INFO | rhyme.app | ui.render id=500d59a2-2581-41a2-bb5f-d9ec97bd9e7f elapsed_ms=1225.0 counts={'perfect_popular': 6, 'perfect_technical': 10, 'near_perfect_popular': 31, 'near_perfect_technical': 0, 'assonance_popular': 10, 'assonance_technical': 12, 'colloquial': 21, 'fallback': 0, 'total_slant': 53} preview={'perfect_popular_top': ['mr', 'mr.', 'mister'], 'perfect_technical_top': ['pfister', 'bicester', 'fister'], 'near_perfect_popular_top': ['whisper', 'figure', 'bitter'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['silver', 'pictures', "pictures'"], 'assonance_technical_top': ['whisker', 'blisters', 'swifter'], 'colloquial_top': ['blood blister', 'stage whisper', 'fever blister']}
+2025-10-15 16:44:11 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 16:44:11 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-15 16:44:11 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-15 16:44:11 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-15 16:44:12 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 16:45:08 | INFO | rhyme.app | ui.submit id=11418624-565d-41a2-a863-94a262212550 term='sister' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-15 16:45:09 | INFO | rhyme.app | ui.render id=11418624-565d-41a2-a863-94a262212550 elapsed_ms=1032.6 counts={'perfect_popular': 8, 'perfect_technical': 11, 'near_perfect_popular': 32, 'near_perfect_technical': 0, 'assonance_popular': 12, 'assonance_technical': 12, 'colloquial': 21, 'fallback': 0, 'total_slant': 56} preview={'perfect_popular_top': ['mr', 'mr.', 'mister'], 'perfect_technical_top': ['pfister', 'bicester', 'fister'], 'near_perfect_popular_top': ['whisper', 'figure', 'bitter'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['silver', 'particular', 'consider'], 'assonance_technical_top': ['whisker', 'blisters', 'swifter'], 'colloquial_top': ['blood blister', 'stage whisper', 'fever blister']}
+2025-10-15 16:53:52 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 16:53:52 | INFO | rhyme.app | ui.submit id=1f2670d7-714f-494d-8ab2-bd2064aa47a4 term='sister' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-15 16:53:53 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 16:53:53 | INFO | rhyme.app | ui.render id=1f2670d7-714f-494d-8ab2-bd2064aa47a4 elapsed_ms=1302.9 counts={'perfect_popular': 6, 'perfect_technical': 10, 'near_perfect_popular': 31, 'near_perfect_technical': 0, 'assonance_popular': 10, 'assonance_technical': 12, 'colloquial': 21, 'fallback': 0, 'total_slant': 53} preview={'perfect_popular_top': ['mr', 'mr.', 'mister'], 'perfect_technical_top': ['pfister', 'bicester', 'fister'], 'near_perfect_popular_top': ['whisper', 'figure', 'bitter'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['silver', 'pictures', "pictures'"], 'assonance_technical_top': ['whisker', 'blisters', 'swifter'], 'colloquial_top': ['blood blister', 'stage whisper', 'fever blister']}
+2025-10-15 16:54:21 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 16:54:21 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-15 16:54:22 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-15 16:54:22 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-15 16:54:22 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 16:55:36 | INFO | rhyme.app | ui.submit id=f906f00a-4642-4ae1-8770-28e1a95f38a1 term='sister' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-15 16:55:37 | INFO | rhyme.app | ui.render id=f906f00a-4642-4ae1-8770-28e1a95f38a1 elapsed_ms=932.6 counts={'perfect_popular': 8, 'perfect_technical': 11, 'near_perfect_popular': 32, 'near_perfect_technical': 0, 'assonance_popular': 12, 'assonance_technical': 12, 'colloquial': 21, 'fallback': 0, 'total_slant': 56} preview={'perfect_popular_top': ['mr', 'mr.', 'mister'], 'perfect_technical_top': ['pfister', 'bicester', 'fister'], 'near_perfect_popular_top': ['whisper', 'figure', 'bitter'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['silver', 'particular', 'consider'], 'assonance_technical_top': ['whisker', 'blisters', 'swifter'], 'colloquial_top': ['blood blister', 'stage whisper', 'fever blister']}
+2025-10-15 17:26:40 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 17:26:41 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 17:26:50 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 17:26:50 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-15 17:26:50 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-15 17:26:50 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-15 17:26:51 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 21:23:13 | INFO | rhyme.app | ui.submit id=a84db166-13f7-4787-8d1a-688ca69569b6 term='table' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-15 21:23:20 | INFO | rhyme.app | ui.submit id=3eb69260-81cd-4a4b-a745-869737508576 term='table' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-15 21:23:32 | INFO | rhyme.app | ui.submit id=82e365b5-da6b-4a8c-879e-263235d0c7b5 term='table' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-15 21:35:05 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 21:35:06 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-15 21:35:06 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-15 21:35:07 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 21:35:07 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-15 21:35:14 | INFO | rhyme.app | ui.submit id=0b1e5e82-a6f5-40f0-94a3-378f8ec9ee83 term='table' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-15 21:35:16 | INFO | rhyme.app | ui.render id=0b1e5e82-a6f5-40f0-94a3-378f8ec9ee83 elapsed_ms=1951.7 counts={'perfect_popular': 20, 'perfect_technical': 22, 'near_perfect_popular': 23, 'near_perfect_technical': 0, 'assonance_popular': 56, 'assonance_technical': 23, 'colloquial': 44, 'fallback': 0, 'total_slant': 102} preview={'perfect_popular_top': ['habile', 'timetable', 'flabile'], 'perfect_technical_top': ['abell', 'zabel', 'grable'], 'near_perfect_popular_top': ['playful', 'grateful', 'appraisal'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['transportation', 'statement', 'sense-data'], 'assonance_technical_top': ['nasal', 'vagal', 'laban'], 'colloquial_top': ['coaxial cable', 'coax cable', 'livery stable']}
+2025-10-15 21:35:28 | INFO | rhyme.app | ui.submit id=2dea1f08-7407-4b3d-931f-2007198e0315 term='table' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-15 21:35:30 | INFO | rhyme.app | ui.render id=2dea1f08-7407-4b3d-931f-2007198e0315 elapsed_ms=1621.1 counts={'perfect_popular': 20, 'perfect_technical': 22, 'near_perfect_popular': 23, 'near_perfect_technical': 0, 'assonance_popular': 56, 'assonance_technical': 23, 'colloquial': 44, 'fallback': 0, 'total_slant': 102} preview={'perfect_popular_top': ['habile', 'timetable', 'flabile'], 'perfect_technical_top': ['abell', 'zabel', 'grable'], 'near_perfect_popular_top': ['playful', 'grateful', 'appraisal'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['transportation', 'statement', 'sense-data'], 'assonance_technical_top': ['nasal', 'vagal', 'laban'], 'colloquial_top': ['coaxial cable', 'coax cable', 'livery stable']}
+2025-10-15 21:48:24 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 21:48:25 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 21:48:35 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 21:48:35 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-15 21:48:36 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-15 21:48:36 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-15 21:48:36 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 21:51:35 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 21:51:36 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 21:52:03 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 21:52:03 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-15 21:52:04 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-15 21:52:04 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-15 21:52:04 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 21:52:47 | INFO | rhyme.app | ui.submit id=4e6c117c-8d43-4ba5-8f3f-a1c4c7cf745b term='table' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-15 21:52:49 | INFO | rhyme.app | ui.render id=4e6c117c-8d43-4ba5-8f3f-a1c4c7cf745b elapsed_ms=1629.5 counts={'perfect_popular': 20, 'perfect_technical': 22, 'near_perfect_popular': 23, 'near_perfect_technical': 0, 'assonance_popular': 56, 'assonance_technical': 23, 'colloquial': 44, 'fallback': 0, 'total_slant': 102} preview={'perfect_popular_top': ['habile', 'timetable', 'flabile'], 'perfect_technical_top': ['abell', 'zabel', 'grable'], 'near_perfect_popular_top': ['playful', 'grateful', 'appraisal'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['transportation', 'statement', 'sense-data'], 'assonance_technical_top': ['nasal', 'vagal', 'laban'], 'colloquial_top': ['coaxial cable', 'coax cable', 'livery stable']}
+2025-10-15 21:57:44 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 21:57:44 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-15 21:57:44 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-15 21:57:44 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-15 21:57:45 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 22:00:23 | INFO | rhyme.app | ui.submit id=48f3bab9-d9c1-45e7-a129-8226f37dcdde term='table' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-15 22:00:24 | INFO | rhyme.app | ui.render id=48f3bab9-d9c1-45e7-a129-8226f37dcdde elapsed_ms=1039.2 counts={'perfect_popular': 20, 'perfect_technical': 22, 'near_perfect_popular': 23, 'near_perfect_technical': 0, 'assonance_popular': 56, 'assonance_technical': 23, 'colloquial': 44, 'fallback': 0, 'total_slant': 102} preview={'perfect_popular_top': ['habile', 'timetable', 'flabile'], 'perfect_technical_top': ['abell', 'zabel', 'grable'], 'near_perfect_popular_top': ['playful', 'grateful', 'appraisal'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['transportation', 'statement', 'sense-data'], 'assonance_technical_top': ['nasal', 'vagal', 'laban'], 'colloquial_top': ['coaxial cable', 'coax cable', 'livery stable']}
+2025-10-15 22:08:25 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 22:08:26 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 22:11:41 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 22:11:42 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 22:11:52 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 22:11:52 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-15 22:11:53 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-15 22:11:53 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-15 22:11:53 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 22:12:47 | INFO | rhyme.app | ui.submit id=81ca0c4c-f9f6-46a7-b4c3-3d9d87e67cc9 term='double' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-15 22:12:48 | INFO | rhyme.app | ui.render id=81ca0c4c-f9f6-46a7-b4c3-3d9d87e67cc9 elapsed_ms=1432.7 counts={'perfect_popular': 11, 'perfect_technical': 11, 'near_perfect_popular': 44, 'near_perfect_technical': 0, 'assonance_popular': 75, 'assonance_technical': 12, 'colloquial': 10, 'fallback': 0, 'total_slant': 131} preview={'perfect_popular_top': ['fribble', 'nubble', 'nybble'], 'perfect_technical_top': ['redouble', 'cribble', 'gibel'], 'near_perfect_popular_top': ['chuckle', 'shuffle', 'rumble'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['drug', 'drugs', "drugs'"], 'assonance_technical_top': ['doubles', 'duffle', 'bubba'], 'colloquial_top': ['ask for trouble', 'in trouble', 'married couple']}
+2025-10-15 22:14:42 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 22:14:43 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 22:14:58 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 22:14:58 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-15 22:14:59 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-15 22:14:59 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-15 22:14:59 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 22:16:29 | INFO | rhyme.app | ui.submit id=430061c7-18df-4416-bcba-381dbb12b980 term='double' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-15 22:16:31 | INFO | rhyme.app | ui.render id=430061c7-18df-4416-bcba-381dbb12b980 elapsed_ms=2110.9 counts={'perfect_popular': 11, 'perfect_technical': 11, 'near_perfect_popular': 44, 'near_perfect_technical': 0, 'assonance_popular': 75, 'assonance_technical': 12, 'colloquial': 10, 'fallback': 0, 'total_slant': 131} preview={'perfect_popular_top': ['fribble', 'nubble', 'nybble'], 'perfect_technical_top': ['redouble', 'cribble', 'gibel'], 'near_perfect_popular_top': ['chuckle', 'shuffle', 'rumble'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['drug', 'drugs', "drugs'"], 'assonance_technical_top': ['doubles', 'duffle', 'bubba'], 'colloquial_top': ['ask for trouble', 'in trouble', 'married couple']}
+2025-10-15 22:18:42 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 22:18:43 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 22:18:58 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 22:18:58 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-15 22:18:58 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-15 22:18:58 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-15 22:18:59 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 22:19:09 | INFO | rhyme.app | ui.submit id=dc4d4115-ea86-41b6-8e99-d35017e088ad term='time' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-15 22:19:20 | INFO | rhyme.app | ui.submit id=79f5755f-7b19-4536-b7e6-b6284d0aa3c1 term='time' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-15 22:19:23 | INFO | rhyme.app | ui.render id=79f5755f-7b19-4536-b7e6-b6284d0aa3c1 elapsed_ms=2689.3 counts={'perfect_popular': 48, 'perfect_technical': 52, 'near_perfect_popular': 0, 'near_perfect_technical': 0, 'assonance_popular': 75, 'assonance_technical': 0, 'colloquial': 35, 'fallback': 0, 'total_slant': 75} preview={'perfect_popular_top': ['paradigm', 'pantomime', 'maritime'], 'perfect_technical_top': ['hime', 'heim', 'syme'], 'near_perfect_popular_top': [], 'near_perfect_technical_top': [], 'assonance_popular_top': ['types', 'twice', 'twenty-five'], 'assonance_technical_top': [], 'colloquial_top': ['partner in crime', 'nursery rhyme', 'organized crime']}
+2025-10-15 22:20:29 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 22:20:30 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 22:23:03 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 22:23:03 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-15 22:23:04 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-15 22:23:04 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-15 22:23:04 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 22:23:21 | INFO | rhyme.app | ui.submit id=88fbf447-1bf4-45c3-b28e-bffae67469ca term='double' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-15 22:23:22 | INFO | rhyme.app | ui.render id=88fbf447-1bf4-45c3-b28e-bffae67469ca elapsed_ms=1085.0 counts={'perfect_popular': 11, 'perfect_technical': 11, 'near_perfect_popular': 44, 'near_perfect_technical': 0, 'assonance_popular': 75, 'assonance_technical': 12, 'colloquial': 10, 'fallback': 0, 'total_slant': 131} preview={'perfect_popular_top': ['fribble', 'nubble', 'nybble'], 'perfect_technical_top': ['redouble', 'cribble', 'gibel'], 'near_perfect_popular_top': ['chuckle', 'shuffle', 'rumble'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['drug', 'drugs', "drugs'"], 'assonance_technical_top': ['doubles', 'duffle', 'bubba'], 'colloquial_top': ['ask for trouble', 'in trouble', 'married couple']}
+2025-10-15 22:28:40 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 22:28:40 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-15 22:28:40 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-15 22:28:40 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-15 22:28:41 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 22:29:14 | INFO | rhyme.app | ui.submit id=49640bb7-3851-4d35-955f-57a964601c66 term='sister' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-15 22:29:15 | INFO | rhyme.app | ui.render id=49640bb7-3851-4d35-955f-57a964601c66 elapsed_ms=1079.4 counts={'perfect_popular': 8, 'perfect_technical': 11, 'near_perfect_popular': 37, 'near_perfect_technical': 0, 'assonance_popular': 0, 'assonance_technical': 13, 'colloquial': 21, 'fallback': 0, 'total_slant': 50} preview={'perfect_popular_top': ['mr', 'mr.', 'mister'], 'perfect_technical_top': ['pfister', 'bicester', 'fister'], 'near_perfect_popular_top': ['whisper', 'figure', 'bitter'], 'near_perfect_technical_top': [], 'assonance_popular_top': [], 'assonance_technical_top': ['whisker', 'blisters', 'swifter'], 'colloquial_top': ['blood blister', 'stage whisper', 'fever blister']}
+2025-10-15 22:29:27 | INFO | rhyme.app | ui.submit id=e8e5a7ca-ac40-40f4-9edc-a8a2226d2727 term='sister' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-15 22:29:29 | INFO | rhyme.app | ui.render id=e8e5a7ca-ac40-40f4-9edc-a8a2226d2727 elapsed_ms=1034.1 counts={'perfect_popular': 8, 'perfect_technical': 11, 'near_perfect_popular': 37, 'near_perfect_technical': 0, 'assonance_popular': 0, 'assonance_technical': 13, 'colloquial': 21, 'fallback': 0, 'total_slant': 50} preview={'perfect_popular_top': ['mr', 'mr.', 'mister'], 'perfect_technical_top': ['pfister', 'bicester', 'fister'], 'near_perfect_popular_top': ['whisper', 'figure', 'bitter'], 'near_perfect_technical_top': [], 'assonance_popular_top': [], 'assonance_technical_top': ['whisker', 'blisters', 'swifter'], 'colloquial_top': ['blood blister', 'stage whisper', 'fever blister']}
+2025-10-15 22:33:20 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 22:33:20 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-15 22:33:21 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-15 22:33:21 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-15 22:33:21 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 22:34:16 | INFO | rhyme.app | ui.submit id=497355b7-abd5-48b8-bbdb-3350d0087cad term='double' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-15 22:34:17 | INFO | rhyme.app | ui.render id=497355b7-abd5-48b8-bbdb-3350d0087cad elapsed_ms=1268.6 counts={'perfect_popular': 11, 'perfect_technical': 11, 'near_perfect_popular': 44, 'near_perfect_technical': 0, 'assonance_popular': 75, 'assonance_technical': 12, 'colloquial': 10, 'fallback': 0, 'total_slant': 131} preview={'perfect_popular_top': ['fribble', 'nubble', 'nybble'], 'perfect_technical_top': ['redouble', 'cribble', 'gibel'], 'near_perfect_popular_top': ['chuckle', 'shuffle', 'rumble'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['drug', 'drugs', "drugs'"], 'assonance_technical_top': ['doubles', 'duffle', 'bubba'], 'colloquial_top': ['ask for trouble', 'in trouble', 'married couple']}
+2025-10-15 22:38:05 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 22:38:05 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-15 22:38:05 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-15 22:38:05 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-15 22:38:06 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 22:38:38 | INFO | rhyme.app | ui.submit id=11445f3d-8e15-423f-8b58-d2b534fda9c4 term='double' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-15 22:38:39 | INFO | rhyme.app | ui.render id=11445f3d-8e15-423f-8b58-d2b534fda9c4 elapsed_ms=938.1 counts={'perfect_popular': 11, 'perfect_technical': 11, 'near_perfect_popular': 44, 'near_perfect_technical': 0, 'assonance_popular': 75, 'assonance_technical': 12, 'colloquial': 10, 'fallback': 0, 'total_slant': 131} preview={'perfect_popular_top': ['fribble', 'nubble', 'nybble'], 'perfect_technical_top': ['redouble', 'cribble', 'gibel'], 'near_perfect_popular_top': ['chuckle', 'shuffle', 'rumble'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['drug', 'drugs', "drugs'"], 'assonance_technical_top': ['doubles', 'duffle', 'bubba'], 'colloquial_top': ['ask for trouble', 'in trouble', 'married couple']}
+2025-10-15 22:38:54 | INFO | rhyme.app | ui.submit id=1a76da4b-138e-4c76-b51c-c87a32ea1420 term='double' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-15 22:38:55 | INFO | rhyme.app | ui.render id=1a76da4b-138e-4c76-b51c-c87a32ea1420 elapsed_ms=908.6 counts={'perfect_popular': 11, 'perfect_technical': 11, 'near_perfect_popular': 44, 'near_perfect_technical': 0, 'assonance_popular': 75, 'assonance_technical': 12, 'colloquial': 10, 'fallback': 0, 'total_slant': 131} preview={'perfect_popular_top': ['fribble', 'nubble', 'nybble'], 'perfect_technical_top': ['redouble', 'cribble', 'gibel'], 'near_perfect_popular_top': ['chuckle', 'shuffle', 'rumble'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['drug', 'drugs', "drugs'"], 'assonance_technical_top': ['doubles', 'duffle', 'bubba'], 'colloquial_top': ['ask for trouble', 'in trouble', 'married couple']}
+2025-10-15 22:41:04 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 22:41:04 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-15 22:41:04 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-15 22:41:04 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-15 22:41:05 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 22:41:22 | INFO | rhyme.app | ui.submit id=96cd72bd-38f9-481a-8f10-0b47f7d81298 term='double' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-15 22:41:23 | INFO | rhyme.app | ui.render id=96cd72bd-38f9-481a-8f10-0b47f7d81298 elapsed_ms=988.8 counts={'perfect_popular': 11, 'perfect_technical': 11, 'near_perfect_popular': 44, 'near_perfect_technical': 0, 'assonance_popular': 75, 'assonance_technical': 12, 'colloquial': 10, 'fallback': 0, 'total_slant': 131} preview={'perfect_popular_top': ['fribble', 'nubble', 'nybble'], 'perfect_technical_top': ['redouble', 'cribble', 'gibel'], 'near_perfect_popular_top': ['chuckle', 'shuffle', 'rumble'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['drug', 'drugs', "drugs'"], 'assonance_technical_top': ['doubles', 'duffle', 'bubba'], 'colloquial_top': ['ask for trouble', 'in trouble', 'married couple']}
+2025-10-15 22:41:49 | INFO | rhyme.app | ui.submit id=bab4ff62-ca6d-41c6-8ad3-69e911a656bc term='double' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-15 22:41:50 | INFO | rhyme.app | ui.render id=bab4ff62-ca6d-41c6-8ad3-69e911a656bc elapsed_ms=1084.0 counts={'perfect_popular': 11, 'perfect_technical': 11, 'near_perfect_popular': 44, 'near_perfect_technical': 0, 'assonance_popular': 75, 'assonance_technical': 12, 'colloquial': 10, 'fallback': 0, 'total_slant': 131} preview={'perfect_popular_top': ['fribble', 'nubble', 'nybble'], 'perfect_technical_top': ['redouble', 'cribble', 'gibel'], 'near_perfect_popular_top': ['chuckle', 'shuffle', 'rumble'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['drug', 'drugs', "drugs'"], 'assonance_technical_top': ['doubles', 'duffle', 'bubba'], 'colloquial_top': ['ask for trouble', 'in trouble', 'married couple']}
+2025-10-15 22:45:06 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 22:45:06 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-15 22:45:07 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-15 22:45:07 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-15 22:45:07 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 22:46:55 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 22:46:56 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-15 22:46:56 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-15 22:46:56 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-15 22:46:56 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 22:48:29 | INFO | rhyme.app | ui.submit id=6dd0511b-5371-4986-82b7-3aaa9ff41020 term='double' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-15 22:48:30 | INFO | rhyme.app | ui.render id=6dd0511b-5371-4986-82b7-3aaa9ff41020 elapsed_ms=997.9 counts={'perfect_popular': 7, 'perfect_technical': 15, 'near_perfect_popular': 44, 'near_perfect_technical': 0, 'assonance_popular': 75, 'assonance_technical': 12, 'colloquial': 10, 'fallback': 0, 'total_slant': 131} preview={'perfect_popular_top': ['fribble', 'nubble', 'nybble'], 'perfect_technical_top': ['rubble', 'hubble', 'stubble'], 'near_perfect_popular_top': ['chuckle', 'shuffle', 'rumble'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['discussion', 'destruction', 'dozen'], 'assonance_technical_top': ['doubles', 'duffle', 'bubba'], 'colloquial_top': ['ask for trouble', 'in trouble', 'married couple']}
+2025-10-15 22:59:45 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 22:59:45 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-15 22:59:46 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-15 22:59:46 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-15 22:59:46 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 23:01:09 | INFO | rhyme.app | ui.submit id=0b7b3e56-3540-41c8-a730-806cfbb6dc80 term='double' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-15 23:01:10 | INFO | rhyme.app | ui.render id=0b7b3e56-3540-41c8-a730-806cfbb6dc80 elapsed_ms=1038.3 counts={'perfect_popular': 5, 'perfect_technical': 17, 'near_perfect_popular': 45, 'near_perfect_technical': 0, 'assonance_popular': 28, 'assonance_technical': 12, 'colloquial': 10, 'fallback': 0, 'total_slant': 85} preview={'perfect_popular_top': ['fribble', 'nubble', 'nybble'], 'perfect_technical_top': ['trouble', 'bubble', 'rubble'], 'near_perfect_popular_top': ['chuckle', 'shuffle', 'rumble'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['husband', 'multiple', 'wonderful'], 'assonance_technical_top': ['doubles', 'duffle', 'bubba'], 'colloquial_top': ['ask for trouble', 'in trouble', 'married couple']}
+2025-10-15 23:07:50 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 23:07:50 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-15 23:07:50 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-15 23:07:50 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-15 23:07:50 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 23:08:06 | INFO | rhyme.app | ui.submit id=faace020-1653-40e4-823a-1c32f3b68dc1 term='double' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-15 23:08:07 | INFO | rhyme.app | ui.render id=faace020-1653-40e4-823a-1c32f3b68dc1 elapsed_ms=1233.0 counts={'perfect_popular': 5, 'perfect_technical': 17, 'near_perfect_popular': 45, 'near_perfect_technical': 0, 'assonance_popular': 24, 'assonance_technical': 12, 'colloquial': 10, 'fallback': 0, 'total_slant': 81} preview={'perfect_popular_top': ['fribble', 'nubble', 'nybble'], 'perfect_technical_top': ['trouble', 'bubble', 'rubble'], 'near_perfect_popular_top': ['chuckle', 'shuffle', 'rumble'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['husband', 'multiple', 'wonderful'], 'assonance_technical_top': ['doubles', 'duffle', 'bubba'], 'colloquial_top': ['ask for trouble', 'in trouble', 'married couple']}
+2025-10-15 23:14:36 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 23:14:36 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-15 23:14:36 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-15 23:14:36 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-15 23:14:36 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 23:15:40 | INFO | rhyme.app | ui.submit id=d24cd4f1-d382-460f-b790-4ef073eab55f term='double' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-15 23:15:41 | INFO | rhyme.app | ui.render id=d24cd4f1-d382-460f-b790-4ef073eab55f elapsed_ms=1235.6 counts={'perfect_popular': 5, 'perfect_technical': 17, 'near_perfect_popular': 45, 'near_perfect_technical': 0, 'assonance_popular': 24, 'assonance_technical': 12, 'colloquial': 10, 'fallback': 0, 'total_slant': 81} preview={'perfect_popular_top': ['fribble', 'nubble', 'nybble'], 'perfect_technical_top': ['trouble', 'bubble', 'rubble'], 'near_perfect_popular_top': ['chuckle', 'shuffle', 'rumble'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['husband', 'multiple', 'wonderful'], 'assonance_technical_top': ['doubles', 'duffle', 'bubba'], 'colloquial_top': ['ask for trouble', 'in trouble', 'married couple']}
+2025-10-15 23:19:35 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 23:19:36 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 23:20:04 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 23:20:05 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 23:21:09 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 23:21:09 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-15 23:21:09 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-15 23:21:09 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-15 23:21:09 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 23:21:52 | INFO | rhyme.app | ui.submit id=fb19ff9e-efe4-4444-97ca-dfd29b425e5d term='double' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-15 23:21:53 | INFO | rhyme.app | ui.render id=fb19ff9e-efe4-4444-97ca-dfd29b425e5d elapsed_ms=1052.2 counts={'perfect_popular': 5, 'perfect_technical': 17, 'near_perfect_popular': 45, 'near_perfect_technical': 0, 'assonance_popular': 24, 'assonance_technical': 12, 'colloquial': 10, 'fallback': 0, 'total_slant': 81} preview={'perfect_popular_top': ['fribble', 'nubble', 'nybble'], 'perfect_technical_top': ['trouble', 'bubble', 'rubble'], 'near_perfect_popular_top': ['chuckle', 'shuffle', 'rumble'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['husband', 'multiple', 'wonderful'], 'assonance_technical_top': ['doubles', 'duffle', 'bubba'], 'colloquial_top': ['ask for trouble', 'in trouble', 'married couple']}
+2025-10-15 23:26:08 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 23:26:08 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-15 23:26:08 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-15 23:26:08 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-15 23:26:09 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 23:28:55 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 23:28:55 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-15 23:28:55 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-15 23:28:55 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-15 23:28:56 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 23:34:29 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 23:34:29 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-15 23:34:29 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-15 23:34:29 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-15 23:34:30 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-15 23:48:33 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-15 23:48:34 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-15 23:48:34 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-15 23:48:34 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-15 23:48:34 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-16 00:34:29 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-16 00:34:29 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-16 00:34:30 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-16 00:34:30 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-16 00:34:30 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-20 12:27:17 | INFO | rhyme.app | ui.submit id=4a876e4c-97ca-4b85-9d6a-5711d6302882 term='sister' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-20 12:27:18 | INFO | rhyme.app | ui.render id=4a876e4c-97ca-4b85-9d6a-5711d6302882 elapsed_ms=939.1 counts={'perfect_popular': 2, 'perfect_technical': 17, 'near_perfect_popular': 18, 'near_perfect_technical': 0, 'assonance_popular': 2, 'assonance_technical': 4, 'colloquial': 19, 'fallback': 0, 'total_slant': 24} preview={'perfect_popular_top': ['mr', 'mr.'], 'perfect_technical_top': ['mister', 'transistor', 'lister'], 'near_perfect_popular_top': ['whisper', 'bitter', 'drifter'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['winter', 'twitter'], 'assonance_technical_top': ['whisker', 'swifter', 'hitler'], 'colloquial_top': ['blood blister', 'fever blister', 'tongue twister']}
+2025-10-20 12:27:18 | INFO | rhyme.app | ui.submit id=3b8d1b38-b5ef-4240-8a2b-11f21ef947c5 term='sister' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-20 12:27:19 | INFO | rhyme.app | ui.render id=3b8d1b38-b5ef-4240-8a2b-11f21ef947c5 elapsed_ms=678.2 counts={'perfect_popular': 2, 'perfect_technical': 17, 'near_perfect_popular': 18, 'near_perfect_technical': 0, 'assonance_popular': 2, 'assonance_technical': 4, 'colloquial': 19, 'fallback': 0, 'total_slant': 24} preview={'perfect_popular_top': ['mr', 'mr.'], 'perfect_technical_top': ['mister', 'transistor', 'lister'], 'near_perfect_popular_top': ['whisper', 'bitter', 'drifter'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['winter', 'twitter'], 'assonance_technical_top': ['whisker', 'swifter', 'hitler'], 'colloquial_top': ['blood blister', 'fever blister', 'tongue twister']}
+2025-10-20 12:32:29 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-20 12:32:29 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-20 12:32:30 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-20 12:51:53 | INFO | rhyme.app | ui.submit id=0f2a5db7-8245-4ce0-bbe5-84a8021473fa term='sister' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-20 12:51:54 | INFO | rhyme.app | ui.render id=0f2a5db7-8245-4ce0-bbe5-84a8021473fa elapsed_ms=964.3 counts={'perfect_popular': 2, 'perfect_technical': 17, 'near_perfect_popular': 18, 'near_perfect_technical': 0, 'assonance_popular': 2, 'assonance_technical': 4, 'colloquial': 19, 'fallback': 0, 'total_slant': 24} preview={'perfect_popular_top': ['mr', 'mr.'], 'perfect_technical_top': ['mister', 'transistor', 'lister'], 'near_perfect_popular_top': ['whisper', 'bitter', 'drifter'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['winter', 'twitter'], 'assonance_technical_top': ['whisker', 'swifter', 'hitler'], 'colloquial_top': ['blood blister', 'fever blister', 'tongue twister']}
+2025-10-20 12:52:26 | INFO | rhyme.app | ui.submit id=2b7aa08e-e7db-4dd0-9f7e-66c0595ccfbf term='sister' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-20 12:52:27 | INFO | rhyme.app | ui.render id=2b7aa08e-e7db-4dd0-9f7e-66c0595ccfbf elapsed_ms=653.9 counts={'perfect_popular': 2, 'perfect_technical': 17, 'near_perfect_popular': 18, 'near_perfect_technical': 0, 'assonance_popular': 2, 'assonance_technical': 4, 'colloquial': 19, 'fallback': 0, 'total_slant': 24} preview={'perfect_popular_top': ['mr', 'mr.'], 'perfect_technical_top': ['mister', 'transistor', 'lister'], 'near_perfect_popular_top': ['whisper', 'bitter', 'drifter'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['winter', 'twitter'], 'assonance_technical_top': ['whisker', 'swifter', 'hitler'], 'colloquial_top': ['blood blister', 'fever blister', 'tongue twister']}
+2025-10-20 12:52:58 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-20 12:52:58 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-20 12:52:58 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-20 12:52:58 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-20 12:52:58 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-20 12:53:19 | INFO | rhyme.app | ui.submit id=347ffc98-eb02-4125-b238-e9bf034e667b term='sister' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-20 12:53:20 | INFO | rhyme.app | ui.render id=347ffc98-eb02-4125-b238-e9bf034e667b elapsed_ms=729.8 counts={'perfect_popular': 2, 'perfect_technical': 17, 'near_perfect_popular': 18, 'near_perfect_technical': 0, 'assonance_popular': 2, 'assonance_technical': 4, 'colloquial': 19, 'fallback': 0, 'total_slant': 24} preview={'perfect_popular_top': ['mr', 'mr.'], 'perfect_technical_top': ['mister', 'transistor', 'lister'], 'near_perfect_popular_top': ['whisper', 'bitter', 'drifter'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['winter', 'twitter'], 'assonance_technical_top': ['whisker', 'swifter', 'hitler'], 'colloquial_top': ['blood blister', 'fever blister', 'tongue twister']}
+2025-10-20 12:57:22 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-20 12:57:22 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-20 12:57:22 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-20 12:57:22 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-20 12:57:23 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-20 12:58:57 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-20 12:58:57 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-20 12:58:58 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-20 12:58:58 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-20 12:58:58 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-20 12:59:07 | INFO | rhyme.app | ui.submit id=2be84d2e-fe45-42d2-ad54-3b7ef9be2f3f term='sister' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-20 12:59:07 | INFO | rhyme.app | ui.render id=2be84d2e-fe45-42d2-ad54-3b7ef9be2f3f elapsed_ms=658.4 counts={'perfect_popular': 2, 'perfect_technical': 17, 'near_perfect_popular': 18, 'near_perfect_technical': 0, 'assonance_popular': 2, 'assonance_technical': 4, 'colloquial': 19, 'fallback': 0, 'total_slant': 24} preview={'perfect_popular_top': ['mr', 'mr.'], 'perfect_technical_top': ['mister', 'transistor', 'lister'], 'near_perfect_popular_top': ['whisper', 'bitter', 'drifter'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['winter', 'twitter'], 'assonance_technical_top': ['whisker', 'swifter', 'hitler'], 'colloquial_top': ['blood blister', 'fever blister', 'tongue twister']}
+2025-10-20 13:05:41 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-20 13:05:41 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-20 13:05:42 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-20 13:05:42 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-20 13:05:42 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-20 13:08:13 | INFO | rhyme.app | ui.submit id=c0ef6293-ac36-4e7c-9137-57790bd0a934 term='brother' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-20 13:08:26 | INFO | rhyme.app | ui.submit id=86b93554-0180-484e-a63e-9769078c2d3f term='sister' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-20 13:08:28 | INFO | rhyme.app | ui.render id=86b93554-0180-484e-a63e-9769078c2d3f elapsed_ms=1911.2 counts={'perfect_popular': 2, 'perfect_technical': 17, 'near_perfect_popular': 18, 'near_perfect_technical': 0, 'assonance_popular': 2, 'assonance_technical': 4, 'colloquial': 19, 'fallback': 0, 'total_slant': 24} preview={'perfect_popular_top': ['mr', 'mr.'], 'perfect_technical_top': ['mister', 'transistor', 'lister'], 'near_perfect_popular_top': ['whisper', 'bitter', 'drifter'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['winter', 'twitter'], 'assonance_technical_top': ['whisker', 'swifter', 'hitler'], 'colloquial_top': ['blood blister', 'fever blister', 'tongue twister']}
+2025-10-20 13:08:41 | INFO | rhyme.app | ui.submit id=58a590dc-ff12-40ab-a576-e62e21f54f6d term='double' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-20 13:08:42 | INFO | rhyme.app | ui.render id=58a590dc-ff12-40ab-a576-e62e21f54f6d elapsed_ms=647.8 counts={'perfect_popular': 6, 'perfect_technical': 16, 'near_perfect_popular': 40, 'near_perfect_technical': 0, 'assonance_popular': 4, 'assonance_technical': 7, 'colloquial': 8, 'fallback': 0, 'total_slant': 51} preview={'perfect_popular_top': ['fribble', 'nubble', 'nybble'], 'perfect_technical_top': ['bubble', 'rubble', 'hubble'], 'near_perfect_popular_top': ['chuckle', 'shuffle', 'rumble'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['struggle', 'uncle', 'muscle'], 'assonance_technical_top': ['crumble', 'muckle', 'ruckle'], 'colloquial_top': ['ask for trouble', 'in trouble', 'soap bubble']}
+2025-10-20 13:08:53 | INFO | rhyme.app | ui.submit id=254bf1f6-91e3-4973-bea8-479d5ad1f4b1 term='brother' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-20 13:08:54 | INFO | rhyme.app | ui.render id=254bf1f6-91e3-4973-bea8-479d5ad1f4b1 elapsed_ms=1118.5 counts={'perfect_popular': 8, 'perfect_technical': 6, 'near_perfect_popular': 0, 'near_perfect_technical': 0, 'assonance_popular': 0, 'assonance_technical': 0, 'colloquial': 13, 'fallback': 0, 'total_slant': 0} preview={'perfect_popular_top': ['suther', 'godmother', 'grandmother'], 'perfect_technical_top': ['smother', 'nother', 'souther'], 'near_perfect_popular_top': [], 'near_perfect_technical_top': [], 'assonance_popular_top': [], 'assonance_technical_top': [], 'colloquial_top': ['one after another', 'foster mother', 'the other']}
+2025-10-20 13:09:08 | INFO | rhyme.app | ui.submit id=ec863cc3-b46f-446b-9f80-22c117e3f3b9 term='double' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-20 13:09:09 | INFO | rhyme.app | ui.render id=ec863cc3-b46f-446b-9f80-22c117e3f3b9 elapsed_ms=625.1 counts={'perfect_popular': 6, 'perfect_technical': 16, 'near_perfect_popular': 40, 'near_perfect_technical': 0, 'assonance_popular': 4, 'assonance_technical': 7, 'colloquial': 8, 'fallback': 0, 'total_slant': 51} preview={'perfect_popular_top': ['fribble', 'nubble', 'nybble'], 'perfect_technical_top': ['bubble', 'rubble', 'hubble'], 'near_perfect_popular_top': ['chuckle', 'shuffle', 'rumble'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['struggle', 'uncle', 'muscle'], 'assonance_technical_top': ['crumble', 'muckle', 'ruckle'], 'colloquial_top': ['ask for trouble', 'in trouble', 'soap bubble']}
+2025-10-20 13:10:49 | INFO | rhyme.app | ui.submit id=2fbf03e6-4099-48bf-bbc8-5e3de4d8444d term='brother' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-20 13:10:50 | INFO | rhyme.app | ui.render id=2fbf03e6-4099-48bf-bbc8-5e3de4d8444d elapsed_ms=689.6 counts={'perfect_popular': 8, 'perfect_technical': 6, 'near_perfect_popular': 0, 'near_perfect_technical': 0, 'assonance_popular': 0, 'assonance_technical': 0, 'colloquial': 13, 'fallback': 0, 'total_slant': 0} preview={'perfect_popular_top': ['suther', 'godmother', 'grandmother'], 'perfect_technical_top': ['smother', 'nother', 'souther'], 'near_perfect_popular_top': [], 'near_perfect_technical_top': [], 'assonance_popular_top': [], 'assonance_technical_top': [], 'colloquial_top': ['one after another', 'foster mother', 'the other']}
+2025-10-20 13:13:09 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-20 13:13:09 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-20 13:13:09 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-20 13:13:09 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-20 13:13:10 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-20 13:13:54 | INFO | rhyme.app | ui.submit id=c8e7c778-d633-4816-8b70-8fd84d981add term='brother' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-20 13:13:55 | INFO | rhyme.app | ui.render id=c8e7c778-d633-4816-8b70-8fd84d981add elapsed_ms=699.6 counts={'perfect_popular': 8, 'perfect_technical': 6, 'near_perfect_popular': 0, 'near_perfect_technical': 0, 'assonance_popular': 75, 'assonance_technical': 0, 'colloquial': 13, 'fallback': 0, 'total_slant': 75} preview={'perfect_popular_top': ['suther', 'godmother', 'grandmother'], 'perfect_technical_top': ['smother', 'nother', 'souther'], 'near_perfect_popular_top': [], 'near_perfect_technical_top': [], 'assonance_popular_top': ['becomes', 'bottom-up', 'budget'], 'assonance_technical_top': [], 'colloquial_top': ['one after another', 'foster mother', 'the other']}
+2025-10-20 13:19:01 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-20 13:19:01 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-20 13:19:02 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-20 13:19:02 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-20 13:19:02 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-20 13:21:02 | INFO | rhyme.app | ui.submit id=268a2b48-fb07-4a5f-a2b1-d14aac5288e7 term='doorknob' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-20 13:21:02 | INFO | rhyme.app | ui.render id=268a2b48-fb07-4a5f-a2b1-d14aac5288e7 elapsed_ms=788.9 counts={'perfect_popular': 0, 'perfect_technical': 0, 'near_perfect_popular': 0, 'near_perfect_technical': 0, 'assonance_popular': 75, 'assonance_technical': 0, 'colloquial': 0, 'fallback': 0, 'total_slant': 75} preview={'perfect_popular_top': [], 'perfect_technical_top': [], 'near_perfect_popular_top': [], 'near_perfect_technical_top': [], 'assonance_popular_top': ['duty', 'distribution', 'debut'], 'assonance_technical_top': [], 'colloquial_top': []}
+2025-10-20 13:24:28 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-20 13:24:28 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-20 13:24:28 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-20 13:24:28 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-20 13:24:28 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-20 13:29:15 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-20 13:29:15 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-20 13:29:15 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-20 13:29:15 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-20 13:29:15 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-20 13:29:50 | INFO | rhyme.app | ui.submit id=58dbb3f1-14f2-4dae-b9bf-9c1187321d24 term='doorknob' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-20 13:29:50 | INFO | rhyme.app | ui.render id=58dbb3f1-14f2-4dae-b9bf-9c1187321d24 elapsed_ms=626.0 counts={'perfect_popular': 0, 'perfect_technical': 0, 'near_perfect_popular': 0, 'near_perfect_technical': 0, 'assonance_popular': 75, 'assonance_technical': 0, 'colloquial': 0, 'fallback': 0, 'total_slant': 75} preview={'perfect_popular_top': [], 'perfect_technical_top': [], 'near_perfect_popular_top': [], 'near_perfect_technical_top': [], 'assonance_popular_top': ['doing', 'duty', 'distribution'], 'assonance_technical_top': [], 'colloquial_top': []}
+2025-10-20 13:30:02 | INFO | rhyme.app | ui.submit id=d850f30a-cd11-417f-ae5a-0bcdde395cbc term='doorknob' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-20 13:30:03 | INFO | rhyme.app | ui.render id=d850f30a-cd11-417f-ae5a-0bcdde395cbc elapsed_ms=568.5 counts={'perfect_popular': 0, 'perfect_technical': 0, 'near_perfect_popular': 0, 'near_perfect_technical': 0, 'assonance_popular': 75, 'assonance_technical': 0, 'colloquial': 0, 'fallback': 0, 'total_slant': 75} preview={'perfect_popular_top': [], 'perfect_technical_top': [], 'near_perfect_popular_top': [], 'near_perfect_technical_top': [], 'assonance_popular_top': ['doing', 'duty', 'distribution'], 'assonance_technical_top': [], 'colloquial_top': []}
+2025-10-20 13:30:25 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-20 13:30:25 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-20 13:30:25 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-20 13:30:25 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-20 13:30:25 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-20 13:31:08 | INFO | rhyme.app | ui.submit id=3cc3beef-e0eb-4682-9893-917c348aac80 term='doorknob' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-20 13:31:09 | INFO | rhyme.app | ui.render id=3cc3beef-e0eb-4682-9893-917c348aac80 elapsed_ms=634.7 counts={'perfect_popular': 0, 'perfect_technical': 0, 'near_perfect_popular': 0, 'near_perfect_technical': 0, 'assonance_popular': 75, 'assonance_technical': 0, 'colloquial': 0, 'fallback': 0, 'total_slant': 75} preview={'perfect_popular_top': [], 'perfect_technical_top': [], 'near_perfect_popular_top': [], 'near_perfect_technical_top': [], 'assonance_popular_top': ['doing', 'duty', 'distribution'], 'assonance_technical_top': [], 'colloquial_top': []}
+2025-10-20 13:34:25 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-20 13:34:25 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-20 13:34:25 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-20 13:34:25 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-20 13:34:26 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-20 13:58:05 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-20 13:58:06 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-20 13:58:06 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-20 14:57:44 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-20 14:57:45 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-20 14:57:45 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-20 15:07:48 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-20 15:07:49 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-20 15:07:49 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-20 15:07:49 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-20 15:07:49 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-20 15:12:29 | INFO | rhyme.app | ui.submit id=5ed35a70-04c6-4086-b86f-1f1aea49cd04 term='sister' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-20 15:12:32 | INFO | rhyme_core.engine | Expanded results with homophones
+2025-10-20 15:12:32 | INFO | rhyme_core.engine | Generated 200 multi-word phrases
+2025-10-20 15:12:32 | INFO | rhyme.app | ui.render id=5ed35a70-04c6-4086-b86f-1f1aea49cd04 elapsed_ms=3027.6 counts={'perfect_popular': 9, 'perfect_technical': 12, 'near_perfect_popular': 45, 'near_perfect_technical': 0, 'assonance_popular': 102, 'assonance_technical': 79, 'colloquial': 318, 'fallback': 0, 'total_slant': 226} preview={'perfect_popular_top': ['mr', 'mr.', 'mister'], 'perfect_technical_top': ['pfister', 'bicester', 'fister'], 'near_perfect_popular_top': ['whisper', 'figure', 'bitter'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['sr', 'cyst', 'ceased'], 'assonance_technical_top': ['suster', 'sester', 'sastre'], 'colloquial_top': ['fellow', 'baby', 'taxon']}
+2025-10-20 15:15:34 | INFO | rhyme.app | ui.submit id=898a250b-bedf-443e-8076-232529d997cd term='sister' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-20 15:15:37 | INFO | rhyme_core.engine | Expanded results with homophones
+2025-10-20 15:15:37 | INFO | rhyme_core.engine | Generated 200 multi-word phrases
+2025-10-20 15:15:37 | INFO | rhyme.app | ui.render id=898a250b-bedf-443e-8076-232529d997cd elapsed_ms=2729.4 counts={'perfect_popular': 9, 'perfect_technical': 12, 'near_perfect_popular': 45, 'near_perfect_technical': 0, 'assonance_popular': 102, 'assonance_technical': 79, 'colloquial': 318, 'fallback': 0, 'total_slant': 226} preview={'perfect_popular_top': ['mr', 'mr.', 'mister'], 'perfect_technical_top': ['pfister', 'bicester', 'fister'], 'near_perfect_popular_top': ['whisper', 'figure', 'bitter'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['sr', 'cyst', 'ceased'], 'assonance_technical_top': ['suster', 'sester', 'sastre'], 'colloquial_top': ['fellow', 'baby', 'taxon']}
+2025-10-20 15:19:17 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-20 15:19:17 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-20 15:19:17 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-20 15:19:17 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-20 15:19:17 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-20 15:22:00 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-20 15:22:00 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-20 15:22:01 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-20 15:22:01 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-20 15:22:01 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-20 15:22:08 | INFO | rhyme.app | ui.submit id=4b6ce624-d4a3-4b35-9244-5879b3b00adb term='sister' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-20 15:22:11 | INFO | rhyme_core.engine | Expanded results with homophones
+2025-10-20 15:22:12 | INFO | rhyme_core.engine | Generated 200 multi-word phrases
+2025-10-20 15:22:12 | INFO | rhyme.app | ui.render id=4b6ce624-d4a3-4b35-9244-5879b3b00adb elapsed_ms=3140.0 counts={'perfect_popular': 9, 'perfect_technical': 12, 'near_perfect_popular': 43, 'near_perfect_technical': 0, 'assonance_popular': 106, 'assonance_technical': 79, 'colloquial': 318, 'fallback': 0, 'total_slant': 228} preview={'perfect_popular_top': ['mr', 'mr.', 'mister'], 'perfect_technical_top': ['pfister', 'bicester', 'fister'], 'near_perfect_popular_top': ['whisper', 'bitter', 'drifter'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['sr', 'cyst', 'ceased'], 'assonance_technical_top': ['suster', 'sester', 'sastre'], 'colloquial_top': ['fellow', 'baby', 'taxon']}
+2025-10-20 15:22:52 | INFO | rhyme.app | ui.submit id=cd42de77-1cb0-4eb8-8aaf-f7cee058588e term='brother' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-20 15:22:55 | INFO | rhyme_core.engine | Expanded results with homophones
+2025-10-20 15:22:55 | INFO | rhyme_core.engine | Generated 200 multi-word phrases
+2025-10-20 15:22:55 | INFO | rhyme.app | ui.render id=cd42de77-1cb0-4eb8-8aaf-f7cee058588e elapsed_ms=2937.5 counts={'perfect_popular': 9, 'perfect_technical': 8, 'near_perfect_popular': 50, 'near_perfect_technical': 0, 'assonance_popular': 127, 'assonance_technical': 85, 'colloquial': 302, 'fallback': 0, 'total_slant': 262} preview={'perfect_popular_top': ['godmother', 'grandmother', 'stepmother'], 'perfect_technical_top': ['smother', 'nother', 'souther'], 'near_perfect_popular_top': ['shudder', 'hover', 'sucker'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['breath', 'broader', 'breathe'], 'assonance_technical_top': ['breather', 'brummer', 'birther'], 'colloquial_top': ['fellow', 'comrade', 'crony']}
+2025-10-20 15:25:17 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-20 15:25:17 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-20 15:25:17 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-20 15:25:17 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-20 15:25:17 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-20 15:27:57 | INFO | rhyme.app | ui.submit id=8fb6dcfc-71dd-4264-829c-4055dce104ce term='sister' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-20 15:28:00 | INFO | rhyme_core.engine | Expanded results with homophones
+2025-10-20 15:28:01 | INFO | rhyme_core.engine | Generated 200 multi-word phrases
+2025-10-20 15:28:01 | INFO | rhyme.app | ui.render id=8fb6dcfc-71dd-4264-829c-4055dce104ce elapsed_ms=3109.4 counts={'perfect_popular': 9, 'perfect_technical': 12, 'near_perfect_popular': 43, 'near_perfect_technical': 0, 'assonance_popular': 106, 'assonance_technical': 79, 'colloquial': 318, 'fallback': 0, 'total_slant': 228} preview={'perfect_popular_top': ['mr', 'mr.', 'mister'], 'perfect_technical_top': ['pfister', 'bicester', 'fister'], 'near_perfect_popular_top': ['whisper', 'bitter', 'drifter'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['sr', 'cyst', 'ceased'], 'assonance_technical_top': ['suster', 'sester', 'sastre'], 'colloquial_top': ['fellow', 'baby', 'taxon']}
+2025-10-20 15:30:37 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-20 15:30:37 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-20 15:30:38 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-20 15:30:38 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-20 15:30:38 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-20 15:34:55 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-20 15:34:55 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-20 15:34:56 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-20 15:34:56 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-20 15:34:56 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-20 15:35:08 | INFO | rhyme.app | ui.submit id=51a5e602-6ca6-4a7e-93ef-a4d21b9ecd91 term='sister' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-20 15:35:11 | INFO | rhyme_core.engine | Expanded results with homophones
+2025-10-20 15:35:12 | INFO | rhyme_core.engine | Generated 200 multi-word phrases
+2025-10-20 15:35:12 | INFO | rhyme.app | ui.render id=51a5e602-6ca6-4a7e-93ef-a4d21b9ecd91 elapsed_ms=3209.9 counts={'perfect_popular': 9, 'perfect_technical': 12, 'near_perfect_popular': 43, 'near_perfect_technical': 0, 'assonance_popular': 108, 'assonance_technical': 79, 'colloquial': 319, 'fallback': 0, 'total_slant': 230} preview={'perfect_popular_top': ['mr', 'mr.', 'mister'], 'perfect_technical_top': ['pfister', 'bicester', 'fister'], 'near_perfect_popular_top': ['whisper', 'bitter', 'drifter'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['sr', 'cyst', 'ceased'], 'assonance_technical_top': ['suster', 'sester', 'sastre'], 'colloquial_top': ['fellow', 'baby', 'taxon']}
+2025-10-20 15:35:46 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-20 15:35:46 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-20 15:35:46 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-20 15:35:46 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-20 15:35:46 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-20 15:36:04 | INFO | rhyme.app | ui.submit id=91b19571-8bf5-4f0f-897b-205ec9b83297 term='sister' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-20 15:36:06 | INFO | rhyme_core.engine | Expanded results with homophones
+2025-10-20 15:36:07 | INFO | rhyme_core.engine | Generated 200 multi-word phrases
+2025-10-20 15:36:07 | INFO | rhyme.app | ui.render id=91b19571-8bf5-4f0f-897b-205ec9b83297 elapsed_ms=2576.7 counts={'perfect_popular': 9, 'perfect_technical': 12, 'near_perfect_popular': 43, 'near_perfect_technical': 0, 'assonance_popular': 108, 'assonance_technical': 79, 'colloquial': 319, 'fallback': 0, 'total_slant': 230} preview={'perfect_popular_top': ['mr', 'mr.', 'mister'], 'perfect_technical_top': ['pfister', 'bicester', 'fister'], 'near_perfect_popular_top': ['whisper', 'bitter', 'drifter'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['sr', 'cyst', 'ceased'], 'assonance_technical_top': ['suster', 'sester', 'sastre'], 'colloquial_top': ['fellow', 'baby', 'taxon']}
+2025-10-20 15:39:19 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-20 15:39:19 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-20 15:39:20 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-20 15:39:20 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-20 15:39:20 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-20 15:39:45 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-20 15:39:45 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-20 15:39:45 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-20 15:39:45 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-20 15:39:45 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-20 15:40:37 | INFO | rhyme.app | ui.submit id=1903c798-569e-427c-b2cd-bdb64a4bb418 term='sister' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-20 15:40:37 | ERROR | rhyme.app | ui.error id=1903c798-569e-427c-b2cd-bdb64a4bb418 elapsed_ms=5.9 error=cannot access local variable 'target_syls' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\app.py", line 433, in search_interface
+    results = search_rhymes(
+        term.strip(),
+    ...<4 lines>...
+        enable_alliteration=enable_alliteration
+    )
+  File "C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\rhyme_core\engine.py", line 1246, in search_rhymes
+    if target_syls > 0 and syls < target_syls:
+       ^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'target_syls' where it is not associated with a value
+2025-10-20 15:41:51 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-20 15:41:52 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-20 15:41:52 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-20 15:41:52 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-20 15:41:52 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-20 15:42:07 | INFO | rhyme.app | ui.submit id=d1ea10d6-2977-4cf8-bc44-4b9779dbbd7d term='sister' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-20 15:42:10 | INFO | rhyme_core.engine | Expanded results with homophones
+2025-10-20 15:42:11 | INFO | rhyme_core.engine | Generated 200 multi-word phrases
+2025-10-20 15:42:11 | INFO | rhyme.app | ui.render id=d1ea10d6-2977-4cf8-bc44-4b9779dbbd7d elapsed_ms=3330.2 counts={'perfect_popular': 9, 'perfect_technical': 12, 'near_perfect_popular': 43, 'near_perfect_technical': 0, 'assonance_popular': 87, 'assonance_technical': 78, 'colloquial': 297, 'fallback': 0, 'total_slant': 208} preview={'perfect_popular_top': ['mr', 'mr.', 'mister'], 'perfect_technical_top': ['pfister', 'bicester', 'fister'], 'near_perfect_popular_top': ['whisper', 'bitter', 'drifter'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['sr', 'chester', 'worcester'], 'assonance_technical_top': ['suster', 'sester', 'sastre'], 'colloquial_top': ['fellow', 'baby', 'taxon']}
+2025-10-20 15:47:44 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-20 15:47:45 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-20 15:47:45 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-20 15:47:45 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-20 15:47:45 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-20 15:48:26 | INFO | rhyme.app | ui.submit id=4a0c8f26-8fe4-4760-ac5a-52d7e3d0ed94 term='sister' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-20 15:48:29 | INFO | rhyme_core.engine | Expanded results with homophones
+2025-10-20 15:48:30 | INFO | rhyme_core.engine | Generated 200 multi-word phrases
+2025-10-20 15:48:30 | INFO | rhyme.app | ui.render id=4a0c8f26-8fe4-4760-ac5a-52d7e3d0ed94 elapsed_ms=3141.5 counts={'perfect_popular': 9, 'perfect_technical': 12, 'near_perfect_popular': 43, 'near_perfect_technical': 0, 'assonance_popular': 87, 'assonance_technical': 78, 'colloquial': 297, 'fallback': 0, 'total_slant': 208} preview={'perfect_popular_top': ['mr', 'mr.', 'mister'], 'perfect_technical_top': ['pfister', 'bicester', 'fister'], 'near_perfect_popular_top': ['whisper', 'bitter', 'drifter'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['similar', 'picture', 'figure'], 'assonance_technical_top': ['whisker', 'blisters', 'swifter'], 'colloquial_top': ['fellow', 'baby', 'taxon']}
+2025-10-20 15:53:00 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-20 15:53:00 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-20 15:53:01 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-20 15:53:01 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-20 15:53:01 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-20 15:55:40 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-20 15:55:40 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-20 15:55:40 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-20 15:55:40 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-20 15:55:40 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-20 16:05:57 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-20 16:05:57 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-20 16:05:58 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-20 16:05:58 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-20 16:05:58 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-20 16:09:02 | INFO | rhyme.app | ui.submit id=77fae8f9-3631-4d32-8abf-1449a11399fe term='sister' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-20 16:09:05 | INFO | rhyme_core.engine | Expanded results with homophones
+2025-10-20 16:09:05 | INFO | rhyme_core.engine | Generated 200 multi-word phrases
+2025-10-20 16:09:05 | INFO | rhyme_core.uncommon_filter | Applying uncommon rhyme filtering...
+2025-10-20 16:09:05 | INFO | rhyme_core.uncommon_filter | Total items before filtering: 526
+2025-10-20 16:09:05 | INFO | rhyme_core.uncommon_filter | Popular items (hidden): 131
+2025-10-20 16:09:05 | INFO | rhyme_core.uncommon_filter | Display items (shown): 105
+2025-10-20 16:09:05 | INFO | rhyme_core.uncommon_filter | Obscure items (hidden): 290
+2025-10-20 16:09:05 | INFO | rhyme_core.engine | Applied uncommon rhyme filtering
+2025-10-20 16:09:05 | INFO | rhyme.app | ui.render id=77fae8f9-3631-4d32-8abf-1449a11399fe elapsed_ms=3250.8 counts={'perfect_popular': 0, 'perfect_technical': 14, 'near_perfect_popular': 1, 'near_perfect_technical': 44, 'assonance_popular': 0, 'assonance_technical': 0, 'colloquial': 46, 'fallback': 0, 'total_slant': 45} preview={'perfect_popular_top': [], 'perfect_technical_top': ['mr', 'mr.', 'mister'], 'near_perfect_popular_top': ['assists'], 'near_perfect_technical_top': ['hester', 'saucer', 'syst'], 'assonance_popular_top': [], 'assonance_technical_top': [], 'colloquial_top': ['so hot', 'this here', 'affiliate']}
+2025-10-20 16:17:07 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-20 16:17:07 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-20 16:17:08 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-20 16:17:08 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-20 16:17:08 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-20 16:19:18 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-20 16:19:18 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-20 16:19:19 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-20 16:19:19 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-20 16:19:19 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-20 16:19:38 | INFO | rhyme.app | ui.submit id=f73053b3-e353-415b-a50d-e67aa2830680 term='double' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-20 16:19:41 | INFO | rhyme_core.engine | Expanded results with homophones
+2025-10-20 16:19:41 | INFO | rhyme_core.engine | Generated 200 multi-word phrases
+2025-10-20 16:19:41 | INFO | rhyme_core.uncommon_filter | Applying uncommon rhyme filtering...
+2025-10-20 16:19:41 | INFO | rhyme_core.uncommon_filter | Total items before filtering: 518
+2025-10-20 16:19:41 | INFO | rhyme_core.uncommon_filter | Popular items (hidden): 129
+2025-10-20 16:19:41 | INFO | rhyme_core.uncommon_filter | Display items (shown): 104
+2025-10-20 16:19:41 | INFO | rhyme_core.uncommon_filter | Obscure items (hidden): 285
+2025-10-20 16:19:41 | INFO | rhyme_core.engine | Applied uncommon rhyme filtering
+2025-10-20 16:19:41 | INFO | rhyme.app | ui.render id=f73053b3-e353-415b-a50d-e67aa2830680 elapsed_ms=3122.2 counts={'perfect_popular': 0, 'perfect_technical': 10, 'near_perfect_popular': 0, 'near_perfect_technical': 24, 'assonance_popular': 0, 'assonance_technical': 0, 'colloquial': 70, 'fallback': 0, 'total_slant': 24} preview={'perfect_popular_top': [], 'perfect_technical_top': ['bubble', 'rubble', 'hubble'], 'near_perfect_popular_top': [], 'near_perfect_technical_top': ['troubled', 'subtle', 'humble'], 'assonance_popular_top': [], 'assonance_technical_top': [], 'colloquial_top': ['double u', 'see double', 'double dee']}
+2025-10-20 16:29:19 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-20 16:29:19 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-20 16:29:20 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-20 16:29:20 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-20 16:29:20 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-20 16:29:39 | INFO | rhyme.app | ui.submit id=5d3604f6-d4fe-4085-9e94-c4ce0e07bc52 term='sister' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-20 16:29:42 | INFO | rhyme_core.engine | Expanded results with homophones
+2025-10-20 16:29:43 | INFO | rhyme_core.engine | Generated 200 multi-word phrases
+2025-10-20 16:29:43 | INFO | rhyme_core.uncommon_filter | Applying uncommon rhyme filtering...
+2025-10-20 16:29:43 | INFO | rhyme_core.uncommon_filter | Total items before filtering: 526
+2025-10-20 16:29:43 | INFO | rhyme_core.uncommon_filter | Popular items (hidden): 131
+2025-10-20 16:29:43 | INFO | rhyme_core.uncommon_filter | Display items (shown): 105
+2025-10-20 16:29:43 | INFO | rhyme_core.uncommon_filter | Obscure items (hidden): 290
+2025-10-20 16:29:43 | INFO | rhyme_core.engine | Applied uncommon rhyme filtering
+2025-10-20 16:29:43 | INFO | rhyme.app | ui.render id=5d3604f6-d4fe-4085-9e94-c4ce0e07bc52 elapsed_ms=3555.5 counts={'perfect_popular': 0, 'perfect_technical': 14, 'near_perfect_popular': 1, 'near_perfect_technical': 44, 'assonance_popular': 0, 'assonance_technical': 0, 'colloquial': 46, 'fallback': 0, 'total_slant': 45} preview={'perfect_popular_top': [], 'perfect_technical_top': ['mr', 'mr.', 'mister'], 'near_perfect_popular_top': ['assists'], 'near_perfect_technical_top': ['hester', 'saucer', 'syst'], 'assonance_popular_top': [], 'assonance_technical_top': [], 'colloquial_top': ['so hot', 'this here', 'affiliate']}
+2025-10-20 16:32:58 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-20 16:32:58 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-20 16:32:59 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-20 16:32:59 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-20 16:32:59 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-20 18:00:29 | INFO | rhyme.app | ui.submit id=0053d6c8-c15b-47bb-a217-51e6aa37843d term='sister' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-20 18:00:34 | INFO | rhyme_core.engine | Expanded results with homophones
+2025-10-20 18:00:34 | INFO | rhyme_core.engine | Generated 200 multi-word phrases
+2025-10-20 18:00:34 | INFO | rhyme_core.uncommon_filter | Applying uncommon rhyme filtering...
+2025-10-20 18:00:34 | INFO | rhyme_core.uncommon_filter | Total items before filtering: 526
+2025-10-20 18:00:34 | INFO | rhyme_core.uncommon_filter | Popular items (hidden): 131
+2025-10-20 18:00:34 | INFO | rhyme_core.uncommon_filter | Display items (shown): 105
+2025-10-20 18:00:34 | INFO | rhyme_core.uncommon_filter | Obscure items (hidden): 290
+2025-10-20 18:00:34 | INFO | rhyme_core.engine | Applied uncommon rhyme filtering
+2025-10-20 18:00:34 | INFO | rhyme.app | ui.render id=0053d6c8-c15b-47bb-a217-51e6aa37843d elapsed_ms=5206.8 counts={'perfect_popular': 0, 'perfect_technical': 14, 'near_perfect_popular': 1, 'near_perfect_technical': 44, 'assonance_popular': 0, 'assonance_technical': 0, 'colloquial': 46, 'fallback': 0, 'total_slant': 45} preview={'perfect_popular_top': [], 'perfect_technical_top': ['mr', 'mr.', 'mister'], 'near_perfect_popular_top': ['assists'], 'near_perfect_technical_top': ['hester', 'saucer', 'syst'], 'assonance_popular_top': [], 'assonance_technical_top': [], 'colloquial_top': ['so hot', 'this here', 'affiliate']}
+2025-10-20 18:03:18 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-20 18:03:18 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-20 18:03:18 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-20 18:03:18 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-20 18:03:19 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-20 18:03:46 | INFO | rhyme.app | ui.submit id=aac5f96e-3835-4508-9a48-8c1668b8c3fd term='bedroom' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-20 18:03:50 | INFO | rhyme_core.engine | Expanded results with homophones
+2025-10-20 18:03:50 | INFO | rhyme_core.engine | Generated 200 multi-word phrases
+2025-10-20 18:03:50 | INFO | rhyme_core.uncommon_filter | Applying uncommon rhyme filtering...
+2025-10-20 18:03:50 | INFO | rhyme_core.uncommon_filter | Total items before filtering: 593
+2025-10-20 18:03:50 | INFO | rhyme_core.uncommon_filter | Popular items (hidden): 148
+2025-10-20 18:03:50 | INFO | rhyme_core.uncommon_filter | Display items (shown): 118
+2025-10-20 18:03:50 | INFO | rhyme_core.uncommon_filter | Obscure items (hidden): 327
+2025-10-20 18:03:50 | INFO | rhyme_core.engine | Applied uncommon rhyme filtering
+2025-10-20 18:03:50 | INFO | rhyme.app | ui.render id=aac5f96e-3835-4508-9a48-8c1668b8c3fd elapsed_ms=4742.4 counts={'perfect_popular': 0, 'perfect_technical': 65, 'near_perfect_popular': 0, 'near_perfect_technical': 39, 'assonance_popular': 0, 'assonance_technical': 0, 'colloquial': 14, 'fallback': 0, 'total_slant': 39} preview={'perfect_popular_top': [], 'perfect_technical_top': ['classroom', 'blum', 'hume'], 'near_perfect_popular_top': [], 'near_perfect_technical_top': ['baron', 'barren', 'beron'], 'assonance_popular_top': [], 'assonance_technical_top': [], 'colloquial_top': ['living room', 'dining room', 'bedchamber']}
+2025-10-20 18:08:25 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-20 18:08:26 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-20 18:08:26 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-20 18:08:26 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-20 18:08:26 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-20 18:09:03 | INFO | rhyme.app | ui.submit id=823ff746-3e87-4f18-8702-3045bfecac2f term='sister' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-20 18:09:07 | INFO | rhyme_core.engine | Expanded results with homophones
+2025-10-20 18:09:07 | INFO | rhyme_core.engine | Generated 200 multi-word phrases
+2025-10-20 18:09:07 | INFO | rhyme_core.uncommon_filter | Applying uncommon rhyme filtering...
+2025-10-20 18:09:07 | INFO | rhyme_core.uncommon_filter | Total items before filtering: 526
+2025-10-20 18:09:07 | INFO | rhyme_core.uncommon_filter | Popular items (hidden): 131
+2025-10-20 18:09:07 | INFO | rhyme_core.uncommon_filter | Display items (shown): 105
+2025-10-20 18:09:07 | INFO | rhyme_core.uncommon_filter | Obscure items (hidden): 290
+2025-10-20 18:09:07 | INFO | rhyme_core.engine | Applied uncommon rhyme filtering
+2025-10-20 18:09:07 | INFO | rhyme.app | ui.render id=823ff746-3e87-4f18-8702-3045bfecac2f elapsed_ms=4281.5 counts={'perfect_popular': 0, 'perfect_technical': 14, 'near_perfect_popular': 1, 'near_perfect_technical': 44, 'assonance_popular': 0, 'assonance_technical': 0, 'colloquial': 46, 'fallback': 0, 'total_slant': 45} preview={'perfect_popular_top': [], 'perfect_technical_top': ['mr', 'mr.', 'mister'], 'near_perfect_popular_top': ['assists'], 'near_perfect_technical_top': ['hester', 'saucer', 'sausser'], 'assonance_popular_top': [], 'assonance_technical_top': [], 'colloquial_top': ['so hot', 'this here', 'affiliate']}
+2025-10-20 18:29:10 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-20 18:29:10 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-20 18:29:11 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-20 18:29:11 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-20 18:29:11 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-20 18:30:21 | INFO | rhyme.app | ui.submit id=abcce1cc-3471-40f2-923a-5a5a721ce287 term='sister' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-20 18:30:26 | INFO | rhyme_core.engine | Expanded results with homophones
+2025-10-20 18:30:26 | INFO | rhyme_core.engine | Generated 200 multi-word phrases
+2025-10-20 18:30:26 | INFO | rhyme_core.uncommon_filter | Applying uncommon rhyme filtering...
+2025-10-20 18:30:26 | INFO | rhyme_core.uncommon_filter | Total items before filtering: 526
+2025-10-20 18:30:26 | INFO | rhyme_core.uncommon_filter | Popular items (hidden): 131
+2025-10-20 18:30:26 | INFO | rhyme_core.uncommon_filter | Display items (shown): 105
+2025-10-20 18:30:26 | INFO | rhyme_core.uncommon_filter | Obscure items (hidden): 290
+2025-10-20 18:30:26 | INFO | rhyme_core.engine | Applied uncommon rhyme filtering
+2025-10-20 18:30:26 | INFO | rhyme.app | ui.render id=abcce1cc-3471-40f2-923a-5a5a721ce287 elapsed_ms=4748.6 counts={'perfect_popular': 0, 'perfect_technical': 14, 'near_perfect_popular': 1, 'near_perfect_technical': 44, 'assonance_popular': 0, 'assonance_technical': 0, 'colloquial': 46, 'fallback': 0, 'total_slant': 45} preview={'perfect_popular_top': [], 'perfect_technical_top': ['mr', 'mr.', 'mister'], 'near_perfect_popular_top': ['assists'], 'near_perfect_technical_top': ['hester', 'saucer', 'sausser'], 'assonance_popular_top': [], 'assonance_technical_top': [], 'colloquial_top': ['so hot', 'this here', 'affiliate']}
+2025-10-20 19:09:36 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-20 19:09:37 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-20 19:09:37 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-20 19:09:37 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-20 19:09:37 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-24 16:36:27 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-24 16:36:28 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-24 16:36:28 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-24 16:36:28 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-24 16:36:28 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-24 16:56:45 | INFO | rhyme.app | ui.submit id=e55f1e9f-fcb0-4e39-8aec-839565347eab term='without' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-24 16:56:50 | INFO | rhyme_core.engine | Expanded results with homophones
+2025-10-24 16:56:50 | INFO | rhyme_core.engine | Generated 200 multi-word phrases
+2025-10-24 16:56:50 | INFO | rhyme_core.uncommon_filter | Applying uncommon rhyme filtering...
+2025-10-24 16:56:50 | INFO | rhyme_core.uncommon_filter | Total items before filtering: 491
+2025-10-24 16:56:50 | INFO | rhyme_core.uncommon_filter | Popular items (hidden): 122
+2025-10-24 16:56:50 | INFO | rhyme_core.uncommon_filter | Display items (shown): 98
+2025-10-24 16:56:50 | INFO | rhyme_core.uncommon_filter | Obscure items (hidden): 271
+2025-10-24 16:56:50 | INFO | rhyme_core.engine | Applied uncommon rhyme filtering
+2025-10-24 16:56:50 | INFO | rhyme.app | ui.render id=e55f1e9f-fcb0-4e39-8aec-839565347eab elapsed_ms=5299.3 counts={'perfect_popular': 0, 'perfect_technical': 3, 'near_perfect_popular': 0, 'near_perfect_technical': 15, 'assonance_popular': 0, 'assonance_technical': 0, 'colloquial': 80, 'fallback': 0, 'total_slant': 15} preview={'perfect_popular_top': [], 'perfect_technical_top': ['lookout', 'turnout', 'redoubt'], 'near_perfect_popular_top': [], 'near_perfect_technical_top': ['willet', 'rethought', 'wicket'], 'assonance_popular_top': [], 'assonance_technical_top': [], 'colloquial_top': ['make out', 'bring out', 'pull out']}
+2025-10-24 17:00:46 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-24 17:00:46 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-24 17:00:46 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-24 17:04:51 | INFO | rhyme.app | ui.submit id=65bcf0e9-b652-4814-996b-4cdc9d352245 term='without' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-24 17:04:57 | INFO | rhyme_core.engine | Expanded results with homophones
+2025-10-24 17:04:57 | INFO | rhyme_core.engine | Generated 200 multi-word phrases
+2025-10-24 17:04:57 | INFO | rhyme_core.uncommon_filter | Applying uncommon rhyme filtering...
+2025-10-24 17:04:57 | INFO | rhyme_core.uncommon_filter | Total items before filtering: 491
+2025-10-24 17:04:57 | INFO | rhyme_core.uncommon_filter | Popular items (hidden): 122
+2025-10-24 17:04:57 | INFO | rhyme_core.uncommon_filter | Display items (shown): 98
+2025-10-24 17:04:57 | INFO | rhyme_core.uncommon_filter | Obscure items (hidden): 271
+2025-10-24 17:04:57 | INFO | rhyme_core.engine | Applied uncommon rhyme filtering
+2025-10-24 17:04:57 | INFO | rhyme.app | ui.render id=65bcf0e9-b652-4814-996b-4cdc9d352245 elapsed_ms=6088.5 counts={'perfect_popular': 0, 'perfect_technical': 3, 'near_perfect_popular': 0, 'near_perfect_technical': 15, 'assonance_popular': 0, 'assonance_technical': 0, 'colloquial': 80, 'fallback': 0, 'total_slant': 15} preview={'perfect_popular_top': [], 'perfect_technical_top': ['lookout', 'turnout', 'redoubt'], 'near_perfect_popular_top': [], 'near_perfect_technical_top': ['willet', 'rethought', 'wicket'], 'assonance_popular_top': [], 'assonance_technical_top': [], 'colloquial_top': ['make out', 'bring out', 'pull out']}
+2025-10-24 17:05:43 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-24 17:05:44 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-24 17:05:44 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-24 17:06:10 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-24 17:06:11 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-24 17:06:11 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-24 17:06:38 | INFO | rhyme.app | ui.submit id=0c67af4a-7b70-43c0-a8cf-09a76e8882aa term='without' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-24 17:06:42 | INFO | rhyme_core.engine | Expanded results with homophones
+2025-10-24 17:06:43 | INFO | rhyme_core.engine | Generated 200 multi-word phrases
+2025-10-24 17:06:43 | INFO | rhyme_core.uncommon_filter | Applying uncommon rhyme filtering...
+2025-10-24 17:06:43 | INFO | rhyme_core.uncommon_filter | Total items before filtering: 491
+2025-10-24 17:06:43 | INFO | rhyme_core.uncommon_filter | Popular items (hidden): 122
+2025-10-24 17:06:43 | INFO | rhyme_core.uncommon_filter | Display items (shown): 98
+2025-10-24 17:06:43 | INFO | rhyme_core.uncommon_filter | Obscure items (hidden): 271
+2025-10-24 17:06:43 | INFO | rhyme_core.engine | Applied uncommon rhyme filtering
+2025-10-24 17:06:43 | INFO | rhyme.app | ui.render id=0c67af4a-7b70-43c0-a8cf-09a76e8882aa elapsed_ms=4778.8 counts={'perfect_popular': 0, 'perfect_technical': 3, 'near_perfect_popular': 0, 'near_perfect_technical': 15, 'assonance_popular': 0, 'assonance_technical': 0, 'colloquial': 80, 'fallback': 0, 'total_slant': 15} preview={'perfect_popular_top': [], 'perfect_technical_top': ['lookout', 'turnout', 'redoubt'], 'near_perfect_popular_top': [], 'near_perfect_technical_top': ['willet', 'rethought', 'wicket'], 'assonance_popular_top': [], 'assonance_technical_top': [], 'colloquial_top': ['make out', 'bring out', 'pull out']}
+2025-10-24 17:07:40 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-24 17:07:41 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-24 17:07:41 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-24 17:07:41 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-24 17:07:41 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-24 17:08:00 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-24 17:08:00 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-24 17:08:00 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-24 17:08:00 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-24 17:08:01 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-24 17:08:39 | INFO | rhyme.app | ui.submit id=3a7762bf-33ef-4cbc-a6fc-830cc1acca44 term='without' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-24 17:08:42 | INFO | rhyme_core.engine | Expanded results with homophones
+2025-10-24 17:08:42 | INFO | rhyme_core.engine | Generated 200 multi-word phrases
+2025-10-24 17:08:42 | INFO | rhyme_core.uncommon_filter | Applying uncommon rhyme filtering...
+2025-10-24 17:08:42 | INFO | rhyme_core.uncommon_filter | Total items before filtering: 291
+2025-10-24 17:08:42 | INFO | rhyme_core.uncommon_filter | Popular items (hidden): 72
+2025-10-24 17:08:42 | INFO | rhyme_core.uncommon_filter | Display items (shown): 58
+2025-10-24 17:08:42 | INFO | rhyme_core.uncommon_filter | Obscure items (hidden): 161
+2025-10-24 17:08:42 | INFO | rhyme_core.engine | Applied uncommon rhyme filtering
+2025-10-24 17:08:42 | INFO | rhyme.app | ui.render id=3a7762bf-33ef-4cbc-a6fc-830cc1acca44 elapsed_ms=3507.0 counts={'perfect_popular': 0, 'perfect_technical': 20, 'near_perfect_popular': 0, 'near_perfect_technical': 30, 'assonance_popular': 0, 'assonance_technical': 0, 'colloquial': 11, 'fallback': 0, 'total_slant': 30} preview={'perfect_popular_top': [], 'perfect_technical_top': ['stake-out', 'devout', 'armantrout'], 'near_perfect_popular_top': [], 'near_perfect_technical_top': ['wiut', 'wedt', 'wlet'], 'assonance_popular_top': [], 'assonance_technical_top': [], 'colloquial_top': ['point out', 'spread out', 'put out']}
+2025-10-24 17:12:50 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-24 17:12:50 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-24 17:12:51 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-24 17:12:51 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-24 17:12:51 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-24 17:18:37 | INFO | rhyme.app | ui.submit id=453c5187-d740-4d7d-a2c8-0fde44eed7e2 term='without' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-24 17:18:41 | INFO | rhyme_core.engine | Expanded results with homophones
+2025-10-24 17:18:41 | INFO | rhyme_core.engine | Generated 200 multi-word phrases
+2025-10-24 17:18:41 | INFO | rhyme_core.uncommon_filter | Applying uncommon rhyme filtering...
+2025-10-24 17:18:41 | INFO | rhyme_core.uncommon_filter | Total items before filtering: 291
+2025-10-24 17:18:41 | INFO | rhyme_core.uncommon_filter | Popular items (hidden): 72
+2025-10-24 17:18:41 | INFO | rhyme_core.uncommon_filter | Display items (shown): 58
+2025-10-24 17:18:41 | INFO | rhyme_core.uncommon_filter | Obscure items (hidden): 161
+2025-10-24 17:18:41 | INFO | rhyme_core.engine | Applied uncommon rhyme filtering
+2025-10-24 17:18:41 | INFO | rhyme.app | ui.render id=453c5187-d740-4d7d-a2c8-0fde44eed7e2 elapsed_ms=4742.1 counts={'perfect_popular': 0, 'perfect_technical': 20, 'near_perfect_popular': 0, 'near_perfect_technical': 30, 'assonance_popular': 0, 'assonance_technical': 0, 'colloquial': 11, 'fallback': 0, 'total_slant': 30} preview={'perfect_popular_top': [], 'perfect_technical_top': ['stake-out', 'devout', 'armantrout'], 'near_perfect_popular_top': [], 'near_perfect_technical_top': ['wiut', 'wedt', 'wlet'], 'assonance_popular_top': [], 'assonance_technical_top': [], 'colloquial_top': ['point out', 'spread out', 'put out']}
+2025-10-24 17:28:37 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-24 17:28:37 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-24 17:28:38 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-24 17:28:38 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-24 17:28:38 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-24 17:29:26 | INFO | rhyme.app | ui.submit id=81ddc290-2138-41bd-9394-6b662ef38ffa term='without' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-24 17:29:31 | INFO | rhyme_core.engine | Expanded results with homophones
+2025-10-24 17:29:31 | INFO | rhyme_core.engine | Generated 200 multi-word phrases
+2025-10-24 17:29:31 | INFO | rhyme_core.uncommon_filter | Applying uncommon rhyme filtering...
+2025-10-24 17:29:31 | INFO | rhyme_core.uncommon_filter | Total items before filtering: 295
+2025-10-24 17:29:31 | INFO | rhyme_core.uncommon_filter | Popular items (hidden): 73
+2025-10-24 17:29:31 | INFO | rhyme_core.uncommon_filter | Display items (shown): 59
+2025-10-24 17:29:31 | INFO | rhyme_core.uncommon_filter | Obscure items (hidden): 163
+2025-10-24 17:29:31 | INFO | rhyme_core.engine | Applied uncommon rhyme filtering
+2025-10-24 17:29:31 | INFO | rhyme.app | ui.render id=81ddc290-2138-41bd-9394-6b662ef38ffa elapsed_ms=4454.5 counts={'perfect_popular': 0, 'perfect_technical': 2, 'near_perfect_popular': 0, 'near_perfect_technical': 33, 'assonance_popular': 0, 'assonance_technical': 13, 'colloquial': 11, 'fallback': 0, 'total_slant': 46} preview={'perfect_popular_top': [], 'perfect_technical_top': ['stake-out', 'devout'], 'near_perfect_popular_top': [], 'near_perfect_technical_top': ['wilmot', 'wilmut', 'willmott'], 'assonance_popular_top': [], 'assonance_technical_top': ['armantrout', 'armentrout', 'beytout'], 'colloquial_top': ['point out', 'spread out', 'put out']}
+2025-10-24 17:32:02 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-24 17:32:03 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-24 17:32:03 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-24 17:32:03 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-24 17:32:03 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-25 11:34:31 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-25 11:34:31 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-25 11:34:32 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-25 11:34:32 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-25 11:34:32 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-25 11:35:38 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-25 11:35:38 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-25 11:35:39 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-25 11:35:39 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-25 11:35:39 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-25 14:15:01 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-25 14:15:01 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-25 14:15:01 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-25 14:15:01 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-25 14:15:01 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-27 14:33:55 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-27 14:33:55 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-27 14:33:56 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-27 14:33:56 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-27 14:33:56 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-27 16:14:18 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-27 16:14:18 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-27 16:14:19 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-27 16:14:19 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-27 16:14:19 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-27 16:23:20 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-27 16:23:20 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-27 16:23:21 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-27 16:23:21 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-27 16:23:21 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-28 10:53:12 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-28 10:53:12 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-28 10:53:13 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-10-28 10:53:13 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-10-28 10:53:13 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-10-28 14:17:10 | INFO | rhyme.app | ui.submit id=b4464972-465f-43b1-ae69-730775c61550 term='table' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-10-28 14:17:15 | INFO | rhyme_core.engine | Expanded results with homophones
+2025-10-28 14:17:15 | INFO | rhyme_core.engine | Generated 200 multi-word phrases
+2025-10-28 14:17:15 | INFO | rhyme_core.uncommon_filter | Applying uncommon rhyme filtering...
+2025-10-28 14:17:15 | INFO | rhyme_core.uncommon_filter | Total items before filtering: 517
+2025-10-28 14:17:15 | INFO | rhyme_core.uncommon_filter | Popular items (hidden): 129
+2025-10-28 14:17:15 | INFO | rhyme_core.uncommon_filter | Display items (shown): 103
+2025-10-28 14:17:15 | INFO | rhyme_core.uncommon_filter | Obscure items (hidden): 285
+2025-10-28 14:17:15 | INFO | rhyme_core.engine | Applied uncommon rhyme filtering
+2025-10-28 14:17:15 | INFO | rhyme.app | ui.render id=b4464972-465f-43b1-ae69-730775c61550 elapsed_ms=5013.9 counts={'perfect_popular': 0, 'perfect_technical': 26, 'near_perfect_popular': 0, 'near_perfect_technical': 43, 'assonance_popular': 0, 'assonance_technical': 0, 'colloquial': 34, 'fallback': 0, 'total_slant': 43} preview={'perfect_popular_top': [], 'perfect_technical_top': ['unable', 'cable', 'stable'], 'near_perfect_popular_top': [], 'near_perfect_technical_top': ['location', 'famous', 'generation'], 'assonance_popular_top': [], 'assonance_technical_top': [], 'colloquial_top': ['remit', 'steep hill', 'true bill']}
+2025-10-28 14:19:44 | INFO | rhyme.app | ui.submit id=a41b4ceb-59b2-49b2-ac7b-a7b47f62a544 term='table' syl=Any stress=Any datamuse=True rare_only=True multisyl_only=True alliteration=True
+2025-10-28 14:19:48 | INFO | rhyme_core.engine | Expanded results with homophones
+2025-10-28 14:19:49 | INFO | rhyme_core.engine | Generated 200 multi-word phrases
+2025-10-28 14:19:49 | INFO | rhyme_core.uncommon_filter | Applying uncommon rhyme filtering...
+2025-10-28 14:19:49 | INFO | rhyme_core.uncommon_filter | Total items before filtering: 517
+2025-10-28 14:19:49 | INFO | rhyme_core.uncommon_filter | Popular items (hidden): 129
+2025-10-28 14:19:49 | INFO | rhyme_core.uncommon_filter | Display items (shown): 103
+2025-10-28 14:19:49 | INFO | rhyme_core.uncommon_filter | Obscure items (hidden): 285
+2025-10-28 14:19:49 | INFO | rhyme_core.engine | Applied uncommon rhyme filtering
+2025-10-28 14:19:49 | INFO | rhyme.app | ui.render id=a41b4ceb-59b2-49b2-ac7b-a7b47f62a544 elapsed_ms=4136.5 counts={'perfect_popular': 0, 'perfect_technical': 44, 'near_perfect_popular': 0, 'near_perfect_technical': 136, 'assonance_popular': 0, 'assonance_technical': 2, 'colloquial': 267, 'fallback': 0, 'total_slant': 138} preview={'perfect_popular_top': [], 'perfect_technical_top': ['unable', 'cable', 'stable'], 'near_perfect_popular_top': [], 'near_perfect_technical_top': ['location', 'famous', 'generation'], 'assonance_popular_top': [], 'assonance_technical_top': ['data', 'faces'], 'colloquial_top': ['remit', 'steep hill', 'true bill']}
+2025-10-30 15:40:34 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-10-30 15:40:34 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-10-30 15:40:35 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-11-06 11:19:07 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-11-06 11:19:07 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-11-06 11:19:08 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-11-06 11:19:08 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-11-06 11:19:08 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-11-06 14:40:04 | INFO | rhyme.app | ui.submit id=56d51438-7cd6-4f84-bad7-8a2a57d606dc term='window' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-11-06 14:40:08 | INFO | rhyme_core.engine | Expanded results with homophones
+2025-11-06 14:40:08 | INFO | rhyme_core.engine | Generated 200 multi-word phrases
+2025-11-06 14:40:08 | INFO | rhyme_core.uncommon_filter | Applying uncommon rhyme filtering...
+2025-11-06 14:40:08 | INFO | rhyme_core.uncommon_filter | Total items before filtering: 238
+2025-11-06 14:40:08 | INFO | rhyme_core.uncommon_filter | Popular items (hidden): 59
+2025-11-06 14:40:08 | INFO | rhyme_core.uncommon_filter | Display items (shown): 48
+2025-11-06 14:40:08 | INFO | rhyme_core.uncommon_filter | Obscure items (hidden): 131
+2025-11-06 14:40:08 | INFO | rhyme_core.engine | Applied uncommon rhyme filtering
+2025-11-06 14:40:08 | INFO | rhyme.app | ui.render id=56d51438-7cd6-4f84-bad7-8a2a57d606dc elapsed_ms=4597.6 counts={'perfect_popular': 0, 'perfect_technical': 0, 'near_perfect_popular': 3, 'near_perfect_technical': 0, 'assonance_popular': 19, 'assonance_technical': 6, 'colloquial': 20, 'fallback': 0, 'total_slant': 28} preview={'perfect_popular_top': [], 'perfect_technical_top': [], 'near_perfect_popular_top': ['continue', 'zero', 'windows'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['winding', 'wonders', "wonder's"], 'assonance_technical_top': ['wendy', 'mundo', 'wanda'], 'colloquial_top': ['lancet', 'gothic', 'would i']}
+2025-11-06 14:46:53 | INFO | rhyme.app | ui.submit id=ede3dd41-ce3c-4edd-85cc-5d2fe7eb05b9 term='window' syl=Any stress=Any datamuse=True rare_only=True multisyl_only=True alliteration=True
+2025-11-06 14:46:57 | INFO | rhyme_core.engine | Expanded results with homophones
+2025-11-06 14:46:57 | INFO | rhyme_core.engine | Generated 200 multi-word phrases
+2025-11-06 14:46:57 | INFO | rhyme_core.uncommon_filter | Applying uncommon rhyme filtering...
+2025-11-06 14:46:57 | INFO | rhyme_core.uncommon_filter | Total items before filtering: 238
+2025-11-06 14:46:57 | INFO | rhyme_core.uncommon_filter | Popular items (hidden): 59
+2025-11-06 14:46:57 | INFO | rhyme_core.uncommon_filter | Display items (shown): 48
+2025-11-06 14:46:57 | INFO | rhyme_core.uncommon_filter | Obscure items (hidden): 131
+2025-11-06 14:46:57 | INFO | rhyme_core.engine | Applied uncommon rhyme filtering
+2025-11-06 14:46:57 | INFO | rhyme.app | ui.render id=ede3dd41-ce3c-4edd-85cc-5d2fe7eb05b9 elapsed_ms=4716.7 counts={'perfect_popular': 0, 'perfect_technical': 5, 'near_perfect_popular': 0, 'near_perfect_technical': 99, 'assonance_popular': 0, 'assonance_technical': 6, 'colloquial': 87, 'fallback': 0, 'total_slant': 105} preview={'perfect_popular_top': [], 'perfect_technical_top': ['indo', 'lindo', 'jindo'], 'near_perfect_popular_top': [], 'near_perfect_technical_top': ['widi', 'windus', 'widow'], 'assonance_popular_top': [], 'assonance_technical_top': ['wendy', 'mundo', 'wanda'], 'colloquial_top': ['lancet', 'gothic', 'would i']}
+2025-11-06 14:47:06 | INFO | rhyme.app | ui.submit id=8027adf8-ee27-48cc-bd27-beaa69444675 term='window' syl=Any stress=Any datamuse=True rare_only=True multisyl_only=True alliteration=True
+2025-11-06 14:47:09 | INFO | rhyme_core.engine | Expanded results with homophones
+2025-11-06 14:47:09 | INFO | rhyme_core.engine | Generated 200 multi-word phrases
+2025-11-06 14:47:09 | INFO | rhyme_core.uncommon_filter | Applying uncommon rhyme filtering...
+2025-11-06 14:47:09 | INFO | rhyme_core.uncommon_filter | Total items before filtering: 238
+2025-11-06 14:47:09 | INFO | rhyme_core.uncommon_filter | Popular items (hidden): 59
+2025-11-06 14:47:09 | INFO | rhyme_core.uncommon_filter | Display items (shown): 48
+2025-11-06 14:47:09 | INFO | rhyme_core.uncommon_filter | Obscure items (hidden): 131
+2025-11-06 14:47:09 | INFO | rhyme_core.engine | Applied uncommon rhyme filtering
+2025-11-06 14:47:09 | INFO | rhyme.app | ui.render id=8027adf8-ee27-48cc-bd27-beaa69444675 elapsed_ms=3620.9 counts={'perfect_popular': 0, 'perfect_technical': 5, 'near_perfect_popular': 0, 'near_perfect_technical': 99, 'assonance_popular': 0, 'assonance_technical': 6, 'colloquial': 87, 'fallback': 0, 'total_slant': 105} preview={'perfect_popular_top': [], 'perfect_technical_top': ['indo', 'lindo', 'jindo'], 'near_perfect_popular_top': [], 'near_perfect_technical_top': ['widi', 'windus', 'widow'], 'assonance_popular_top': [], 'assonance_technical_top': ['wendy', 'mundo', 'wanda'], 'colloquial_top': ['lancet', 'gothic', 'would i']}
+2025-11-06 14:56:37 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-11-06 14:56:37 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-11-06 14:56:37 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-11-06 14:56:38 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-11-06 14:56:38 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-11-06 14:59:22 | INFO | rhyme.app | ui.submit id=58602c24-6fe6-49f1-b19c-35d5dc7c5b5d term='window' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-11-06 14:59:27 | INFO | rhyme_core.engine | Expanded results with homophones
+2025-11-06 14:59:27 | INFO | rhyme_core.engine | Generated 200 multi-word phrases
+2025-11-06 14:59:27 | INFO | rhyme.app | ui.render id=58602c24-6fe6-49f1-b19c-35d5dc7c5b5d elapsed_ms=5026.4 counts={'perfect_popular': 4, 'perfect_technical': 1, 'near_perfect_popular': 27, 'near_perfect_technical': 0, 'assonance_popular': 38, 'assonance_technical': 83, 'colloquial': 75, 'fallback': 0, 'total_slant': 148} preview={'perfect_popular_top': ['indo', 'lindo', 'jindo'], 'perfect_technical_top': ['indo-'], 'near_perfect_popular_top': ['windows', 'limbo', 'bimbo'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['wounded', 'winding', 'wonders'], 'assonance_technical_top': ['windowed', 'widowed', 'widdows'], 'colloquial_top': ['black widow', 'tinted windows', 'one day']}
+2025-11-06 15:04:31 | INFO | rhyme.app | App starting… logging to C:\Users\RobDods\Apps\CursorUncommonRhymesV3\UncommonRhymesV3\logs\app.log
+2025-11-06 15:04:31 | INFO | rhyme.app | Launching Gradio interface on http://127.0.0.1:7860
+2025-11-06 15:04:31 | INFO | httpx | HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-11-06 15:04:31 | INFO | httpx | HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-11-06 15:04:31 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-11-06 15:08:25 | INFO | rhyme.app | ui.submit id=8c60739f-4200-41e1-9f88-387c90eec1ed term='window' syl=Any stress=Any datamuse=True rare_only=False multisyl_only=False alliteration=True
+2025-11-06 15:08:28 | INFO | rhyme_core.engine | Expanded results with homophones
+2025-11-06 15:08:29 | INFO | rhyme_core.engine | Generated 200 multi-word phrases
+2025-11-06 15:08:29 | INFO | rhyme.app | ui.render id=8c60739f-4200-41e1-9f88-387c90eec1ed elapsed_ms=4153.8 counts={'perfect_popular': 4, 'perfect_technical': 1, 'near_perfect_popular': 27, 'near_perfect_technical': 0, 'assonance_popular': 38, 'assonance_technical': 83, 'colloquial': 62, 'fallback': 0, 'total_slant': 148} preview={'perfect_popular_top': ['indo', 'lindo', 'jindo'], 'perfect_technical_top': ['indo-'], 'near_perfect_popular_top': ['windows', 'limbo', 'bimbo'], 'near_perfect_technical_top': [], 'assonance_popular_top': ['wounded', 'winding', 'wonders'], 'assonance_technical_top': ['windowed', 'widowed', 'widdows'], 'colloquial_top': ['one day', 'one two', 'land ho']}

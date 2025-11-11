@@ -1,0 +1,57 @@
+{
+  "database": {
+    "path": "data/words_index.sqlite",
+    "pool_size": 10,
+    "timeout": 30.0,
+    "journal_mode": "WAL",
+    "synchronous": "NORMAL",
+    "cache_size": -64000,
+    "temp_store": "MEMORY"
+  },
+  "api": {
+    "timeout": 3.0,
+    "max_retries": 3,
+    "backoff_factor": 1.0,
+    "rate_limit_delay": 2.0,
+    "max_concurrent_requests": 10,
+    "user_agent": "RhymeRarity/1.0"
+  },
+  "performance": {
+    "enable_caching": true,
+    "cache_size": 1000,
+    "enable_connection_pooling": true,
+    "enable_concurrent_requests": true,
+    "enable_async_operations": true
+  },
+  "search": {
+    "zipf_min_perfect": 0.0,
+    "zipf_max_perfect": 6.0,
+    "max_perfect_popular": 20,
+    "max_perfect_technical": 30,
+    "zipf_min_slant": 0.0,
+    "zipf_max_slant": 6.0,
+    "max_slant_near": 50,
+    "max_slant_assonance": 40,
+    "max_colloquial": 15,
+    "max_items": 200,
+    "min_score": 0.35,
+    "enable_alliteration_bonus": true,
+    "enable_multisyl_bonus": true
+  },
+  "llm": {
+    "llm_spellfix": false,
+    "llm_query_normalizer": false,
+    "llm_ranker": false,
+    "llm_explanations": false,
+    "llm_multiword_synth": false
+  },
+  "logging": {
+    "level": "INFO",
+    "log_file": "logs/app.log",
+    "max_file_size": 10485760,
+    "backup_count": 5,
+    "format": "%(asctime)s | %(levelname)-8s | %(name)s | %(message)s"
+  }
+}
+
+

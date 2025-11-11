@@ -1,0 +1,16 @@
+{
+  "zipf_max_perfect_slant": 4.0,
+  "zipf_max_multi": 5.5,
+  "min_each_bucket": 10,
+  "slant_coda_max": 1,
+  "multi_coda_max": 0,
+  "use_datamuse": true,
+  "features": {
+    "llm_spellfix": false,
+    "llm_query_normalizer": false,
+    "llm_ranker": false,
+    "llm_explanations": false,
+    "llm_multiword_synth": false
+  },
+  "openai_api_key": ""
+}

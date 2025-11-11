@@ -32,19 +32,19 @@ logging.basicConfig(
 log = logging.getLogger(__name__)
 
 # CRITICAL FIX: Import from the RIGHT location
-# Option 1: If using engine.py directly
+# Option 1: If using rhyme_core.engine (HYBRID MODE with Datamuse)
 try:
-    from engine import search_rhymes
+    from rhyme_core.engine import search_rhymes
     USING_ENGINE = True
-    log.info("✅ Imported search_rhymes from engine.py (HYBRID MODE)")
+    log.info("Imported search_rhymes from rhyme_core.engine (HYBRID MODE)")
 except ImportError:
     # Option 2: If using rhyme_core.search with Datamuse supplementation
     try:
         from rhyme_core.search import search_all_categories
         USING_ENGINE = False
-        log.info("✅ Imported search_all_categories from rhyme_core.search")
+        log.info("Imported search_all_categories from rhyme_core.search")
     except ImportError as e:
-        log.error(f"❌ Cannot import: {e}")
+        log.error(f"Cannot import: {e}")
         sys.exit(1)
 
 # ============================================================================
